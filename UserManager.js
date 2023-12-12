@@ -15,7 +15,7 @@ class UserManager {
         return user;
       }
       else {
-          console.log("Datos faltantes");
+        throw new Error('Datos faltantes');
       }
     }
   
@@ -23,9 +23,15 @@ class UserManager {
       return UserManager.#users;
     }
 
-    readOne(id){
-        return UserManager.#users.find((user)=> user.id ==id);
+    rreadOne(id){
+      const idExist = UserManager.#users.find((user)=> user.id ==id);
+      if (!idExist) {
+        throw new Error('No existe el id')
       }
+      else{
+        return idExist;
+      }
+    }
   }
   
   const user = new UserManager();
