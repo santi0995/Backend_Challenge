@@ -44,4 +44,5 @@ class UserManager {
     });
   
   console.log(user.read());
+  console.log(user.readOne(2));
   

@@ -16,7 +16,7 @@ class ProductManager {
       return product;
     }
     else {
-        console.log("Datos faltantes");
+        throw new Error('Datos faltantes');
     }
   }
 
@@ -25,7 +25,13 @@ class ProductManager {
   }
 
   readOne(id){
-    return ProductManager.#products.find((prod)=> prod.id ==id);
+    const idExist = ProductManager.#products.find((prod)=> prod.id ==id);
+    if (!idExist) {
+      throw new Error('No existe el id')
+    }
+    else{
+      return idExist;
+    }
   }
 }
 
@@ -42,9 +48,9 @@ const product = new ProductManager();
   product.create({
     title: "Arroz",
     photo: 'www',
-    price: 1000,
-    stock: 700,
+    price: 350,
+    stock: 10,
   });
 
 console.log(product.read());
-console.log(product.readOne(2));
+console.log(product.readOne(3));
