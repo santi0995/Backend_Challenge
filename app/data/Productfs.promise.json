@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "title": "Acondicionador",
+    "photo": "https://img.com",
+    "price": 1000,
+    "stock": 700
+  },
+  {
+    "id": 2,
+    "title": "Arroz",
+    "photo": "www",
+    "price": 350,
+    "stock": 10
+  }
+]
