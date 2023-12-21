@@ -1,19 +1,19 @@
-import crypto  from "crypto"
+
 class ProductManager {
   static #products = [];
   constructor(){}
   create(data) {
     if (data.title && data.photo && data.price && data.stock) {
       let product = {
-        id: crypto.randomBytes(12).toString("hex"),
         title: data.title,
         photo: data.photo,
         price: data.price,
         stock: data.stock,
       };
 
+      const id = ProductManager.#products.length ? ProductManager.#products.length + 1 : 1;
 
-      ProductManager.#products.push(product);
+      ProductManager.#products.push({id,...data});
       return product;
     }
     else {
@@ -47,13 +47,14 @@ class ProductManager {
     try {
       let one = ProductManager.#products.find((each) => each.id === id)
       if(!one){
-        throw new Error("There isn't any event with id=" + id);
+        throw new Error("There isn't any product with id=" + id);
       } else{
         ProductManager.#products = ProductManager.#products.filter((each) => each.id !==id)
-
+        console.log("deleted: " + id);
+        return ProductManager.#products
       }
     } catch (error) {
-      
+      return error.message
     }
   }
 }
@@ -75,5 +76,8 @@ const product = new ProductManager();
     stock: 10,
   });
 
-console.log(product.read());
-console.log(product.readOne(3));
+// console.log(product.read());
+console.log(product.destroy(1));
+// console.log(product.read());
+
+// console.log(product.readOne(3));

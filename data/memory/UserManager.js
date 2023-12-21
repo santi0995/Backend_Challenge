@@ -1,4 +1,3 @@
-const crypto = require("crypto");
 
 class UserManager {
   static #users = [];
@@ -6,14 +5,15 @@ class UserManager {
   create(data) {
     if (data.name && data.photo && data.email) {
       let user = {
-        id: crypto.randomBytes(12).toString("hex"),
         name: data.name,
         photo: data.photo,
         email: data.email,
       };
 
 
-      UserManager.#users.push(user);
+      const id = UserManager.#users.length ? UserManager.#users.length + 1 : 1;
+
+      UserManager.#users.push({id,...data});
       return user;
     } else {
       throw new Error("Datos faltantes");
@@ -32,6 +32,20 @@ class UserManager {
       return idExist;
     }
   }
+  destroy(id){
+    try {
+      let one = UserManager.#users.find((each) => each.id === id)
+      if(!one){
+        throw new Error("There isn't any user with id=" + id);
+      } else{
+        UserManager.#users = UserManager.#users.filter((each) => each.id !==id)
+        console.log("deleted: " + id);
+        return UserManager.#users
+      }
+    } catch (error) {
+      return error.message
+    }
+  }
 }
 
 const user = new UserManager();
@@ -48,5 +62,7 @@ user.create({
   email: "santiago@gmail.com",
 });
 
-console.log(user.read());
-console.log(user.readOne(2));
+
+console.log(user.destroy(1));
+// console.log(user.read());
+// console.log(user.readOne(2));

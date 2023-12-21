@@ -55,6 +55,25 @@ class ProductManagerFs {
     }
   }
 
+  async destroyOne(id){
+    try {
+      const contenidoLeido = fs.readFileSync(ruta, config);
+      let contenidoparseado = JSON.parse(contenidoLeido);
+      let one = contenidoparseado.find((each)=>each.id === id);
+      if (!one) {
+        throw new Error("There isn't any product with id: " + id)
+      }else{
+        contenidoparseado = contenidoparseado.filter((each) => each.id !== id)
+        const jsonData = JSON.stringify(contenidoparseado, null, 2)
+        await fs.promises.writeFile(ruta, jsonData)
+        console.log("deleted: " + id);
+        return id
+      }
+    } catch (error) {
+      return error.message
+    }
+  }
+
   
   delete() {
     try {
@@ -85,11 +104,11 @@ const contenido = JSON.stringify(products, null, 2);
 
 // fs.writeFileSync(ruta, contenido);
 
-fs.writeFile(rutaAsync, contenido, (error) => {
-  if (error) {
-    return error.message;
-  }
-});
+// fs.writeFile(rutaAsync, contenido, (error) => {
+//   if (error) {
+//     return error.message;
+//   }
+// });
 
 // fs.promises
 //   .writeFile(rutaPromise, contenido)
@@ -171,11 +190,12 @@ function deletePromise() {
 
 export default product;
 
+console.log(product.destroyOne("e4fc7e89abc17658843c88fa"));
 // readOnePromise(2)
 // readFilePromise();
 // deleteFile();
 // readAsync();
 // readOneAsync(2);
-console.log(product.read());
-console.log(product.readOne("a01e0a71716fca50248605d0"));
+// console.log(product.read());
+// console.log(product.readOne("a01e0a71716fca50248605d0"));
 // product.delete();

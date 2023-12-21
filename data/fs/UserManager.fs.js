@@ -53,6 +53,26 @@ class UserManagerFs {
       return error.message;
     }
   }
+
+  async destroyOne(id){
+    try {
+      const contenidoLeido = fs.readFileSync(ruta, config);
+      let contenidoparseado = JSON.parse(contenidoLeido);
+      let one = contenidoparseado.find((each)=>each.id === id);
+      if (!one) {
+        throw new Error("There isn't any product with id: " + id)
+      }else{
+        contenidoparseado = contenidoparseado.filter((each) => each.id !== id)
+        const jsonData = JSON.stringify(contenidoparseado, null, 2)
+        await fs.promises.writeFile(ruta, jsonData)
+        console.log("deleted: " + id);
+        return id
+      }
+    } catch (error) {
+      return error.message
+    }
+  }
+
   delete() {
     try {
       fs.unlinkSync(ruta);
@@ -166,11 +186,12 @@ function deletePromise() {
 
 export default user;
 
+console.log(user.destroyOne("328649627a1f1f4e9642d324"));
 // readOnePromise(2)
 // readFilePromise();
 // deleteFile();
 // readAsync();
 // readOneAsync(2);
-console.log(user.read());
-console.log(user.readOne("328649627a1f1f4e9642d324"));
+// console.log(user.read());
+// console.log(user.readOne("328649627a1f1f4e9642d324"));
 // user.delete();
