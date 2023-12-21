@@ -1,13 +1,13 @@
 [
   {
-    "id": 1,
+    "id": "4a06abf9a3dc0e59ac9c3219",
     "title": "Acondicionador",
     "photo": "https://img.com",
     "price": 1000,
     "stock": 700
   },
   {
-    "id": 2,
+    "id": "75ff9b97b4b12e9866f00f4c",
     "title": "Arroz",
     "photo": "www",
     "price": 350,
