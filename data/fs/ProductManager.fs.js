@@ -8,20 +8,24 @@ const products = [];
 
 class ProductManagerFs {
   constructor() {}
-  create(data) {
-    if (data.title && data.photo && data.price && data.stock) {
-      let product = {
+  async create(data) {
+    try {
+      if (!data.title || !data.photo || !data.price || !data.stock) {
+        throw new Error ("Datos faltantes")
+      }
+      const product = {
         id: crypto.randomBytes(12).toString("hex"),
         title: data.title,
         photo: data.photo,
         price: data.price,
         stock: data.stock,
       };
-
       products.push(product);
+      const jsonData = JSON.stringify(products, null, 2)
+      await fs.promises.writeFile(rutaPromise, jsonData)
       return product;
-    } else {
-      throw new Error("Datos faltantes");
+    } catch (error) { 
+      return error.message
     }
   }
 
@@ -82,7 +86,30 @@ class ProductManagerFs {
       return error.message;
     }
   }
+
+//   async updateProduct(title, pid) {
+//     try {
+//       const one = this.readOne(pid);
+//       if (one) {
+//         if (one.title != title) {
+//           const jsonData = JSON.stringify(products, null, 2);
+//           await fs.promises.writeFile(rutaPromise, jsonData);
+//           console.log("Producto Modificado " + one);
+//           return one;
+//         } else {
+//           throw new Error("Los productos son iguales");
+//         }
+//       } else {
+//         throw new Error("There isn't any event");
+//       }
+//     } catch (error) {
+//       console.log(error.message);
+//       return error.message;
+//     }
+// }
 }
+
+
 
 const product = new ProductManagerFs("./data/fs/files/Productfs.json");
 
@@ -190,12 +217,4 @@ function deletePromise() {
 
 export default product;
 
-console.log(product.destroyOne("e4fc7e89abc17658843c88fa"));
-// readOnePromise(2)
-// readFilePromise();
-// deleteFile();
-// readAsync();
-// readOneAsync(2);
-// console.log(product.read());
-// console.log(product.readOne("a01e0a71716fca50248605d0"));
-// product.delete();
+// console.log(product.updateProduct("arroz", "eca9b7176d2746a70810b63f"));

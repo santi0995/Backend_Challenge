@@ -8,19 +8,23 @@ const users = [];
 
 class UserManagerFs {
   constructor() {}
-  create(data) {
-    if (data.name && data.photo && data.email) {
-      let user = {
-        id: crypto.randomBytes(12).toString("hex"),
-        name: data.name,
-        photo: data.photo,
-        email: data.email,
-      };
-
-      users.push(user);
-      return user;
-    } else {
-      throw new Error("Datos faltantes");
+  async create(data) {
+    try {
+      if (!data.name || !data.photo || !data.email) {
+        throw new Error("Datos faltantes");
+      } 
+        const user = {
+          id: crypto.randomBytes(12).toString("hex"),
+          name: data.name,
+          photo: data.photo,
+          email: data.email,
+        }
+        users.push(user);
+        const jsonData = JSON.stringify(users, null, 2);
+        await fs.promises.writeFile(rutaPromise, jsonData);
+        return user;
+    } catch (error) {
+      return error.message;
     }
   }
 
@@ -54,22 +58,22 @@ class UserManagerFs {
     }
   }
 
-  async destroyOne(id){
+  async destroyOne(id) {
     try {
       const contenidoLeido = fs.readFileSync(ruta, config);
       let contenidoparseado = JSON.parse(contenidoLeido);
-      let one = contenidoparseado.find((each)=>each.id === id);
+      let one = contenidoparseado.find((each) => each.id === id);
       if (!one) {
-        throw new Error("There isn't any product with id: " + id)
-      }else{
-        contenidoparseado = contenidoparseado.filter((each) => each.id !== id)
-        const jsonData = JSON.stringify(contenidoparseado, null, 2)
-        await fs.promises.writeFile(ruta, jsonData)
+        throw new Error("There isn't any product with id: " + id);
+      } else {
+        contenidoparseado = contenidoparseado.filter((each) => each.id !== id);
+        const jsonData = JSON.stringify(contenidoparseado, null, 2);
+        await fs.promises.writeFile(ruta, jsonData);
         console.log("deleted: " + id);
-        return id
+        return id;
       }
     } catch (error) {
-      return error.message
+      return error.message;
     }
   }
 
@@ -84,27 +88,15 @@ class UserManagerFs {
 
 const user = new UserManagerFs();
 
-user.create({
-  name: "Naroha",
-  photo: "https://img.com",
-  email: "naroha@gmail.com",
-});
-
-user.create({
-  name: "Santiago",
-  photo: "https://img.com",
-  email: "santiago@gmail.com",
-});
-
-const contenido = JSON.stringify(users, null, 2);
+// const contenido = JSON.stringify(users, null, 2);
 
 // fs.writeFileSync(ruta, contenido);
 
-fs.writeFile(rutaAsync, contenido, (error) => {
-  if (error) {
-    return error.message;
-  }
-});
+// fs.writeFile(rutaAsync, contenido, (error) => {
+//   if (error) {
+//     return error.message;
+//   }
+// });
 
 // fs.promises
 //   .writeFile(rutaPromise, contenido)
@@ -185,13 +177,3 @@ function deletePromise() {
 }
 
 export default user;
-
-console.log(user.destroyOne("328649627a1f1f4e9642d324"));
-// readOnePromise(2)
-// readFilePromise();
-// deleteFile();
-// readAsync();
-// readOneAsync(2);
-// console.log(user.read());
-// console.log(user.readOne("328649627a1f1f4e9642d324"));
-// user.delete();

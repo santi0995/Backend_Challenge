@@ -62,7 +62,3 @@ user.create({
   email: "santiago@gmail.com",
 });
 
-
-console.log(user.destroy(1));
-// console.log(user.read());
-// console.log(user.readOne(2));

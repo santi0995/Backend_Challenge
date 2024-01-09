@@ -75,9 +75,3 @@ const product = new ProductManager();
     price: 350,
     stock: 10,
   });
-
-// console.log(product.read());
-console.log(product.destroy(1));
-// console.log(product.read());
-
-// console.log(product.readOne(3));
