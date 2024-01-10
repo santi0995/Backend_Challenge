@@ -1,16 +1,9 @@
 [
   {
-    "id": "e125e9e185423a8790aaca5f",
-    "title": "Acondicionador",
-    "photo": "https://img.com",
-    "price": 1000,
-    "stock": 700
-  },
-  {
-    "id": "2af3fab5a6eb945619186ce3",
-    "title": "Arroz",
-    "photo": "www",
-    "price": 350,
+    "id": "866e4cf86d13d69281bd8a00",
+    "title": "adidas",
+    "photo": "jpeg",
+    "price": 200,
     "stock": 10
   }
 ]

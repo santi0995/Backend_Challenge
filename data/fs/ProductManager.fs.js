@@ -11,7 +11,7 @@ class ProductManagerFs {
   async create(data) {
     try {
       if (!data.title || !data.photo || !data.price || !data.stock) {
-        throw new Error ("Datos faltantes")
+        throw new Error("Datos faltantes");
       }
       const product = {
         id: crypto.randomBytes(12).toString("hex"),
@@ -21,11 +21,11 @@ class ProductManagerFs {
         stock: data.stock,
       };
       products.push(product);
-      const jsonData = JSON.stringify(products, null, 2)
-      await fs.promises.writeFile(rutaPromise, jsonData)
+      const jsonData = JSON.stringify(products, null, 2);
+      fs.writeFileSync(ruta, jsonData);
       return product;
-    } catch (error) { 
-      return error.message
+    } catch (error) {
+      return error.message;
     }
   }
 
@@ -59,26 +59,25 @@ class ProductManagerFs {
     }
   }
 
-  async destroyOne(id){
+  async destroyOne(id) {
     try {
       const contenidoLeido = fs.readFileSync(ruta, config);
       let contenidoparseado = JSON.parse(contenidoLeido);
-      let one = contenidoparseado.find((each)=>each.id === id);
+      let one = contenidoparseado.find((each) => each.id === id);
       if (!one) {
-        throw new Error("There isn't any product with id: " + id)
-      }else{
-        contenidoparseado = contenidoparseado.filter((each) => each.id !== id)
-        const jsonData = JSON.stringify(contenidoparseado, null, 2)
-        await fs.promises.writeFile(ruta, jsonData)
+        throw new Error("There isn't any product with id: " + id);
+      } else {
+        contenidoparseado = contenidoparseado.filter((each) => each.id !== id);
+        const jsonData = JSON.stringify(contenidoparseado, null, 2);
+        await fs.promises.writeFile(ruta, jsonData);
         console.log("deleted: " + id);
-        return id
+        return id;
       }
     } catch (error) {
-      return error.message
+      return error.message;
     }
   }
 
-  
   delete() {
     try {
       fs.unlinkSync(ruta);
@@ -87,60 +86,32 @@ class ProductManagerFs {
     }
   }
 
-//   async updateProduct(title, pid) {
-//     try {
-//       const one = this.readOne(pid);
-//       if (one) {
-//         if (one.title != title) {
-//           const jsonData = JSON.stringify(products, null, 2);
-//           await fs.promises.writeFile(rutaPromise, jsonData);
-//           console.log("Producto Modificado " + one);
-//           return one;
-//         } else {
-//           throw new Error("Los productos son iguales");
-//         }
-//       } else {
-//         throw new Error("There isn't any event");
-//       }
-//     } catch (error) {
-//       console.log(error.message);
-//       return error.message;
-//     }
-// }
+  updateProduct(title, photo, price, stock, pid) {
+    try {
+      const one = this.readOne(pid);
+      if (one === "not found!") {
+        throw new Error("There isn't any user with id: " + uid);
+      } else {
+        (one.id = pid),
+          (one.title = title),
+          (one.photo = photo),
+          (one.price = price),
+          (one.stock = stock);
+
+        products.push(one);
+        const jsonData = JSON.stringify(products, null, 2);
+        fs.writeFileSync(ruta, jsonData);
+        console.log(one);
+        return one;
+      } 
+    } catch (error) {
+      console.log(error.message);
+      return error.message;
+    }
+  }
 }
 
-
-
-const product = new ProductManagerFs("./data/fs/files/Productfs.json");
-
-product.create({
-  title: "Acondicionador",
-  photo: "https://img.com",
-  price: 1000,
-  stock: 700,
-});
-
-product.create({
-  title: "Arroz",
-  photo: "www",
-  price: 350,
-  stock: 10,
-});
-
-const contenido = JSON.stringify(products, null, 2);
-
-// fs.writeFileSync(ruta, contenido);
-
-// fs.writeFile(rutaAsync, contenido, (error) => {
-//   if (error) {
-//     return error.message;
-//   }
-// });
-
-// fs.promises
-//   .writeFile(rutaPromise, contenido)
-//   .then((res) => console.log("Creado Correctamente"))
-//   .catch((error) => console.log(error));
+const product = new ProductManagerFs();
 
 // Implementación con callbacks
 
@@ -216,5 +187,3 @@ function deletePromise() {
 }
 
 export default product;
-
-// console.log(product.updateProduct("arroz", "eca9b7176d2746a70810b63f"));

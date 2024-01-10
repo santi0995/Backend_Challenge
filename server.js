@@ -6,9 +6,13 @@ const server = express();
 
 const PORT = 8080;
 
-const cbReady = () => console.log("server ready on port " + PORT);
+const cbReady = console.log("server ready on port " + PORT);
 server.use(express.urlencoded({ extended: true }));
 
+
+//middlewares
+server.use(express.json());
+server.use(express.urlencoded({ extended: true }));
 server.listen(PORT, cbReady);
 
 server.post("/api/products", async (req, res) => {

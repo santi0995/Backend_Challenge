@@ -18,10 +18,10 @@ class UserManagerFs {
           name: data.name,
           photo: data.photo,
           email: data.email,
-        }
+        };
         users.push(user);
         const jsonData = JSON.stringify(users, null, 2);
-        await fs.promises.writeFile(rutaPromise, jsonData);
+        fs.writeFileSync(ruta, jsonData);
         return user;
     } catch (error) {
       return error.message;
@@ -84,24 +84,35 @@ class UserManagerFs {
       return error.message;
     }
   }
+  
+  updateUser(name, photo, email, uid) {
+    try {
+      const one = this.readOne(uid);
+      if (one === "not found!") {
+        throw new Error("There isn't any user with id: " + uid);
+
+      } else {
+        (one.id = uid),
+          (one.name = name),
+          (one.photo = photo),
+          (one.email = email);
+
+        users.push(one);
+        const jsonData = JSON.stringify(users, null, 2);
+        fs.writeFileSync(ruta, jsonData);
+        console.log(one);
+        return one;
+      }
+    } catch (error) {
+      console.log(error.message);
+      return error.message;
+    }
+  }
 }
 
 const user = new UserManagerFs();
+user.updateUser("Naroha", "jpeg", "naro@hotmail.com", "8d2c82375d6b41d6fc50499d");
 
-// const contenido = JSON.stringify(users, null, 2);
-
-// fs.writeFileSync(ruta, contenido);
-
-// fs.writeFile(rutaAsync, contenido, (error) => {
-//   if (error) {
-//     return error.message;
-//   }
-// });
-
-// fs.promises
-//   .writeFile(rutaPromise, contenido)
-//   .then((res) => console.log("Creado Correctamente"))
-//   .catch((error) => console.log(error));
 
 // Implementación con callbacks
 

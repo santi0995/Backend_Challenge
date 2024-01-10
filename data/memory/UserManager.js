@@ -46,6 +46,25 @@ class UserManager {
       return error.message
     }
   }
+  updateUser(name, photo, email, uid) {
+    try {
+      const one = this.readOne(uid);
+      if (one === "No existe el id") {
+        throw new Error("There isn't any user with id: " + uid);
+
+      } else {
+        (one.id = uid),
+          (one.name = name),
+          (one.photo = photo),
+          (one.email = email);
+
+        return one;
+      }
+    } catch (error) {
+      console.log(error.message);
+      return error.message;
+    }
+  }
 }
 
 const user = new UserManager();
@@ -61,4 +80,11 @@ user.create({
   photo: "https://img.com",
   email: "santiago@gmail.com",
 });
+
+
+user.updateUser("panchi", "png", "panchi2@hotmail.com", "1")
+console.log(user.read());
+
+
+
 
