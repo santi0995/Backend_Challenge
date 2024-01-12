@@ -11,7 +11,6 @@ usersRouter.post("/", propsUsers, async (req, res, next) => {
 
     return res.json({
       statusCode: 201,
-      message: "Created",
       response,
     });
   } catch (error) {
@@ -24,14 +23,12 @@ usersRouter.get("/", async (req, res, next) => {
     if (Array.isArray(all)) {
       return res.json({
         statusCode: 200,
-        success: true,
         response: all,
       });
     } else {
       return res.json({
         statusCode: 404,
-        success: false,
-        message: all,
+        response: all,
       });
     }
   } catch (error) {
@@ -45,14 +42,12 @@ usersRouter.get("/:uid", async (req, res, next) => {
     if (one != {}) {
       return res.json({
         statusCode: 200,
-        success: true,
         response: one,
       });
     } else {
       return res.json({
         statusCode: 404,
-        success: false,
-        message: one,
+        response: one,
       });
     }
   } catch (error) {
@@ -68,17 +63,17 @@ usersRouter.put(
       if (response) {
         return res.json({
           statusCode: 200,
-          response: response,
+          response
         });
       } else if (response === "not found!") {
         return res.json({
           statusCode: 404,
-          message: response,
+          response
         });
       } else {
         return res.json({
           statusCode: 400,
-          message: response,
+          response
         });
       }
     } catch (error) {
@@ -93,7 +88,7 @@ usersRouter.delete("/:uid", async (req, res, next) => {
     if (response === "There isn't any user") {
       return res.json({
         statusCode: 404,
-        message: response,
+        response
       });
     } else {
       return res.json({

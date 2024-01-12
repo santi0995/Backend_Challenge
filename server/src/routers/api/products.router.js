@@ -11,7 +11,6 @@ productsRouter.post("/", propsProducts, async (req, res, next) => {
 
     return res.json({
       statusCode: 201,
-      message: "Created",
       response,
     });
   } catch (error) {
@@ -30,7 +29,7 @@ productsRouter.get("/", async (req, res, next) => {
     } else {
       return res.json({
         statusCode: 404,
-        message: all,
+        response: all,
       });
     }
   } catch (error) {
@@ -50,7 +49,7 @@ productsRouter.get("/:pid", async (req, res, next) => {
     } else {
       return res.json({
         statusCode: 404,
-        message: one,
+        response: one,
       });
     }
   } catch (error) {
@@ -78,12 +77,12 @@ productsRouter.put(
       } else if (response === "not found!") {
         return res.json({
           statusCode: 404,
-          message: response,
+          response: response,
         });
       } else {
         return res.json({
           statusCode: 400,
-          message: response,
+          response: response,
         });
       }
     } catch (error) {
@@ -99,7 +98,7 @@ productsRouter.delete("/:pid", async (req, res, next) => {
     if (response === "There isn't any product") {
       return res.json({
         statusCode: 404,
-        message: response,
+        response
       });
     } else {
       return res.json({
