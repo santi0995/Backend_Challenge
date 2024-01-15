@@ -5,7 +5,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node ./server.js",
+    "start": "node  ./server.js",
     "dev": "nodemon ./server.js"
   },
   "keywords": [],
@@ -13,6 +13,9 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
+    "express-handlebars": "^7.1.2",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
     "nodemon": "^3.0.2"
   },
   "repository": {
@@ -24,5 +27,3 @@
   },
   "homepage": "https://github.com/santi0995/Backend_Challenge#readme"
 }
-
-

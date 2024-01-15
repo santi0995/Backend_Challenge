@@ -1,18 +1,14 @@
 import crypto from "crypto";
 import fs from "fs";
-const ruta = "./data/fs/files/Userfs.json";
-const rutaAsync = "./data/fs/files/Userfs.async.json";
-const rutaPromise = "./data/fs/files/Userfs.promise.json";
 const config = "utf-8";
+const ruta = "./src/data/fs/files/Userfs.json";
 const users = [];
 
 class UserManagerFs {
-  constructor() {}
+  constructor() {
+  }
   async create(data) {
     try {
-      if (!data.name || !data.photo || !data.email) {
-        throw new Error("Datos faltantes");
-      } 
         const user = {
           id: crypto.randomBytes(12).toString("hex"),
           name: data.name,
@@ -21,14 +17,12 @@ class UserManagerFs {
         };
         users.push(user);
         const jsonData = JSON.stringify(users, null, 2);
-        fs.writeFileSync(ruta, jsonData);
-        return user;
+        await fs.promises.writeFile(ruta, jsonData);
+        return user.id;
     } catch (error) {
       return error.message;
     }
   }
-
-  // Implementación sincrónica
 
   read() {
     try {
@@ -111,80 +105,5 @@ class UserManagerFs {
 }
 
 const user = new UserManagerFs();
-user.updateUser("Naroha", "jpeg", "naro@hotmail.com", "8d2c82375d6b41d6fc50499d");
-
-
-// Implementación con callbacks
-
-function readAsync() {
-  try {
-    fs.readFile(rutaAsync, config, (error, resultado) => {
-      if (error) {
-        return error;
-      }
-      const parseado = JSON.parse(resultado);
-      console.log(parseado);
-      return resultado;
-    });
-  } catch (error) {
-    return error.message;
-  }
-}
-
-function readOneAsync(id) {
-  try {
-    fs.readFile(rutaAsync, config, (error, resultado) => {
-      if (error) {
-        return error;
-      }
-      const parseado = JSON.parse(resultado);
-      const idExist = parseado.find((user) => user.id == Number(id));
-      if (!idExist) {
-        throw new Error("No existe el id");
-      }
-      console.log(idExist);
-    });
-  } catch (error) {
-    return error.message;
-  }
-}
-
-function deleteFile() {
-  fs.unlink(rutaAsync, (error) => {
-    if (error) {
-      return error.message;
-    }
-  });
-}
-
-// Implementación con promesas
-
-function readFilePromise() {
-  fs.promises
-    .readFile(rutaPromise, config)
-    .then((res) => {
-      const parse = JSON.parse(res);
-      console.log(parse);
-    })
-    .catch((error) => console.log(error));
-}
-
-function readOnePromise(id) {
-  fs.promises.readFile(rutaPromise, config).then((res) => {
-    const parse = JSON.parse(res);
-    const idExist = parse.find((user) => user.id == Number(id));
-    if (!idExist) {
-      throw new Error("No existe el id");
-    }
-    console.log(idExist);
-  });
-}
-
-function deletePromise() {
-  fs.promises
-    .unlink(rutaPromise)
-    .then((res) => console.log("Eliminado correctamente"))
-    .catch((error) => console.log("Ocurrió un error"));
-}
 
 export default user;

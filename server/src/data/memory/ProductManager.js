@@ -96,5 +96,5 @@ product.create({
   stock: 10,
 });
 
-product.updateProduct("panchi", "png", "panchi2@hotmail.com", "1");
+product.updateProduct("Lavadora", "png", "279", "3", "1");
 console.log(product.read());

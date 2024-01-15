@@ -1,8 +1,6 @@
 import crypto from "crypto";
 import fs from "fs";
-const ruta = "./data/fs/files/Productfs.json";
-const rutaAsync = "./data/fs/files/Productfs.async.json";
-const rutaPromise = "./data/fs/files/Productfs.promise.json";
+const ruta = "./src/data/fs/files/Productfs.json"
 const config = "utf-8";
 const products = [];
 
@@ -10,9 +8,6 @@ class ProductManagerFs {
   constructor() {}
   async create(data) {
     try {
-      if (!data.title || !data.photo || !data.price || !data.stock) {
-        throw new Error("Datos faltantes");
-      }
       const product = {
         id: crypto.randomBytes(12).toString("hex"),
         title: data.title,
@@ -22,7 +17,7 @@ class ProductManagerFs {
       };
       products.push(product);
       const jsonData = JSON.stringify(products, null, 2);
-      fs.writeFileSync(ruta, jsonData);
+      await fs.promises.writeFile(ruta, jsonData);
       return product;
     } catch (error) {
       return error.message;
@@ -90,7 +85,7 @@ class ProductManagerFs {
     try {
       const one = this.readOne(pid);
       if (one === "not found!") {
-        throw new Error("There isn't any user with id: " + uid);
+        throw new Error("There isn't any product with id: " + pid);
       } else {
         (one.id = pid),
           (one.title = title),
@@ -111,79 +106,6 @@ class ProductManagerFs {
   }
 }
 
-const product = new ProductManagerFs();
-
-// Implementación con callbacks
-
-function readAsync() {
-  try {
-    fs.readFile(rutaAsync, config, (error, resultado) => {
-      if (error) {
-        return error;
-      }
-      const parseado = JSON.parse(resultado);
-      console.log(parseado);
-      return resultado;
-    });
-  } catch (error) {
-    return error.message;
-  }
-}
-
-function readOneAsync(id) {
-  try {
-    fs.readFile(rutaAsync, config, (error, resultado) => {
-      if (error) {
-        return error;
-      }
-      const parseado = JSON.parse(resultado);
-      const idExist = parseado.find((prod) => prod.id == Number(id));
-      if (!idExist) {
-        throw new Error("No existe el id");
-      }
-      console.log(idExist);
-    });
-  } catch (error) {
-    return error.message;
-  }
-}
-
-function deleteFile() {
-  fs.unlink(rutaAsync, (error) => {
-    if (error) {
-      return error.message;
-    }
-  });
-}
-
-// Implementación con promesas
-
-function readFilePromise() {
-  fs.promises
-    .readFile(rutaPromise, config)
-    .then((res) => {
-      const parse = JSON.parse(res);
-      console.log(parse);
-    })
-    .catch((error) => console.log(error));
-}
-
-function readOnePromise(id) {
-  fs.promises.readFile(rutaPromise, config).then((res) => {
-    const parse = JSON.parse(res);
-    const idExist = parse.find((prod) => prod.id == Number(id));
-    if (!idExist) {
-      throw new Error("No existe el id");
-    }
-    console.log(idExist);
-  });
-}
-
-function deletePromise() {
-  fs.promises
-    .unlink(rutaPromise)
-    .then((res) => console.log("Eliminado correctamente"))
-    .catch((error) => console.log("Ocurrió un error"));
-}
+const product = new ProductManagerFs;
 
 export default product;
