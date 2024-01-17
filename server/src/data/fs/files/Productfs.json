@@ -1,9 +1,51 @@
 [
   {
-    "id": "9306e467eca96ff120a208a7",
-    "title": "converse",
-    "photo": "png",
-    "price": 80,
-    "stock": 2
+    "id": "18ae324e0ca1e035a707329d",
+    "title": "Suero Crayon",
+    "photo": "/assets/2.jpg",
+    "price": "20€",
+    "stock": "2"
+  },
+  {
+    "id": "ca1e035a718ae324e007329d",
+    "title": "Pack mascara",
+    "photo": "/assets/1.jpg",
+    "price": "20€",
+    "stock": "7"
+  },
+  {
+    "id": "a707329d18ae324e0ca1e035",
+    "title": "Base Ultra Ligera",
+    "photo": "/assets/3.jpg",
+    "price": "10€",
+    "stock": "12"
+  },
+  {
+    "id": "18ae324e0ca1e035a707329d",
+    "title": "Cool Effect",
+    "photo": "/assets/4.jpg",
+    "price": "32€",
+    "stock": "3"
+  },
+  {
+    "id": "18ae324e0ca1e035a707329d",
+    "title": "Suero Instaglow",
+    "photo": "/assets/5.jpg",
+    "price": "15",
+    "stock": "20"
+  },
+  {
+    "id": "18ae324e0ca1e035a707329d",
+    "title": "Delineador",
+    "photo": "/assets/6.jpg",
+    "price": "8€",
+    "stock": "1"
+  },
+  {
+    "id": "f07a8cfcf04d0e34d6d447e0",
+    "title": "Mascarilla",
+    "photo": "/assets/7.jpg",
+    "price": "12€",
+    "stock": "4"
   }
 ]

@@ -1,2 +1,22 @@
-<h1>{{one.name}}</h1>
-<h2>{{one.email}}</h2>
+<link rel="stylesheet" href="form.css">
+ <main class="flex-grow-1 p-3 m-auto my-2 container">
+  <h2 class="text-center">CREATE A NEW USER!</h2>
+  <form class="form" style="width: 320px;">
+    <div class="mb-3 text-center">
+      <label for="name" class="form-label mb-0">Name</label>
+      <input type="email" class="form-control" id="name" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3 text-center">
+      <label for="photo" class="form-label mb-0">Photo</label>
+      <input type="text" class="form-control" id="photo">
+    </div>
+    <div class="mb-3 text-center">
+      <label for="email" class="form-label mb-0">Email</label>
+      <input type="number" class="form-control" id="email">
+    </div>
+    <button id="newUser" type="button" class="w-100 btn btn-danger">CREATE!</button>
+  </form>
+</main>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/realUser.js"></script>

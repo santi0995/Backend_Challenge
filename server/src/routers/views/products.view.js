@@ -2,17 +2,17 @@ import { Router } from "express";
 import product from "../../data/fs/ProductManager.fs.js";
 const productsRouter = Router()
 
-productsRouter.get("/", async(req,res,next)=>{
+productsRouter.get("/real", async(req,res,next)=>{
     try {
         const all = await product.read()
-        return res.render("products", {products : all})
+        return res.render("real", {products : all})
     } catch (error) {
         next(error)
     }
 })
-productsRouter.get("/new", (req,res,next)=>{
+productsRouter.get("/form", (req,res,next)=>{
     try {
-        return res.render("new")
+        return res.render("form")
     } catch (error) {
         next(error)
     }

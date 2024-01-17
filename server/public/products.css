@@ -1,0 +1,21 @@
+.container{
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+.list-group{
+    text-align: center;
+}
+.card-img-top{
+    height: 12rem;
+    object-fit: contain;
+}
+
+.card{
+    height: 100%;
+    margin: 2rem;
+}
+
+.card-title{
+    text-align: center;
+}
