@@ -16,6 +16,10 @@ const newProduct = data.map(
 
 socket.on("new sucess", (message) => alert(message));
 
+function limpiarFormulario() {
+  document.getElementById("miForm").reset();
+}
+
 document.querySelector("#newProduct").addEventListener("click", (event) => {
   event.preventDefault();
   const title = document.querySelector("#title").value;
@@ -27,6 +31,6 @@ document.querySelector("#newProduct").addEventListener("click", (event) => {
   photo && (data.photo = photo);
   price && (data.price = price);
   stock && (data.stock = stock);
-  console.log(data);
   socket.emit("new product", data);
+  limpiarFormulario();
 });

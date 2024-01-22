@@ -85,7 +85,11 @@ class ProductManagerFs {
     }
   }
 
-  updateProduct(title, photo, price, stock, pid) {
+ async updateProduct(title, photo, price, stock, pid) {
+   
+    const existingData = await fs.promises.readFile(ruta, 'utf-8');
+      const products = JSON.parse(existingData);
+     
     try {
       const one = this.readOne(pid);
       if (one === "not found!") {

@@ -47,5 +47,54 @@
     "photo": "/assets/7.jpg",
     "price": "12€",
     "stock": "4"
+  },
+  {
+    "id": "395c14581e8568f236a3411e",
+    "title": "Mascara",
+    "photo": "/assets/8.jpg",
+    "price": "32€",
+    "stock": "23"
+  },
+  {
+    "id": "22f7d20df683d42ea1d0563e",
+    "title": "Delineador",
+    "photo": "/assets/9.jpg",
+    "price": "230€",
+    "stock": "20"
+  },
+  {
+    "id": "3101662cd94b39e08b1707c6",
+    "title": "Base",
+    "photo": "/assets/9.jpg",
+    "price": "12€",
+    "stock": "35"
+  },
+  {
+    "id": "a7d9b50e3850963a9d47ae0e",
+    "title": "Labial",
+    "photo": "/assets/10.jpg",
+    "price": "12€",
+    "stock": "10"
+  },
+  {
+    "id": "0e78f934f8c2a773ab30f3e1",
+    "title": "Color",
+    "photo": "/assets/11.jpg",
+    "price": "12€",
+    "stock": "1"
+  },
+  {
+    "id": "3ed9bfd683cfb42814f4317b",
+    "title": "Mask",
+    "photo": "/assets/13.jpg",
+    "price": "14€",
+    "stock": "2"
+  },
+  {
+    "id": "57c73fbe3cba981f18220845",
+    "title": "Color",
+    "photo": "/assets/14.jpg",
+    "price": "12€",
+    "stock": "12"
   }
 ]
