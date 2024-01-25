@@ -2,13 +2,16 @@ import crypto from "crypto";
 import fs from "fs";
 const config = "utf-8";
 const ruta = "./src/data/fs/files/Userfs.json";
-const users = [];
 
 class UserManagerFs {
   constructor() {
   }
   async create(data) {
     try {
+
+      const existingData = await fs.promises.readFile(ruta, 'utf-8');
+      const users = JSON.parse(existingData);
+
         const user = {
           id: crypto.randomBytes(12).toString("hex"),
           name: data.name,
@@ -18,7 +21,9 @@ class UserManagerFs {
         users.push(user);
         const jsonData = JSON.stringify(users, null, 2);
         await fs.promises.writeFile(ruta, jsonData);
-        return user.id;
+
+        return user;
+
     } catch (error) {
       return error.message;
     }

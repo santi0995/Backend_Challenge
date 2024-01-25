@@ -1,10 +1,16 @@
 import { Router } from "express";
+
+import isAdmin from "../../middlewares/isAdmin.mid.js";
+import isStockOkMid from "../../middlewares/isStockOk.mid.js";
+
 import product from "../../data/fs/ProductManager.fs.js";
 import propsProducts from "../../middlewares/propsProducts.mid.js";
 
 const productsRouter = Router();
 
-productsRouter.post("/", propsProducts, async (req, res, next) => {
+
+productsRouter.post("/", isAdmin, propsProducts, async (req, res, next) => {
+
   try {
     const data = req.body;
     const response = await product.create(data);
@@ -58,7 +64,9 @@ productsRouter.get("/:pid", async (req, res, next) => {
 });
 
 productsRouter.put(
-  "/api/products/:pid/:title/:photo/:price/:stock",
+
+  "/api/products/:pid/:title/:photo/:price/:stock", isStockOkMid, propsProducts,
+
   async (req, res, next) => {
     try {
       const { title, photo, price, stock, pid } = req.params;
