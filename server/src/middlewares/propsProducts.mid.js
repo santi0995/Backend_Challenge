@@ -1,3 +1,4 @@
+
 import propsProductsUtils from "../utils/propsProducts.utils.js";
 
 function propsProducts(req, res, next) {
@@ -6,6 +7,7 @@ function propsProducts(req, res, next) {
     return next()
   } catch (error) {
     return next(error)
+
   }
 }
 

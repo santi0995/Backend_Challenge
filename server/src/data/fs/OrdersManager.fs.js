@@ -4,6 +4,7 @@ import user from "./UserManager.fs.js"
 const ruta = "./src/data/fs/files/Ordersfs.json"
 const config = "utf-8";
 
+
 const uid = user.id;
 
 
@@ -14,7 +15,7 @@ class OrdersManager {
 
       const existingData = await fs.promises.readFile(ruta, 'utf-8');
       const orders = JSON.parse(existingData);
-      
+
       if (user.id !== uid) {
         return error("There is no coincidence with any user")
       }
