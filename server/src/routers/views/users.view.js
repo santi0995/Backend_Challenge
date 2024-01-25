@@ -14,7 +14,6 @@ usersRouter.get("/register", (req, res, next) => {
   }
 });
 
-
 usersRouter.get("/chat", (req, res, next) =>{
   try {
     return res.render("chat", {})

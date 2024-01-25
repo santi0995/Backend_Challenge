@@ -7,7 +7,6 @@ import usersRouter from "./users.view.js";
 
 const viewsRouter = Router();
 
-
 viewsRouter.get("/", async(req,res,next)=>{
   try {
       const all = await product.read()

@@ -10,8 +10,8 @@ class UserManagerFs {
   async create(data) {
     try {
 
-
       const existingData = await fs.promises.readFile(ruta, 'utf-8');
+      const users = JSON.parse(existingData);
 
         const user = {
           id: crypto.randomBytes(12).toString("hex"),

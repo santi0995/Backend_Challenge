@@ -2,7 +2,7 @@
 import { Server } from "socket.io";
 import __dirname from "./utils.js";
 import { createServer } from "http";
-import __dirname from "./utils.js";
+
 import { engine } from "express-handlebars";
 import errorHandler from "./src/middlewares/errorhandler.mid.js";
 import express from "express";
@@ -12,11 +12,9 @@ import router from "./src/routers/index.router.js";
 import socketUtils from "./src/utils/socket.utils.js";
 
 
-
 const server = express();
 const PORT = 8080;
 const cbReady = console.log("server ready on port " + PORT);
-
 
 
 const httpServer = createServer(server);
@@ -31,13 +29,6 @@ server.engine("handlebars", engine());
 server.set("view engine", "handlebars");
 server.set("views", __dirname + "/src/views");
 
-
-server.listen(PORT, cbReady);
-
-//templates
-server.engine("handlebars", engine());
-server.set("view engine", "handlebars")
-server.set("views", __dirname+"/src/views")
 //middlewares
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));

@@ -12,6 +12,8 @@ apiRouter.use("/users", usersRouter)
 apiRouter.use("/products", productsRouter)
 apiRouter.use("/orders", ordersRouter)
 
+
 apiRouter.use("/chat", chatRouter)
+
 
 export default apiRouter 

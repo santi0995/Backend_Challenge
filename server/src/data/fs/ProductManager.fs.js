@@ -85,7 +85,6 @@ class ProductManagerFs {
     }
   }
 
-
  async updateProduct(title, photo, price, stock, pid) {
    
     const existingData = await fs.promises.readFile(ruta, 'utf-8');

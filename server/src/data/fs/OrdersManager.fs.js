@@ -4,7 +4,6 @@ import user from "./UserManager.fs.js"
 const ruta = "./src/data/fs/files/Ordersfs.json"
 const config = "utf-8";
 
-
 const uid = user.id;
 
 
