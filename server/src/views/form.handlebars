@@ -1,0 +1,26 @@
+ <link rel="stylesheet" href="form.css">
+ <main class="flex-grow-1 p-3 m-auto my-2 container">
+  <h2 class="text-center">CREATE A NEW PRODUCT!</h2>
+  <form id="miForm" class="form" style="width: 320px d-flex">
+    <div class="mb-3 text-center">
+      <label for="title" class="form-label mb-0">Title</label>
+      <input type="email" class="form-control" id="title" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3 text-center">
+      <label for="photo" class="form-label mb-0">Photo</label>
+      <input type="text" class="form-control" id="photo">
+    </div>
+    <div class="mb-3 text-center">
+      <label for="price" class="form-label mb-0">Price</label>
+      <input type="text" class="form-control" id="price">
+    </div>
+      <div class="mb-3 text-center">
+      <label for="stock" class="form-label mb-0">Stock</label>
+      <input type="number" class="form-control" id="stock">
+    </div>
+    <button id="newProduct" type="button" class="w-100 btn btn-danger">CREATE!</button>
+  </form>
+</main>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/real.js"></script>

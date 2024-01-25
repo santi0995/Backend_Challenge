@@ -2,12 +2,16 @@ import crypto from "crypto";
 import fs from "fs";
 const ruta = "./src/data/fs/files/Productfs.json"
 const config = "utf-8";
-const products = [];
+
 
 class ProductManagerFs {
   constructor() {}
   async create(data) {
     try {
+
+      const existingData = await fs.promises.readFile(ruta, 'utf-8');
+      const products = JSON.parse(existingData);
+
       const product = {
         id: crypto.randomBytes(12).toString("hex"),
         title: data.title,
@@ -81,7 +85,12 @@ class ProductManagerFs {
     }
   }
 
-  updateProduct(title, photo, price, stock, pid) {
+
+ async updateProduct(title, photo, price, stock, pid) {
+   
+    const existingData = await fs.promises.readFile(ruta, 'utf-8');
+      const products = JSON.parse(existingData);
+
     try {
       const one = this.readOne(pid);
       if (one === "not found!") {

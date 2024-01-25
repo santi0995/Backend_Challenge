@@ -1,17 +1,25 @@
 import { Router } from "express";
+
+import product from "../../data/fs/ProductManager.fs.js";
+
 import productsRouter from "./products.view.js";
 import usersRouter from "./users.view.js";
 
 const viewsRouter = Router();
 
-viewsRouter.get("/", (req, res, next) => {
+
+viewsRouter.get("/", async(req,res,next)=>{
   try {
-    return res.render("index", {});
+      const all = await product.read()
+      return res.render("index", {products : all})
+
   } catch (error) {
     next(error);
   }
 });
 
-viewsRouter.use("/products", productsRouter)
-viewsRouter.use("/users", usersRouter)
+
+viewsRouter.use("/", productsRouter)
+viewsRouter.use("/", usersRouter)
+
 export default viewsRouter;
