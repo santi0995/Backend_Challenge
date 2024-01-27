@@ -57,7 +57,7 @@ class ProductManagerFs {
     }
   }
 
-  async destroyOne(id) {
+  async destroy(id) {
     try {
       const contenidoLeido = fs.readFileSync(ruta, config);
       let contenidoparseado = JSON.parse(contenidoLeido);
@@ -84,7 +84,7 @@ class ProductManagerFs {
     }
   }
 
- async updateProduct(title, photo, price, stock, pid) {
+ async update(title, photo, price, stock, pid) {
    
     const existingData = await fs.promises.readFile(ruta, 'utf-8');
       const products = JSON.parse(existingData);
