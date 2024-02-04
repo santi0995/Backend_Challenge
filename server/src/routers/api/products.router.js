@@ -1,19 +1,16 @@
 import { Router } from "express";
-
-import isAdmin from "../../middlewares/isAdmin.mid.js";
-import isStockOkMid from "../../middlewares/isStockOk.mid.js";
-
-import product from "../../data/fs/ProductManager.fs.js";
+//import isAdmin from "../../middlewares/isAdmin.mid.js";
+//import isStockOkMid from "../../middlewares/isStockOk.mid.js";
+//import product from "../../data/fs/ProductManager.fs.js";
+import { products } from "../../data/mongo/manager.mongo.js";
 import propsProducts from "../../middlewares/propsProducts.mid.js";
 
 const productsRouter = Router();
 
-
-productsRouter.post("/", isAdmin, propsProducts, async (req, res, next) => {
-
+productsRouter.post("/", /*isAdmin*/ propsProducts, async (req, res, next) => {
   try {
     const data = req.body;
-    const response = await product.create(data);
+    const response = await products.create(data);
 
     return res.json({
       statusCode: 201,
@@ -26,7 +23,11 @@ productsRouter.post("/", isAdmin, propsProducts, async (req, res, next) => {
 
 productsRouter.get("/", async (req, res, next) => {
   try {
-    const all = await product.read();
+    // const filter = { category: req.query.category };
+    // const order = { name: req.query.order };
+    const all = await products.read({
+      /*filter, order*/
+    });
     if (Array.isArray(all)) {
       return res.json({
         statusCode: 200,
@@ -46,7 +47,7 @@ productsRouter.get("/", async (req, res, next) => {
 productsRouter.get("/:pid", async (req, res, next) => {
   try {
     const { pid } = req.params;
-    const one = await product.readOne(pid);
+    const one = await products.readOne(pid);
     if (typeof one !== "string") {
       return res.json({
         statusCode: 200,
@@ -64,19 +65,15 @@ productsRouter.get("/:pid", async (req, res, next) => {
 });
 
 productsRouter.put(
-
-  "/api/products/:pid/:title/:photo/:price/:stock", isStockOkMid, propsProducts,
+  "/:pid",
+  /*isStockOkMid,
+  propsProducts,*/
 
   async (req, res, next) => {
     try {
-      const { title, photo, price, stock, pid } = req.params;
-      const response = await product.updateProduct(
-        title,
-        photo,
-        price,
-        stock,
-        pid
-      );
+      const { pid } = req.params;
+      const data  = req.body;
+      const response = await products.update(pid, data);
       if (response) {
         return res.json({
           statusCode: 200,
@@ -102,11 +99,11 @@ productsRouter.put(
 productsRouter.delete("/:pid", async (req, res, next) => {
   try {
     const { pid } = req.params;
-    const response = await product.destroyOne(pid);
+    const response = await products.destroy(pid);
     if (response === "There isn't any product") {
       return res.json({
         statusCode: 404,
-        response
+        response,
       });
     } else {
       return res.json({

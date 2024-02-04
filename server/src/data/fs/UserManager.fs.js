@@ -57,7 +57,7 @@ class UserManagerFs {
     }
   }
 
-  async destroyOne(id) {
+  async destroy(id) {
     try {
       const contenidoLeido = fs.readFileSync(ruta, config);
       let contenidoparseado = JSON.parse(contenidoLeido);
@@ -84,8 +84,10 @@ class UserManagerFs {
     }
   }
   
-  updateUser(name, photo, email, uid) {
+ async update(name, photo, email, uid) {
     try {
+      const existingData = await fs.promises.readFile(ruta, 'utf-8');
+      const users = JSON.parse(existingData);
       const one = this.readOne(uid);
       if (one === "not found!") {
         throw new Error("There isn't any user with id: " + uid);

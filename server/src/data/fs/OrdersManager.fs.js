@@ -20,8 +20,8 @@ class OrdersManager {
       }
       const order = {
         id: crypto.randomBytes(12).toString("hex"),
-        pid: data.pid,
-        uid: data.uid,
+        product_id: data.pid,
+        user_id: data.uid,
         quantity: data.quantity,
         state: data.state,
       };
@@ -64,7 +64,7 @@ class OrdersManager {
     }
   }
 
-  async destroyOne(id) {
+  async destroy(id) {
     try {
       const contenidoLeido = fs.readFileSync(ruta, config);
       let contenidoparseado = JSON.parse(contenidoLeido);
@@ -91,15 +91,17 @@ class OrdersManager {
     }
   }
 
-  updateOrder(pid, uid, quantity, state, oid) {
+  async update(product_id, user_id, quantity, state, oid) {
     try {
+      const existingData = await fs.promises.readFile(ruta, 'utf-8');
+      const orders = JSON.parse(existingData);
       const one = this.readOne(oid);
       if (one === "not found!") {
         throw new Error("There isn't any order with id: " + oid);
       } else {
         (one.id = oid),
-          (one.pid = pid),
-          (one.uid = uid),
+          (one.product_id = product_id),
+          (one.user_id = user_id),
           (one.quantity = quantity),
           (one.state = state);
 

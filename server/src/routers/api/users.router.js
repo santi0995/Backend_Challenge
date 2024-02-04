@@ -1,13 +1,14 @@
 import { Router } from "express";
-import propsUsers from "../../middlewares/propsUsers.mid.js";
-import user from "../../data/fs/UserManager.fs.js";
+//import propsUsers from "../../middlewares/propsUsers.mid.js";
+// import user from "../../data/fs/UserManager.fs.js";
+import { users } from "../../data/mongo/manager.mongo.js";
 
 const usersRouter = Router();
 
-usersRouter.post("/", propsUsers, async (req, res, next) => {
+usersRouter.post("/", /*propsUsers*/ async (req, res, next) => {
   try {
     const data = req.body;
-    const response = await user.create(data);
+    const response = await users.create(data);
 
     return res.json({
       statusCode: 201,
@@ -19,7 +20,7 @@ usersRouter.post("/", propsUsers, async (req, res, next) => {
 });
 usersRouter.get("/", async (req, res, next) => {
   try {
-    const all = await user.read();
+    const all = await users.read({});
     if (Array.isArray(all)) {
       return res.json({
         statusCode: 200,
@@ -35,11 +36,11 @@ usersRouter.get("/", async (req, res, next) => {
     return next(error);
   }
 });
-usersRouter.get("/:uid", async (req, res, next) => {
+usersRouter.get("/:email", async (req, res, next) => {
   try {
-    const { uid } = req.params;
-    const one = await user.readOne(uid);
-    if (one != {}) {
+    const { email } = req.params;
+    const one = await users.readByEmail(email);
+    if (typeof one !== "string") {
       return res.json({
         statusCode: 200,
         response: one,
@@ -54,12 +55,25 @@ usersRouter.get("/:uid", async (req, res, next) => {
     return next(error);
   }
 });
+usersRouter.get("/:uid", async (req, res, next) => {
+  try {
+    const { uid } = req.params;
+    const one = await users.readOne(uid);
+    return res.json({
+      statusCode: 200,
+      response: one,
+    });
+  } catch (error) {
+    return next(error);
+  }
+});
 usersRouter.put(
-  "/api/users/:uid/:name/:photo/:email",
+  "/:uid",
   async (req, res, next) => {
     try {
-      const { name, photo, email, uid } = req.params;
-      const response = await user.updateUser(name, photo, email, uid);
+      const {uid} = req.params
+      const data = req.body;
+      const response = await users.update(uid, data);
       if (response) {
         return res.json({
           statusCode: 200,
@@ -84,7 +98,7 @@ usersRouter.put(
 usersRouter.delete("/:uid", async (req, res, next) => {
   try {
     const { uid } = req.params;
-    const response = await user.destroyOne(uid);
+    const response = await users.destroy(uid);
     if (response === "There isn't any user") {
       return res.json({
         statusCode: 404,

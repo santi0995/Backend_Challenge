@@ -1,5 +1,4 @@
-
-
+import "dotenv/config.js";
 import { Server } from "socket.io";
 import __dirname from "./utils.js";
 import { createServer } from "http";
@@ -11,18 +10,18 @@ import morgan from "morgan";
 import pathHandler from "./src/middlewares/pathhandler.mid.js";
 import router from "./src/routers/index.router.js";
 import socketUtils from "./src/utils/socket.utils.js";
-
-
+import dbConnection from "./src/utils/db.js";
 
 const server = express();
 const PORT = 8080;
-const cbReady = console.log("server ready on port " + PORT);
-
+const cbReady = () => {
+  console.log("server ready on port " + PORT);
+  dbConnection();
+};
 
 const httpServer = createServer(server);
 const socketServer = new Server(httpServer);
 httpServer.listen(PORT, cbReady);
-
 
 socketServer.on("connection", socketUtils);
 
@@ -41,6 +40,4 @@ server.use("/", router);
 server.use(errorHandler);
 server.use(pathHandler);
 
-export {socketServer}
-
-
+export { socketServer };
