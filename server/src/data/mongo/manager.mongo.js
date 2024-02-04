@@ -1,5 +1,6 @@
 import Order from "./models/order.model.js";
 import Product from "./models/product.model.js";
+import { Types } from "mongoose";
 import User from "./models/user.model.js";
 import notFoundOne from "../../utils/notFoundOne.utils.js";
 
@@ -15,13 +16,10 @@ class MongoManager {
       throw error;
     }
   }
-  async read(obj) {
+  async read({ filter, orderAndPaginate }) {
     try {
-      const { filter, order } = obj;
-      const all = await this.model
-        .find(filter)//.populate("user_id").populate("product_id")
-        .sort(order);
-      if (all.length === 0) {
+      const all = await this.model.paginate(filter, orderAndPaginate);
+      if (all.totalPages === 0) {
         const error = new Error("No existe");
         error.statusCode = 404;
         throw error;
@@ -31,9 +29,42 @@ class MongoManager {
       throw error;
     }
   }
+
+  async reportBill(uid) {
+    try {
+      const report = await this.model.aggregate([
+        {
+          $match: { user_id: new Types.ObjectId(uid) },
+        },
+        {
+          $lookup: {
+            from: "products",
+            foreignField: "_id",
+            localField: "product_id",
+            as: "product_id",
+          },
+        },
+        {
+          $replaceRoot: {
+            newRoot: {
+              $mergeObjects: [{ $arrayElemAt: ["$product_id", 0] }, "$$ROOT"],
+            },
+          },
+        },
+        { $set: { subTotal: { $multiply: ["$price", "$quantity"] } } },
+        { $group: { _id: "$user_id", total: { $sum: "$subTotal" } } },
+        { $project: { _id: 0, user_id: "$_id", total: "$total", date: new Date(), currency: "€"}},
+        // { $merge: { into: "bills"}}
+      ]);
+      return report;
+    } catch (error) {
+      throw error;
+    }
+  }
+
   async readByEmail(email) {
     try {
-      const one = await this.model.findOne({email});
+      const one = await this.model.findOne({ email });
       notFoundOne(one);
       return one;
     } catch (error) {
@@ -64,6 +95,19 @@ class MongoManager {
       const one = await this.model.findByIdAndDelete(id);
       notFoundOne(one);
       return one;
+    } catch (error) {
+      throw error;
+    }
+  }
+  async stats(filter) {
+    try {
+      let stats = await this.find(filter).explain("executionsStats");
+      console.log(stats);
+      stats = {
+        quantity: stats.executionStats.nReturned,
+        time: stats.executionStats.executionTimeMills,
+      };
+      return stats;
     } catch (error) {
       throw error;
     }
