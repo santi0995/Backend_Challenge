@@ -23,6 +23,7 @@ productsRouter.post("/", /*isAdmin*/ propsProducts, async (req, res, next) => {
 
 productsRouter.get("/", async (req, res, next) => {
   try {
+
     const orderAndPaginate = {
       limit: req.query.limit || 20,
       page: req.query.page || 1,
@@ -39,6 +40,8 @@ productsRouter.get("/", async (req, res, next) => {
       orderAndPaginate.sort.price = -1;
     }
     const all = await products.read({ filter, orderAndPaginate });
+
+
       return res.json({
         statusCode: 202,
         response: all,

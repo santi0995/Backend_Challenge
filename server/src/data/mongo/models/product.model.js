@@ -1,3 +1,4 @@
+
 import { Schema, model } from "mongoose";
 
 import moongosePaginate from "mongoose-paginate-v2";
@@ -18,3 +19,4 @@ schema.plugin(moongosePaginate);
 const Product = model(collection, schema);
 
 export default Product;
+

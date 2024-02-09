@@ -1,6 +1,8 @@
 import Order from "./models/order.model.js";
 import Product from "./models/product.model.js";
+
 import { Types } from "mongoose";
+
 import User from "./models/user.model.js";
 import notFoundOne from "../../utils/notFoundOne.utils.js";
 
@@ -16,10 +18,12 @@ class MongoManager {
       throw error;
     }
   }
+
   async read({ filter, orderAndPaginate }) {
     try {
       const all = await this.model.paginate(filter, orderAndPaginate);
       if (all.totalPages === 0) {
+
         const error = new Error("No existe");
         error.statusCode = 404;
         throw error;
@@ -29,6 +33,7 @@ class MongoManager {
       throw error;
     }
   }
+
 
   async reportBill(uid) {
     try {
@@ -65,6 +70,7 @@ class MongoManager {
   async readByEmail(email) {
     try {
       const one = await this.model.findOne({ email });
+
       notFoundOne(one);
       return one;
     } catch (error) {
@@ -99,6 +105,7 @@ class MongoManager {
       throw error;
     }
   }
+
   async stats(filter) {
     try {
       let stats = await this.find(filter).explain("executionsStats");
@@ -112,6 +119,7 @@ class MongoManager {
       throw error;
     }
   }
+
 }
 
 const users = new MongoManager(User);
