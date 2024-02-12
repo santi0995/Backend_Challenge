@@ -5,12 +5,14 @@ import { users } from "../../data/mongo/manager.mongo.js";
 
 const usersRouter = Router();
 
+
 usersRouter.post(
   "/",
   /*propsUsers*/ async (req, res, next) => {
     try {
       const data = req.body;
       const response = await users.create(data);
+
 
       return res.json({
         statusCode: 201,
@@ -23,6 +25,7 @@ usersRouter.post(
 );
 usersRouter.get("/", async (req, res, next) => {
   try {
+
     const orderAndPaginate = {
       limit: req.query.limit || 20,
       page: req.query.page || 1,
@@ -36,6 +39,7 @@ usersRouter.get("/", async (req, res, next) => {
       orderAndPaginate.sort.name = -1;
     }
     const all = await users.read({ filter, orderAndPaginate });
+
     if (Array.isArray(all)) {
       return res.json({
         statusCode: 200,
@@ -82,6 +86,7 @@ usersRouter.get("/:uid", async (req, res, next) => {
     return next(error);
   }
 });
+
 usersRouter.put("/:uid", async (req, res, next) => {
   try {
     const { uid } = req.params;
@@ -102,6 +107,7 @@ usersRouter.put("/:uid", async (req, res, next) => {
         statusCode: 400,
         response,
       });
+
     }
   } catch (error) {
     return next(error);
