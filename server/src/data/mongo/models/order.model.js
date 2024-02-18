@@ -29,4 +29,3 @@ schema.plugin(moongosePaginate);
 const Order = model(collection, schema);
 
 export default Order;
-

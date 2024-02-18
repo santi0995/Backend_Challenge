@@ -120,6 +120,7 @@ class MongoManager {
     }
   }
 
+ 
 }
 
 const users = new MongoManager(User);

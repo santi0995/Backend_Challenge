@@ -41,7 +41,6 @@ productsRouter.get("/", async (req, res, next) => {
     }
     const all = await products.read({ filter, orderAndPaginate });
 
-
       return res.json({
         statusCode: 202,
         response: all,

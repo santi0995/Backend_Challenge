@@ -19,4 +19,3 @@ schema.plugin(moongosePaginate);
 const Product = model(collection, schema);
 
 export default Product;
-
