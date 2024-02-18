@@ -7,7 +7,7 @@ const usersRouter = Router();
 usersRouter.get("/register", (req, res, next) => {
 
   try {
-    const one = user.readOne("7bebce74237420337c78b064");
+    const one = user.readOne("");
     return res.render("register", { one });
   } catch (error) {
     next(error);
@@ -17,6 +17,13 @@ usersRouter.get("/register", (req, res, next) => {
 usersRouter.get("/chat", (req, res, next) =>{
   try {
     return res.render("chat", {})
+  } catch (error) {
+    next(error);
+  }
+})
+usersRouter.get("/login", (req, res, next) =>{
+  try {
+    return res.render("login", {})
   } catch (error) {
     next(error);
   }

@@ -1,5 +1,5 @@
 import { Router } from "express";
-//import isAdmin from "../../middlewares/isAdmin.mid.js";
+import isAdmin from "../../middlewares/isAdmin.mid.js";
 //import isStockOkMid from "../../middlewares/isStockOk.mid.js";
 //import product from "../../data/fs/ProductManager.fs.js";
 import { products } from "../../data/mongo/manager.mongo.js";
@@ -7,7 +7,7 @@ import propsProducts from "../../middlewares/propsProducts.mid.js";
 
 const productsRouter = Router();
 
-productsRouter.post("/", /*isAdmin*/ propsProducts, async (req, res, next) => {
+productsRouter.post("/", isAdmin, propsProducts, async (req, res, next) => {
   try {
     const data = req.body;
     const response = await products.create(data);

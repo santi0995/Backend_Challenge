@@ -8,13 +8,12 @@ function limpiarFormulario() {
 
 document.querySelector("#newUser").addEventListener("click", (event) => {
   event.preventDefault();
-  const name = document.querySelector("#name").value;
-  const photo = document.querySelector("#photo").value;
+
   const email = document.querySelector("#email").value;
+  const password = document.querySelector("#password").value;
   const data = {};
-  name && (data.name = name);
-  photo && (data.photo = photo);
   email && (data.email = email);
+  password && (data.password = password);
   console.log(data);
   socket.emit("new user", data);
   limpiarFormulario();

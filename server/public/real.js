@@ -34,3 +34,4 @@ document.querySelector("#newProduct").addEventListener("click", (event) => {
   socket.emit("new product", data);
   limpiarFormulario();
 });
+

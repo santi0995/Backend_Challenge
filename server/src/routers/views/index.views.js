@@ -1,7 +1,5 @@
 import { Router } from "express";
-
 import product from "../../data/fs/ProductManager.fs.js";
-
 import productsRouter from "./products.view.js";
 import usersRouter from "./users.view.js";
 
@@ -18,7 +16,7 @@ viewsRouter.get("/", async(req,res,next)=>{
 });
 
 
-viewsRouter.use("/", productsRouter)
-viewsRouter.use("/", usersRouter)
+viewsRouter.use("/products", productsRouter)
+viewsRouter.use("/auth", usersRouter)
 
 export default viewsRouter;
