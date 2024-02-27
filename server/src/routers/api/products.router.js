@@ -1,29 +1,35 @@
 import { Router } from "express";
 import isAdmin from "../../middlewares/isAdmin.mid.js";
+import passport from "../../middlewares/passport.mid.js"
 //import isStockOkMid from "../../middlewares/isStockOk.mid.js";
-//import product from "../../data/fs/ProductManager.fs.js";
 import { products } from "../../data/mongo/manager.mongo.js";
 import propsProducts from "../../middlewares/propsProducts.mid.js";
 
 const productsRouter = Router();
 
-productsRouter.post("/", isAdmin, propsProducts, async (req, res, next) => {
-  try {
-    const data = req.body;
-    const response = await products.create(data);
+productsRouter.post(
+  "/",
+  passport.authenticate("jwt", {session : false}),
+  isAdmin,
+  propsProducts,
+  async (req, res, next) => {
+    try {
+      const data = req.body;
+      const response = await products.create(data);
 
-    return res.json({
-      statusCode: 201,
-      response,
-    });
-  } catch (error) {
-    return next(error);
+      return res.json({
+        statusCode: 201,
+        response,
+      });
+    } catch (error) {
+      return next(error);
+    }
   }
-});
+);
 
 productsRouter.get("/", async (req, res, next) => {
   try {
-    const orderAndPaginate = {
+    const options = {
       limit: req.query.limit || 20,
       page: req.query.page || 1,
       sort: { stock: 1, price: 1 },
@@ -33,16 +39,16 @@ productsRouter.get("/", async (req, res, next) => {
       filter.title = new RegExp(req.query.title.trim(), "i");
     }
     if (req.query.stock === "desc") {
-      orderAndPaginate.sort.stock = -1;
+      options.sort.stock = -1;
     }
     if (req.query.price === "desc") {
-      orderAndPaginate.sort.price = -1;
+      options.sort.price = -1;
     }
-    const all = await products.read({ filter, orderAndPaginate });
-      return res.json({
-        statusCode: 202,
-        response: all,
-      }); 
+    const all = await products.read({ filter, options });
+    return res.json({
+      statusCode: 202,
+      response: all,
+    });
   } catch (error) {
     return next(error);
   }
@@ -76,7 +82,7 @@ productsRouter.put(
   async (req, res, next) => {
     try {
       const { pid } = req.params;
-      const data  = req.body;
+      const data = req.body;
       const response = await products.update(pid, data);
       if (response) {
         return res.json({
