@@ -1,0 +1,13 @@
+<div id="orders" class="container d-flex flex-wrap justify-content-evenly">
+{{#each orders}}
+<link rel="stylesheet" href="../../public/products.css">
+<div class="card" style="width: 15rem;">
+    <h5 class="card-title">{{this.product_id}}</h5>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">{{this.user_id}}</li>
+    <li class="list-group-item">{{this.quantity}} </li>
+    <li class="list-group-item">{{this.state}} </li>
+  </ul>
+</div>
+{{/each}}
+</div>

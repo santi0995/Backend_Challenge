@@ -11,16 +11,17 @@ class MongoManager {
   async create(data) {
     try {
       const one = await this.model.create(data);
-      return one._id;
+      return one;
     } catch (error) {
       throw error;
     }
   }
-  async read({ filter, orderAndPaginate }) {
+  async read({ filter, options }) {
     try {
-      const all = await this.model.paginate(filter, orderAndPaginate);
-      if (all.totalPages === 0) {
-        const error = new Error("No existe");
+      options = { ...options, lean: true };
+      const all = await this.model.paginate(filter, options);
+      if (all.totalDocs === 0) {
+        const error = new Error("There aren't any document");
         error.statusCode = 404;
         throw error;
       }
@@ -65,7 +66,7 @@ class MongoManager {
   async readByEmail(email) {
     try {
       const one = await this.model.findOne({ email });
-      notFoundOne(one);
+      // notFoundOne(one);
       return one;
     } catch (error) {
       throw error;

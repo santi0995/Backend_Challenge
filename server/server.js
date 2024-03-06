@@ -1,5 +1,6 @@
 import "dotenv/config.js";
 
+import IndexRouter from './src/routers/index.router.js'
 import MongoStore from "connect-mongo";
 import { Server } from "socket.io";
 import __dirname from "./utils.js";
@@ -7,12 +8,11 @@ import cookieParser from "cookie-parser";
 import { createServer } from "http";
 import dbConnection from "./src/utils/db.js";
 import { engine } from "express-handlebars";
-import errorHandler from "./src/middlewares/errorhandler.mid.js";
+import errorHandler from "./src/middlewares/errorHandler.mid.js";
 import express from "express";
 import expressSession from "express-session"
 import morgan from "morgan";
 import pathHandler from "./src/middlewares/pathhandler.mid.js";
-import router from "./src/routers/index.router.js";
 import sessionFileStore from "session-file-store";
 import socketUtils from "./src/utils/socket.utils.js";
 
@@ -75,8 +75,9 @@ server.use(expressSession({
   })
 }))
 
+const router = new IndexRouter()
 server.use(morgan("dev"));
-server.use("/", router);
+server.use("/", router.getRouter());
 server.use(errorHandler);
 server.use(pathHandler);
 
