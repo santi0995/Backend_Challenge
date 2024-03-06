@@ -1,4 +1,3 @@
-import { verifyToken } from "../utils/token.util.js";
 
 export default (req, res, next) => {
   try {

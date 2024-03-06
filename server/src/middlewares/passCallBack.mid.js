@@ -4,7 +4,7 @@ export default (strategy) => {
   return async (req, res, next) => {
     passport.authenticate(strategy, (error, user, info) => {
       if (error) {
-        return next(eror);
+        return next(error);
       }
       if (!user) {
         return res.json({
