@@ -5,7 +5,7 @@ import passCallBackMid from "../../middlewares/passCallBack.mid.js";
 
 export default class OrdersRouter extends CustomRouter {
   init() {
-    this.read("/", passCallBackMid("jwt"), async (req, res, next) => {
+    this.read("/cart", passCallBackMid("jwt"), async (req, res, next) => {
       try {
         const options = {
           limit: req.query.limit || 14,

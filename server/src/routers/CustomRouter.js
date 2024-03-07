@@ -14,27 +14,31 @@ export default class CustomRouter {
   applyCbs(cbs) {
     return cbs.map((each) => async (...params) => {
       try {
-        await each.apply(this.params);
+        await each.apply(this, params);
       } catch (error) {
-        params[1].json({ statusCode: 500, message: error.message });
+        params[1].json({
+          statusCode: 500,
+          message: error.message,
+        });
       }
     });
   }
   responses = (req, res, next) => {
-    res.success200 = (payload) =>
-      res.json({ statusCode: 200, response: payload });
-    res.success201 = (payload) =>
-      res.json({ statusCode: 201, response: payload });
-    res.error400 = (message) => res.json({ statusCode: 400, message });
-    res.error401 = () => res.json({ statusCode: 401, message: "Bad auth" });
-    res.error403 = () => res.json({ statusCode: 403, message: "Forbidden" });
-    res.error404 = () => res.json({ statusCode: 404, message: "Not found" });
-    return next();
+      res.message = (message) => res.json({ statusCode: 200, message });
+      res.success200 = (payload) =>
+        res.json({ statusCode: 200, response: payload });
+      res.success201 = (payload) =>
+        res.json({ statusCode: 201, response: payload });
+      res.error400 = (message) => res.json({ statusCode: 400, message });
+      res.error401 = () => res.json({ statusCode: 401, message: "Bad auth" });
+      res.error403 = () => res.json({ statusCode: 403, message: "Forbidden" });
+      res.error404 = () => res.json({ statusCode: 404, message: "Not found" });
+      return next();
   };
   policies = (arrayOfPolicies) => async (req, res, next) => {
     try {
       if (arrayOfPolicies.includes("PUBLIC")) return next();
-      let token = req.cookies("token");
+      let token = req.cookies["token"];
       if (!token) return res.error401();
       else {
         const data = jwt.verify(token, process.env.SECRET);
@@ -43,7 +47,7 @@ export default class CustomRouter {
           const { email, role } = data;
           if (
             (role === 0 && arrayOfPolicies.includes("USER")) ||
-            (role === 1 && arrayOfPolicies.incluides("ADMIN")) ||
+            (role === 1 && arrayOfPolicies.includes("ADMIN")) ||
             (role === 2 && arrayOfPolicies.includes("PREM"))
           ) {
             const user = await users.readByEmail(email);

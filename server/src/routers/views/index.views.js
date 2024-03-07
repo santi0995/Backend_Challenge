@@ -3,26 +3,31 @@ import OrdersRouter from "./orders.view.js";
 import ProductsRouter from "./products.view.js";
 import SessionsRouter from "./sessions.view.js";
 import UsersRouter from "./users.view.js";
+import passCallBackMid from "../../middlewares/passCallBack.mid.js";
 import { products } from "../../data/mongo/manager.mongo.js";
 
 const order = new OrdersRouter();
+const orderRouter = order.getRouter();
 const product = new ProductsRouter();
+const productRouter = product.getRouter();
 const user = new UsersRouter();
-const session = new SessionsRouter()
+const userRouter = user.getRouter();
+const session = new SessionsRouter();
+const sessionRouter = session.getRouter();
 
 export default class ViewsRouter extends CustomRouter {
   init() {
-    this.router.use("/products", product.getRouter());
-    this.router.use("/orders", order.getRouter());
-    this.router.use("/auth", user.getRouter());
-    this.router.use("/sessions", session.getRouter());
+    this.router.use("/products",  productRouter);
+    this.router.use("/orders", orderRouter);
+    this.router.use("/auth",  userRouter);
+    this.router.use("/sessions", sessionRouter);
     this.read("/", ["PUBLIC"], async (req, res, next) => {
       try {
         const options = {
           limit: req.query.limit || 4,
           page: req.query.page || 1,
           sort: { title: 1 },
-          lean: true
+          lean: true,
         };
         const filter = {};
         if (req.query.title) {

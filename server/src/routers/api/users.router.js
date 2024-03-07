@@ -27,6 +27,7 @@ export default class UsersRouter extends CustomRouter{
           limit: req.query.limit || 20,
           page: req.query.page || 1,
           sort: { name: 1 },
+          lean: true
         };
         const filter = {};
         if (req.query.email) {

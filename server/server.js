@@ -63,17 +63,17 @@ server.use(express.static(__dirname + "/public"));
 //   })
 // }))
 
-//MONGO STORE
+// //MONGO STORE
 
-server.use(expressSession({
-  secret: process.env.SECRET_KEY,
-  resave: true,
-  saveUninitialized: true,
-  store: new MongoStore({
-    ttl: 7 * 24 * 60 * 60,
-    mongoUrl: process.env.DB_LINK
-  })
-}))
+// server.use(expressSession({
+//   secret: process.env.SECRET_KEY,
+//   resave: true,
+//   saveUninitialized: true,
+//   store: new MongoStore({
+//     ttl: 7 * 24 * 60 * 60,
+//     mongoUrl: process.env.DB_LINK
+//   })
+// }))
 
 const router = new IndexRouter()
 server.use(morgan("dev"));

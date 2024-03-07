@@ -7,6 +7,7 @@ export default class SessionsRouter extends CustomRouter{
   init(){
     this.create(
       "/register",
+      ["PUBLIC"],
       has8char,
       passCallBackMid("register"),
       async (req, res, next) => {
@@ -23,6 +24,7 @@ export default class SessionsRouter extends CustomRouter{
     
     this.create(
       "/login",
+      ["PUBLIC"],
       passCallBackMid("login"),
       async (req, res, next) => {
         try {

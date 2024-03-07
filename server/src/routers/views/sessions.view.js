@@ -1,7 +1,7 @@
 import CustomRouter from "../CustomRouter.js";
 
-export default class SessionsRouter extends CustomRouter{
-  init(){
+export default class SessionsRouter extends CustomRouter {
+  init() {
     this.read("/register", async (req, res, next) => {
       try {
         return res.render("register");
@@ -16,10 +16,5 @@ export default class SessionsRouter extends CustomRouter{
         return next(error);
       }
     });
-    
   }
 }
-
-
-
-
