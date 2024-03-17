@@ -17,10 +17,10 @@ const sessionRouter = session.getRouter();
 
 export default class ViewsRouter extends CustomRouter {
   init() {
-    this.router.use("/products",  productRouter);
-    this.router.use("/orders", orderRouter);
-    this.router.use("/auth",  userRouter);
-    this.router.use("/sessions", sessionRouter);
+    this.use("/products",  productRouter);
+    this.use("/orders", orderRouter);
+    this.use("/auth",  userRouter);
+    this.use("/sessions", sessionRouter);
     this.read("/", ["PUBLIC"], async (req, res, next) => {
       try {
         const options = {

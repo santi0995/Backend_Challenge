@@ -5,11 +5,12 @@ import { Strategy as GithubStrategy } from "passport-github2";
 import { Strategy as GoogleStrategy } from "passport-google-oauth2";
 import { Strategy as LocalStrategy } from "passport-local";
 import { createToken } from "../utils/token.util.js";
+import envUtils from "../utils/env.utils.js";
 import passport from "passport";
 import { users } from "../data/mongo/manager.mongo.js";
 
 const { GOOGLE_ID, GOOGLE_CLIENT, GITHUB_CLIENT, GITHUB_ID, SECRET } =
-  process.env;
+  envUtils;
 
 passport.use(
   "register",

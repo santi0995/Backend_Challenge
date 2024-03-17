@@ -3,8 +3,8 @@ import has8char from "../../middlewares/has8char.mid.js";
 import passCallBackMid from "../../middlewares/passCallBack.mid.js";
 import passport from "../../middlewares/passport.mid.js";
 
-export default class SessionsRouter extends CustomRouter{
-  init(){
+export default class SessionsRouter extends CustomRouter {
+  init() {
     this.create(
       "/register",
       ["PUBLIC"],
@@ -21,7 +21,7 @@ export default class SessionsRouter extends CustomRouter{
         }
       }
     );
-    
+
     this.create(
       "/login",
       ["PUBLIC"],
@@ -42,14 +42,14 @@ export default class SessionsRouter extends CustomRouter{
         }
       }
     );
-    
+
     this.create(
       "/google",
       passport.authenticate("google", {
         scope: ["email", "profile"],
       })
     );
-    
+
     this.read(
       "/google/callback",
       passport.authenticate("google", {
@@ -68,7 +68,7 @@ export default class SessionsRouter extends CustomRouter{
         }
       }
     );
-    
+
     //me
     this.create("/", passCallBackMid("jwt"), async (req, res, next) => {
       try {
@@ -76,32 +76,27 @@ export default class SessionsRouter extends CustomRouter{
           email: req.user.email,
           role: req.user.role,
           photo: req.user.photo,
-        }
+        };
         return res.json({
           statusCode: 200,
-          response: user
-        })
+          response: user,
+        });
       } catch (error) {
         return next(error);
       }
     });
-    
-    
-    this.create(
-      "/signout",
-      passCallBackMid("jwt"),
-      async (req, res, next) => {
-        try {
-          return res.clearCookie("token").json({
-            statusCode: 200,
-            message: "Signed out!",
-          });
-        } catch (error) {
-          return next(error);
-        }
+
+    this.create("/signout", passCallBackMid("jwt"), async (req, res, next) => {
+      try {
+        return res.clearCookie("token").json({
+          statusCode: 200,
+          message: "Signed out!",
+        });
+      } catch (error) {
+        return next(error);
       }
-    );
-    
+    });
+
     this.read("/badauth", (req, res, next) => {
       try {
         return res.json({
@@ -112,7 +107,7 @@ export default class SessionsRouter extends CustomRouter{
         return next(error);
       }
     });
-    
+
     this.read("/signout/cb", (req, res, next) => {
       try {
         return res.json({
@@ -123,9 +118,5 @@ export default class SessionsRouter extends CustomRouter{
         return next(error);
       }
     });
-    
   }
 }
-
-
-
