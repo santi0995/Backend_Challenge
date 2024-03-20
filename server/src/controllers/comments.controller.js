@@ -1,4 +1,3 @@
-import { response } from "express";
 import service from "../services/comments.service.js";
 
 class CommentsController {
@@ -21,7 +20,7 @@ class CommentsController {
       const filter = {};
       const options = {};
       const all = await this.service.read({ filter, options });
-      return response.success200(all);
+      return res.success200(all);
     } catch (error) {
       return next(error);
     }

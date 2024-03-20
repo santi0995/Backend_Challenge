@@ -10,7 +10,7 @@ import {
 import CustomRouter from "../CustomRouter.js";
 import propsUsers from "../../middlewares/propsUsers.mid.js";
 
-export default class UsersRouter extends CustomRouter{
+class UsersRouter extends CustomRouter{
    init(){
     this.create(
       "/", ["PUBLIC"],
@@ -23,6 +23,9 @@ export default class UsersRouter extends CustomRouter{
     this.destroy("/:uid", ["ADMIN"], destroy);
    }
 }
+
+const usersRouter = new UsersRouter();
+export default usersRouter.getRouter();
 
 
 

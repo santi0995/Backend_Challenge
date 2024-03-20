@@ -96,5 +96,22 @@
     "photo": "/assets/14.jpg",
     "price": "12€",
     "stock": "12"
+  },
+  {
+    "id": "fc20bc77fdf8fef8f1a7cbe2",
+    "title": "cara",
+    "photo": "/assets/23.jpg",
+    "price": 9,
+    "stock": "49"
+  },
+  {
+    "_id": "3f744eb95238ba609a43ae15",
+    "title": "cara",
+    "photo": "/assets/23.jpg",
+    "price": 9,
+    "stock": "49",
+    "date": "2024-03-19T19:51:20.046Z",
+    "updatedAt": "2024-03-19T19:51:20.046Z",
+    "createdAt": "2024-03-19T19:51:20.046Z"
   }
 ]

@@ -1,17 +1,18 @@
+import env from "./env.utils.js";
 import jwt from "jsonwebtoken";
 
 function createToken(data) {
   const token = jwt.sign(
     data, 
-    process.env.SECRET,
-    { expiresIn: 60 * 60 * 24 * 7 }
+    env.SECRET,
+    { expiresIn: 60 * 60 * 24 * 7 * 1000}
   );
   return token;
 }
 
 function verifyToken(token) {
   if (token) {
-    const data = jwt.verify(token, process.env.SECRET);
+    const data = jwt.verify(token, env.SECRET);
     //qué pasa si no verifica
     return data;
   }

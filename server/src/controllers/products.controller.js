@@ -58,12 +58,14 @@ class ProductsController {
   destroy =  async (req, res, next) => {
     try {
       const { pid } = req.params;
-      const response = await this.model.destroy(pid);
+      const response = await this.service.destroy(pid);
       return res.success200(response);
     } catch (error) {
       return next(error);
     }
   }
+
+  
 }
 
 export default ProductsController;

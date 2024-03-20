@@ -1,11 +1,11 @@
 import CustomRouter from "../CustomRouter.js";
 import isAdmin from "../../middlewares/isAdmin.mid.js";
 import passCallBack from "../../middlewares/passCallBack.mid.js";
-import { products } from "../../data/mongo/manager.mongo.js";
+import  products  from "../../data/mongo/products.mongo.js";
 
-export default class ProductsRouter extends CustomRouter {
+class ProductsRouter extends CustomRouter {
   init() {
-    this.read("/real", passCallBack("jwt"), isAdmin, async (req, res, next) => {
+    this.read("/real", ["ADMIN"], passCallBack("jwt"), isAdmin, async (req, res, next) => {
       try {
         const options = {
           limit: req.query.limit || 14,
@@ -33,7 +33,7 @@ export default class ProductsRouter extends CustomRouter {
       }
     });
 
-    this.read("/form", passCallBack("jwt"), isAdmin, async (req, res, next) => {
+    this.read("/form", ["ADMIN", "PREM"], passCallBack("jwt"), isAdmin, async (req, res, next) => {
       try {
         return res.render("form");
       } catch (error) {
@@ -52,3 +52,6 @@ export default class ProductsRouter extends CustomRouter {
     });
   }
 }
+
+const productsRouter = new ProductsRouter();
+export default productsRouter.getRouter();

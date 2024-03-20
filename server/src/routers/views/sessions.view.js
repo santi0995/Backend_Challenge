@@ -1,15 +1,15 @@
 import CustomRouter from "../CustomRouter.js";
 
-export default class SessionsRouter extends CustomRouter {
+class SessionsRouter extends CustomRouter {
   init() {
-    this.read("/register", async (req, res, next) => {
+    this.read("/register",["PUBLIC"], async (req, res, next) => {
       try {
         return res.render("register");
       } catch (error) {
         return next(error);
       }
     });
-    this.read("/login", async (req, res, next) => {
+    this.read("/login",["PUBLIC"], async (req, res, next) => {
       try {
         return res.render("login");
       } catch (error) {
@@ -18,3 +18,7 @@ export default class SessionsRouter extends CustomRouter {
     });
   }
 }
+
+
+const sessionsRouter = new SessionsRouter();
+export default sessionsRouter.getRouter();

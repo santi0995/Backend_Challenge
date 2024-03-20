@@ -1,27 +1,19 @@
-import crypto from "crypto";
 import fs from "fs";
-const ruta = "./src/data/fs/files/Productfs.json"
+import notFoundOne from "../../utils/notFoundOne.utils.js";
+const ruta = "./src/data/fs/files/Productfs.json";
 const config = "utf-8";
 
 class ProductManagerFs {
   constructor() {}
   async create(data) {
     try {
-
-      const existingData = await fs.promises.readFile(ruta, 'utf-8');
+      const existingData = await fs.promises.readFile(ruta, "utf-8");
       const products = JSON.parse(existingData);
 
-      const product = {
-        id: crypto.randomBytes(12).toString("hex"),
-        title: data.title,
-        photo: data.photo,
-        price: data.price,
-        stock: data.stock,
-      };
-      products.push(product);
+      products.push(data);
       const jsonData = JSON.stringify(products, null, 2);
       await fs.promises.writeFile(ruta, jsonData);
-      return product;
+      return data;
     } catch (error) {
       return error.message;
     }
@@ -29,12 +21,15 @@ class ProductManagerFs {
 
   // Implementación sincrónica
 
-  read() {
+  read({ filter, options }) {
+    //añadir filtro paginacion y orden
     try {
       const contenidoLeido = fs.readFileSync(ruta, config);
       const contenidoparseado = JSON.parse(contenidoLeido);
       if (contenidoparseado.length === 0) {
-        throw new Error("not found!");
+        const error = new Error("There aren't any document");
+        error.statusCode = 404;
+        throw error;
       }
       return contenidoparseado;
     } catch (error) {
@@ -46,7 +41,7 @@ class ProductManagerFs {
     try {
       const contenidoLeido = fs.readFileSync(ruta, config);
       const contenidoparseado = JSON.parse(contenidoLeido);
-      const idExist = contenidoparseado.find((prod) => prod.id === id);
+      const idExist = contenidoparseado.find((prod) => prod._id === id);
       if (!idExist) {
         throw new Error("not found!");
       } else {
@@ -65,11 +60,11 @@ class ProductManagerFs {
       if (!one) {
         throw new Error("There isn't any product with id: " + id);
       } else {
-        contenidoparseado = contenidoparseado.filter((each) => each.id !== id);
+        contenidoparseado = contenidoparseado.filter((each) => each._id !== id);
         const jsonData = JSON.stringify(contenidoparseado, null, 2);
         await fs.promises.writeFile(ruta, jsonData);
         console.log("deleted: " + id);
-        return id;
+        return one;
       }
     } catch (error) {
       return error.message;
@@ -84,28 +79,22 @@ class ProductManagerFs {
     }
   }
 
- async update(title, photo, price, stock, pid) {
-   
-    const existingData = await fs.promises.readFile(ruta, 'utf-8');
-      const products = JSON.parse(existingData);
+  async update( pid, data ) {
+    const existingData = await fs.promises.readFile(ruta, "utf-8");
+    const products = JSON.parse(existingData);
 
     try {
       const one = this.readOne(pid);
-      if (one === "not found!") {
-        throw new Error("There isn't any product with id: " + pid);
-      } else {
-        (one.id = pid),
-          (one.title = title),
-          (one.photo = photo),
-          (one.price = price),
-          (one.stock = stock);
-
-        products.push(one);
+      notFoundOne(one)
+      
+      for(let each in data){
+        one[each] = data[each]
+      }
         const jsonData = JSON.stringify(products, null, 2);
         fs.writeFileSync(ruta, jsonData);
         console.log(one);
         return one;
-      } 
+      
     } catch (error) {
       console.log(error.message);
       return error.message;
@@ -113,6 +102,6 @@ class ProductManagerFs {
   }
 }
 
-const product = new ProductManagerFs;
+const product = new ProductManagerFs();
 
 export default product;

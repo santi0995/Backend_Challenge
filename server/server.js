@@ -1,4 +1,3 @@
-import IndexRouter from "./src/routers/index.router.js";
 import { Server } from "socket.io";
 import __dirname from "./utils.js";
 import cookieParser from "cookie-parser";
@@ -12,6 +11,7 @@ import express from "express";
 import expressSession from "express-session";
 import morgan from "morgan";
 import pathHandler from "./src/middlewares/pathhandler.mid.js";
+import router from "./src/routers/index.router.js";
 import sessionFileStore from "session-file-store";
 import socketUtils from "./src/utils/socket.utils.js";
 
@@ -80,9 +80,8 @@ server.use(
 //   })
 // }))
 
-const router = new IndexRouter();
 server.use(morgan("dev"));
-server.use("/", router.getRouter());
+server.use("/", router);
 server.use(errorHandler);
 server.use(pathHandler);
 

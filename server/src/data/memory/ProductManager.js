@@ -1,3 +1,5 @@
+import notFoundOne from "../../utils/notFoundOne.utils.js";
+
 class ProductManager {
   static #products = [];
   constructor() {}
@@ -21,9 +23,16 @@ class ProductManager {
     }
   }
 
-  read() {
+  read({ filter, options}) {
+    //agregar filtros y demas 
     try {
-      return ProductManager.#products;
+      if(ProductManager.#products.length === 0){
+        const error = new Error("Not found")
+        error.statusCode = 404;
+        throw error
+       } else {
+         return ProductManager.#products;
+       }
     } catch (error) {
       return error.message;
     }
@@ -45,56 +54,27 @@ class ProductManager {
   }
   destroy(id) {
     try {
-      let one = ProductManager.#products.find((each) => each.id === id);
-      if (!one) {
-        throw new Error("There isn't any product with id=" + id);
-      } else {
-        ProductManager.#products = ProductManager.#products.filter(
-          (each) => each.id !== id
-        );
-        console.log("deleted: " + id);
-        return ProductManager.#products;
-      }
+      const one = this.readOne(id)
+      notFoundOne(one)
+      ProductManager.#products = ProductManager.#products.filter((each) = each.id !== id);
+      return one
     } catch (error) {
       return error.message;
     }
   }
-  updateProduct(title, photo, price, stock, uid) {
+  update (uid, data) {
     try {
       const one = this.readOne(uid);
-      if (one === "No existe el id") {
-        throw new Error("There isn't any product with id: " + uid);
-      } else {
-        (one.id = uid),
-          (one.title = title),
-          (one.photo = photo),
-          (one.price = price),
-          (one.stock = stock);
-
-        return one;
+      notFoundOne(one)
+      for (let each in data) {
+       one[each] = data[each]
       }
+        return one; 
     } catch (error) {
-      console.log(error.message);
-      return error.message;
+      throw error
     }
   }
 }
 
-const product = new ProductManager();
-
-product.create({
-  title: "Acondicionador",
-  photo: "https://img.com",
-  price: 1000,
-  stock: 700,
-});
-
-product.create({
-  title: "Arroz",
-  photo: "www",
-  price: 350,
-  stock: 10,
-});
-
-product.updateProduct("Lavadora", "png", "279", "3", "1");
-console.log(product.read());
+const products = new ProductManager();
+export default products

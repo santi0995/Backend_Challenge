@@ -10,7 +10,7 @@ update
 import CustomRouter from "../CustomRouter.js";
 import propsOrders from "../../middlewares/propsOrders.mid.js";
 
-export default class OrdersRouter extends CustomRouter{
+class OrdersRouter extends CustomRouter{
   init(){
     this.create("/", propsOrders,["PUBLIC"], create );
     
@@ -24,6 +24,8 @@ export default class OrdersRouter extends CustomRouter{
     this.destroy("/:oid", ["ADMIN", "PREM"], destroy);
   }
 }
+const ordersRouter = new OrdersRouter();
+export default ordersRouter.getRouter();
 
 
 

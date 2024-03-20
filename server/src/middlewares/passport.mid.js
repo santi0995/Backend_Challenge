@@ -7,7 +7,7 @@ import { Strategy as LocalStrategy } from "passport-local";
 import { createToken } from "../utils/token.util.js";
 import envUtils from "../utils/env.utils.js";
 import passport from "passport";
-import { users } from "../data/mongo/manager.mongo.js";
+import users  from "../data/mongo/users.mongo.js";
 
 const { GOOGLE_ID, GOOGLE_CLIENT, GITHUB_CLIENT, GITHUB_ID, SECRET } =
   envUtils;
@@ -139,7 +139,7 @@ passport.use(
           user.password = null;
           return done(null, user);
         } else {
-          return done(null, false, info);
+          return done(null, false);
         }
       } catch (error) {
         return done(error);

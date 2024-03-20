@@ -8,15 +8,13 @@ import {
 
 import CustomRouter from "../CustomRouter.js";
 import isStockOkMid from "../../middlewares/isStockOk.mid.js";
-import passCallBackMid from "../../middlewares/passCallBack.mid.js";
 import propsProducts from "../../middlewares/propsProducts.mid.js";
 
-export default class ProductsRouter extends CustomRouter {
+class ProductsRouter extends CustomRouter {
   init() {
     this.create(
       "/",
       ["ADMIN", "PREM"],
-      passCallBackMid("jwt"),
       propsProducts,
       create
     );
@@ -32,3 +30,5 @@ export default class ProductsRouter extends CustomRouter {
     this.destroy("/:pid", ["ADMIN", "PREM"], destroy);
   }
 }
+const productsRouter = new ProductsRouter();
+export default productsRouter.getRouter();
