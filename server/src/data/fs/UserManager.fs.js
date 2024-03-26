@@ -56,6 +56,20 @@ class UserManagerFs {
       return error.message;
     }
   }
+   readByEmail(email) {
+    try {
+      const contenidoLeido = fs.readFileSync(ruta, config);
+      const contenidoparseado = JSON.parse(contenidoLeido);
+      const emailExist = contenidoparseado.find((user) => user.email === email);
+      if (!emailExist) {
+        throw new Error("not found!");
+      } else {
+        return emailExist;
+      }
+    } catch (error) {
+      return error.message;
+    }
+  }
 
   async destroy(id) {
     try {

@@ -15,4 +15,6 @@ export default {
   GOOGLE_CLIENT: process.env.GOOGLE_CLIENT,
   GITHUB_ID: process.env.GITHUB_ID,
   GITHUB_CLIENT: process.env.GITHUB_CLIENT,
+  GOOGLE_PASSWORD: process.env.GOOGLE_PASSWORD,
+  GOOGLE_EMAIL: process.env.GOOGLE_EMAIL,
 };

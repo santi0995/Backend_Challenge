@@ -3,7 +3,6 @@ import __dirname from "./utils.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import { createServer } from "http";
-import dbConnection from "./src/utils/db.js";
 import { engine } from "express-handlebars";
 import env from "./src/utils/env.utils.js";
 import errorHandler from "./src/middlewares/errorHandler.mid.js";
@@ -19,7 +18,6 @@ const server = express();
 const PORT = env.PORT || 8080;
 const cbReady = () => {
   console.log("server ready on port " + PORT);
-  dbConnection();
 };
 
 const httpServer = createServer(server);

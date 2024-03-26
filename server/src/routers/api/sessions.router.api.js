@@ -6,6 +6,7 @@ import {
   me,
   register,
   signout,
+  verifyAccount
 } from "../../controllers/sessions.controller.js";
 
 import CustomRouter from "../CustomRouter.js";
@@ -18,8 +19,8 @@ class SessionsRouter extends CustomRouter {
     this.create(
       "/register",
       ["PUBLIC"],
-      has8char,
       passCallBackMid("register"),
+      has8char,
       register
     );
 
@@ -59,6 +60,7 @@ class SessionsRouter extends CustomRouter {
     this.create("/signout", passCallBackMid("jwt"), signout);
 
     this.read("/badauth", ["PUBLIC"], badauth);
+    this.create("/verify", ["PUBLIC"], verifyAccount)
   }
 }
 

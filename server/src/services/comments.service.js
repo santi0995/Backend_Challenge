@@ -1,8 +1,8 @@
-import  comments  from "../data/mongo/manager.mongo.js";
+import repository from "../repositories/comments.rep.js"
 
 class CommentsService {
   constructor() {
-    this.model = comments;
+    this.repository = repository;
   }
   //   create = async (data) => await this.model.create(data);
   //   read = async ({filter,options}) => await this.model.read({ filter, options });
@@ -11,14 +11,14 @@ class CommentsService {
   //   destroy = async (id) => await this.model.destroy(id);
   create = async (data) => {
     try {
-      const response = await this.model.create(data);
+      const response = await this.repository.create(data);
     } catch (error) {
       throw error;
     }
   };
   read = async ({ filter, options }) => {
     try {
-      const response = await this.model.read({ filter, options });
+      const response = await this.repository.read({ filter, options });
       return response;
     } catch (error) {
       throw error;
@@ -26,7 +26,7 @@ class CommentsService {
   };
   readOne = async (id) => {
     try {
-        const response = await this.model.readOne(id)
+        const response = await this.repository.readOne(id)
         return response
     } catch (error) {
         throw error
@@ -34,7 +34,7 @@ class CommentsService {
   }
   update = async (id, data) => {
     try {
-        const response = await this.model.update(id, data)
+        const response = await this.repository.update(id, data)
         return response
     } catch (error) {
         throw error
@@ -42,7 +42,7 @@ class CommentsService {
   }
   destroy = async (id) => {
     try {
-        const response = await this.model.destroy(id)
+        const response = await this.repository.destroy(id)
         return response
     } catch (error) {
         throw error
