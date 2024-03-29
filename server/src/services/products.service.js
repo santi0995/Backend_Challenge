@@ -1,3 +1,4 @@
+import ProductDTO from "../dto/products.dto.js";
 import repository from "../repositories/products.rep.js";
 
 class ProductsService {
@@ -5,49 +6,20 @@ class ProductsService {
     this.repository = repository;
   }
   create = async (data) => {
-    try {
-      const response = await this.repository.create(data);
-      return response;
-    } catch (error) {
-      throw error;
-    }
+    data = new ProductDTO(data);
+    const response = await this.repository.create(data);
+    return response;
   };
 
-  read = async ({ filter, options }) => {
-    try {
-      const response = await this.repository.read({ filter, options });
-      return response;
-    } catch (error) {
-      throw error;
-    }
-  };
+  read = async ({ filter, options }) =>
+    await this.repository.read({ filter, options });
 
-  readOne = async (id) => {
-    try {
-      const response = await this.repository.readOne(id);
-      return response;
-    } catch (error) {
-      throw error;
-    }
-  };
+  readOne = async (id) => await this.repository.readOne(id);
 
-  update = async (id, data) => {
-    try {
-      const response = await this.repository.update(id, data);
-      return response;
-    } catch (error) {
-      throw error;
-    }
-  };
-  destroy = async (id) => {
-    try {
-      const response = await this.repository.destroy(id);
-      return response;
-    } catch (error) {
-      throw error;
-    }
-  };
+  update = async (id, data) => await this.repository.update(id, data);
+
+  destroy = async (id) => await this.repository.destroy(id);
 }
 
-const service = new ProductsService()
-export default service
+const service = new ProductsService();
+export default service;

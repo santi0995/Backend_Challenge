@@ -9,8 +9,7 @@ class OrdersController {
     try {
       const data = req.body;
       const response = await this.service.create(data);
-
-      return resres.success201(response);
+      return res.success201(response);
     } catch (error) {
       return next(error);
     }
@@ -18,22 +17,21 @@ class OrdersController {
 
   read = async (req, res, next) => {
     try {
-      let filter = {};
-      let order = {};
-      if (req.query.user_id) {
-        filter = { user_id: req.query.user_id };
+      const options = {
+        limit: req.query.limit || 20,
+        page: req.query.page || 1,
+        sort: { title: 1 },
+        lean: true,
+      };
+      const filter = {};
+      if (req.user._id) {
+        filter.user_id = req.user._id;
       }
-      if (req.query.order) {
-        const [field, sortOrder] = req.query.order.split(":");
-
-        if (field && sortOrder) {
-          order[field] = sortOrder.toLowerCase() === "asc" ? 1 : -1;
-        }
+      if (req.query.sort === "desc") {
+        options.sort.title = "desc";
       }
-      const all = await this.service.read({ filter, order });
-      if (Array.isArray(all)) {
-        return resres.success200(all);
-      }
+      const all = await this.service.read({ filter, options });
+      return res.success200(all);
     } catch (error) {
       return next(error);
     }

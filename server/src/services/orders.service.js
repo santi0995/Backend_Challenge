@@ -1,3 +1,4 @@
+import OrderDTO from "../dto/orders.dto.js";
 import repository from "../repositories/orders.rep.js";
 
 class OrdersService {
@@ -5,56 +6,21 @@ class OrdersService {
     this.repository = repository;
   }
   create = async (data) => {
-    try {
-      const response = await this.repository.create(data);
-      return response;
-    } catch (error) {
-      throw error;
-    }
+    data = new OrderDTO(data);
+    const response = await this.repository.create(data);
+    return response;
   };
 
-  read = async ({ filter, options }) => {
-    try {
-      const response = await this.repository.read({ filter, options });
-      return response;
-    } catch (error) {
-      throw error;
-    }
-  };
+  read = async ({ filter, options }) =>
+    await this.repository.read({ filter, options });
 
-  readOne = async (oid) => {
-    try {
-      const response = await this.repository.readOne(oid);
-      return response;
-    } catch (error) {
-      throw error;
-    }
-  };
-  readBill = async (uid) => {
-    try {
-      const response = await this.repository.reportBill(uid);
-      return response;
-    } catch (error) {
-      throw error;
-    }
-  };
+  readOne = async (oid) => await this.repository.readOne(oid);
 
-  update = async (oid, data) => {
-    try {
-      const response = await this.repository.update(oid, data);
-      return response;
-    } catch (error) {
-      throw error;
-    }
-  };
-  destroy = async (oid) => {
-    try {
-      const response = await this.repository.destroy(oid);
-      return response;
-    } catch (error) {
-      throw error;
-    }
-  };
+  readBill = async (uid) => await this.repository.reportBill(uid);
+
+  update = async (oid, data) => await this.repository.update(oid, data);
+
+  destroy = async (oid) => await this.repository.destroy(oid);
 }
 
 const service = new OrdersService();

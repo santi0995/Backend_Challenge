@@ -1,10 +1,10 @@
 fetch("/api/sessions/", { method: "POST" })
   .then((res) => res.json())
   .then((res) => {
-    //console.log(res);
+    console.log(res);
     if(res.statusCode===200) {
-      document.querySelector(".navbar-nav").removeChild(document.querySelector("#registerButton"))
-      document.querySelector(".navbar-nav").removeChild(document.querySelector("#loginButton"))
+      document.querySelector(".navbar").removeChild(document.querySelector("#register"))
+      document.querySelector(".navbar").removeChild(document.querySelector("#loginForm"))
       document.querySelector("#signout").addEventListener("click", async () => {
         try {
           const token = localStorage.getItem("token");

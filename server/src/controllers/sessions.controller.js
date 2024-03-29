@@ -50,10 +50,7 @@ class SessionsController {
         role: req.user.role,
         photo: req.user.photo,
       };
-      return res.json({
-        statusCode: 200,
-        response: user,
-      });
+      return res.success200(user)
     } catch (error) {
       return next(error);
     }
@@ -67,10 +64,7 @@ class SessionsController {
   };
   badauth = (req, res, next) => {
     try {
-      return res.json({
-        statusCode: 401,
-        message: "Bad auth",
-      });
+      return res.error401()
     } catch (error) {
       return next(error);
     }

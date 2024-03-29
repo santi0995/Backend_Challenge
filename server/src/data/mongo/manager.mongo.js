@@ -1,3 +1,7 @@
+// import Comment from "./models/comment.model.js";
+// import Order from "./models/order.model.js";
+// import Product from "./models/product.model.js";
+// import User from "./models/user.model.js";
 import { Types } from "mongoose";
 import notFoundOne from "../../utils/notFoundOne.utils.js";
 
@@ -71,7 +75,7 @@ class MongoManager {
   }
   async readOne(id) {
     try {
-      const one = await this.model.findById(id);
+      const one = await this.model.findById(id).lean();
       notFoundOne(one);
       return one;
     } catch (error) {

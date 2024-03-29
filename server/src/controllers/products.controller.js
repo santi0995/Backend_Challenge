@@ -49,6 +49,7 @@ class ProductsController {
   update = async (req, res, next) => {
     try {
       const { pid } = req.params;
+      const data = req.body;
       const response = await this.service.update(pid, data);
       return res.success200(response);
     } catch (error) {

@@ -14,7 +14,7 @@ selector.addEventListener("click", async () => {
     response = await response.json();
     if (response.statusCode === 200) {
       location.replace("/");
-      alert(response.message);
+      alert(response.response);
     } else {
       const error = new Error("Wrong User or password");
       throw error;

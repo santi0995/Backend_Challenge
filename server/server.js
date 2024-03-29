@@ -7,11 +7,9 @@ import { engine } from "express-handlebars";
 import env from "./src/utils/env.utils.js";
 import errorHandler from "./src/middlewares/errorHandler.mid.js";
 import express from "express";
-import expressSession from "express-session";
 import morgan from "morgan";
 import pathHandler from "./src/middlewares/pathhandler.mid.js";
 import router from "./src/routers/index.router.js";
-import sessionFileStore from "session-file-store";
 import socketUtils from "./src/utils/socket.utils.js";
 
 const server = express();
@@ -31,7 +29,6 @@ server.engine("handlebars", engine());
 server.set("view engine", "handlebars");
 server.set("views", __dirname + "/src/views");
 
-const FileStore = sessionFileStore(expressSession);
 
 //middlewares
 server.use(cookieParser(env.SECRET_KEY));
