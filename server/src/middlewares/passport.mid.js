@@ -49,7 +49,7 @@ passport.use(
         const user = await users.readByEmail(email);
         const verify = verifyHash(password, user.password)
         if (user?.verified  && verify) {
-          req.token = createToken({ _id: user._id, role: user.role });
+          req.token = createToken({ email, role: user.role });
           return done(null, user);
         } else {
           return done(null, false, { messages: "Bad auth from passport cb" });
@@ -138,7 +138,7 @@ passport.use(
     },
     async (payload, done) => {
       try {
-        const user = await users.readByEmail(payload.email);
+        const user = payload
         if (user) {
           user.password = null;
           return done(null, user);

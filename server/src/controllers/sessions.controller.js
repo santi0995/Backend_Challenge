@@ -45,12 +45,15 @@ class SessionsController {
   };
   me = async (req, res, next) => {
     try {
+      if (!req.user) {
+        throw new Error('User is not authenticated');
+      }
       const user = {
         email: req.user.email,
         role: req.user.role,
         photo: req.user.photo,
       };
-      return res.success200(user)
+      return res.success200(user);
     } catch (error) {
       return next(error);
     }
@@ -64,7 +67,7 @@ class SessionsController {
   };
   badauth = (req, res, next) => {
     try {
-      return res.error401()
+      return res.error401();
     } catch (error) {
       return next(error);
     }

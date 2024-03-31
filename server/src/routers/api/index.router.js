@@ -3,7 +3,7 @@ import commentsRouter from "./comments.router.api.js";
 import ordersRouter from "./order.router.js";
 // import { fork } from "child_process";
 import productsRouter from "./products.router.js";
-import sessionsRouter from "./sessions.router.api.js";
+import sessionsRouter from "./sessions.router.js";
 import usersRouter from "./users.router.js";
 
 class ApiRouter extends CustomRouter {

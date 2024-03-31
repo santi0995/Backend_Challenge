@@ -54,9 +54,9 @@ class SessionsRouter extends CustomRouter {
       github
     );
 
-    // this.create("/", ["USER", "ADMIN", "PREM"], me);
+    this.create("/", ["USER", "ADMIN", "PREM"], passCallBackMid("jwt"),me);
 
-    this.create("/signout", passCallBackMid("jwt"), signout);
+    this.create("/signout", ["USER", "ADMIN", "PREM"], signout);
 
     this.read("/badauth", ["PUBLIC"], badauth);
     this.create("/verify", ["PUBLIC"], verifyAccount)
