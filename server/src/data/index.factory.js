@@ -11,6 +11,13 @@ switch (environment) {
     dao = { products: productsMemory }
     break;
   case "dev":
+    // dbConnection()
+    //   .then(() => console.log("MONGO CONNECTED DEV"))
+    // const { default: productsMongoDev } = await import("./mongo/products.mongo.js")
+    // const { default: usersMongoDev } = await import("./mongo/users.mongo.js")
+    // const { default: ordersMongoDev } = await import("./mongo/orders.mongo.js")
+    // const { default: commentsMongoDev } = await import("./mongo/comments.mongo.js")
+    // dao = { products: productsMongoDev, users: usersMongoDev, orders: ordersMongoDev, comments: commentsMongoDev }
     console.log("FS CONNECTED");
     const { default: productsFs } = await import("./fs/ProductManager.fs.js")
     const { default: usersFs } = await import("./fs/UserManager.fs.js")

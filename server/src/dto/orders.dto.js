@@ -6,7 +6,7 @@ class OrderDTO {
     argsUtil.env !== "prod" &&
       (this._id = crypto.randomBytes(12).toString("hex"));
     this.user_id = data.user_id;
-    this.event_id = data.event_id;
+    this.product_id = data.product_id;
     this.quantity = data.quantity || 1;
     this.state = data.state || "reserved";
     argsUtil.env !== "prod" && (this.updatedAt = new Date());

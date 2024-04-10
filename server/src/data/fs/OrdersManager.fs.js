@@ -18,17 +18,11 @@ class OrdersManager {
       if (user.id !== uid) {
         return error("There is no coincidence with any user")
       }
-      const order = {
-        id: crypto.randomBytes(12).toString("hex"),
-        product_id: data.pid,
-        user_id: data.uid,
-        quantity: data.quantity,
-        state: data.state,
-      };
-      orders.push(order);
+
+      orders.push(data);
       const jsonData = JSON.stringify(orders, null, 2);
       await fs.promises.writeFile(ruta, jsonData);
-      return order;
+      return data;
     } catch (error) {
       return error.message;
     }

@@ -12,17 +12,11 @@ class UserManagerFs {
       const existingData = await fs.promises.readFile(ruta, 'utf-8');
       const users = JSON.parse(existingData);
 
-        const user = {
-          id: crypto.randomBytes(12).toString("hex"),
-          name: data.name,
-          photo: data.photo,
-          email: data.email,
-        };
-        users.push(user);
+        users.push(data);
         const jsonData = JSON.stringify(users, null, 2);
         await fs.promises.writeFile(ruta, jsonData);
 
-        return user;
+        return data;
 
     } catch (error) {
       return error.message;

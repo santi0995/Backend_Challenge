@@ -8,6 +8,7 @@ import UserDTO from '../dto/users.dto.js';
 import { createToken } from "../utils/token.util.js";
 import dao from "../data/index.factory.js";
 import envUtils from "../utils/env.utils.js";
+import errors from "../utils/errors/errors.js";
 import passport from "passport";
 
 const { users } = dao
@@ -23,10 +24,7 @@ passport.use(
       try {
         let one = await users.readByEmail(email);
         if (one) {
-          return done(null, false, {
-            message: "Already exists",
-            statusCode: 400,
-          });
+          return done(null, false, errors.register);
         } else {
           let data = req.body;
           data.password = createHash(password);
@@ -52,7 +50,7 @@ passport.use(
           req.token = createToken({ email, role: user.role });
           return done(null, user);
         } else {
-          return done(null, false, { messages: "Bad auth from passport cb" });
+          return done(null, false, errors.auth);
         }
       } catch (error) {
         return done(error);
@@ -143,7 +141,7 @@ passport.use(
           user.password = null;
           return done(null, user);
         } else {
-          return done(null, false);
+          return done(null, false, errors.forbidden);
         }
       } catch (error) {
         return done(error);

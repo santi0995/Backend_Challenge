@@ -1,5 +1,6 @@
 import { Server } from "socket.io";
 import __dirname from "./utils.js";
+import compression from "express-compression"
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import { createServer } from "http";
@@ -32,6 +33,9 @@ server.set("views", __dirname + "/src/views");
 
 //middlewares
 server.use(cookieParser(env.SECRET_KEY));
+server.use(compression({
+  brotli: {enabled: true, zlib:{}}
+}))
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 server.use(express.static(__dirname + "/public"));
