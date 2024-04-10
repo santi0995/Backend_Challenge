@@ -51,7 +51,7 @@ class UsersController {
       const { email } = req.params;
       const one = await this.service.readByEmail(email);
       if (typeof one !== "string") {
-        return res.res.success200(one);
+        return res.success200(one);
       }
     } catch (error) {
       return next(error);

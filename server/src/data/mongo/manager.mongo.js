@@ -1,5 +1,6 @@
+import CustomError from "../../utils/errors/CustomError.js";
 import { Types } from "mongoose";
-import notFoundOne from "../../utils/notFoundOne.utils.js";
+import errors from "../../utils/errors/errors.js";
 
 class MongoManager {
   constructor(model) {
@@ -18,9 +19,7 @@ class MongoManager {
       options = { ...options, lean: true };
       const all = await this.model.paginate(filter, options);
       if (all.totalDocs === 0) {
-        const error = new Error("There aren't any document");
-        error.statusCode = 404;
-        throw error;
+        CustomError.new(errors.notFound)
       }
       return all;
     } catch (error) {
@@ -71,8 +70,8 @@ class MongoManager {
   }
   async readOne(id) {
     try {
-      const one = await this.model.findById(id);
-      notFoundOne(one);
+      const one = await this.model.findById(id).lean();
+      CustomError.new(errors.notFound)
       return one;
     } catch (error) {
       throw error;
@@ -82,7 +81,7 @@ class MongoManager {
     try {
       const opt = { new: true };
       const one = await this.model.findByIdAndUpdate(id, data, opt);
-      notFoundOne(one);
+      CustomError.new(errors.notFound);
       return one;
     } catch (error) {
       throw error;
@@ -91,7 +90,7 @@ class MongoManager {
   async destroy(id) {
     try {
       const one = await this.model.findByIdAndDelete(id);
-      notFoundOne(one);
+      CustomError.new(errors.notFound);
       return one;
     } catch (error) {
       throw error;

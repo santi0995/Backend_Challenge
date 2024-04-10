@@ -6,9 +6,12 @@ import { Strategy as GoogleStrategy } from "passport-google-oauth2";
 import { Strategy as LocalStrategy } from "passport-local";
 import UserDTO from '../dto/users.dto.js';
 import { createToken } from "../utils/token.util.js";
+import dao from "../data/index.factory.js";
 import envUtils from "../utils/env.utils.js";
+import errors from "../utils/errors/errors.js";
 import passport from "passport";
-import repository from "../repositories/users.rep.js";
+
+const { users } = dao
 
 const { GOOGLE_ID, GOOGLE_CLIENT, GITHUB_CLIENT, GITHUB_ID, SECRET } =
   envUtils;
@@ -19,17 +22,14 @@ passport.use(
     { passReqToCallback: true, usernameField: "email" },
     async (req, email, password, done) => {
       try {
-        let one = await repository.readByEmail(email);
+        let one = await users.readByEmail(email);
         if (one) {
-          return done(null, false, {
-            message: "Already exists",
-            statusCode: 400,
-          });
+          return done(null, false, errors.register);
         } else {
           let data = req.body;
           data.password = createHash(password);
           data = new UserDTO(data)
-          let user = await repository.create(data);
+          let user = await users.create(data);
           return done(null, user);
         }
       } catch (error) {
@@ -44,13 +44,13 @@ passport.use(
     { passReqToCallback: true, usernameField: "email" },
     async (req, email, password, done) => {
       try {
-        const user = await repository.readByEmail(email);
+        const user = await users.readByEmail(email);
         const verify = verifyHash(password, user.password)
         if (user?.verified  && verify) {
-          req.token = createToken({ _id: user._id, role: user.role });
+          req.token = createToken({ email, role: user.role });
           return done(null, user);
         } else {
-          return done(null, false, { messages: "Bad auth from passport cb" });
+          return done(null, false, errors.auth);
         }
       } catch (error) {
         return done(error);
@@ -70,7 +70,7 @@ passport.use(
     },
     async (req, accessToken, refreshToken, profile, done) => {
       try {
-        let user = await repository.readByEmail(profile.id);
+        let user = await users.readByEmail(profile.id);
         if (user) {
           req.session.email = profile.id;
           req.session.role = user.role;
@@ -105,7 +105,7 @@ passport.use(
     },
     async (req, accessToken, refreshToken, profile, done) => {
       try {
-        let user = await repository.readByEmail(profile.id + "@github.com");
+        let user = await users.readByEmail(profile.id + "@github.com");
         if (!user) {
           user = {
             email: profile.id + "@github.com",
@@ -136,12 +136,12 @@ passport.use(
     },
     async (payload, done) => {
       try {
-        const user = await repository.readByEmail(payload.email);
+        const user = payload
         if (user) {
           user.password = null;
           return done(null, user);
         } else {
-          return done(null, false);
+          return done(null, false, errors.forbidden);
         }
       } catch (error) {
         return done(error);

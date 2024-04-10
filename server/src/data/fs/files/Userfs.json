@@ -1,6 +1,122 @@
 [
   {
-    "id": "2b80d4056bd238a37c4d4e15",
-    "name": "dsdscv sfvs"
+    "_id": "cc2c8b218ebe71eb7da72d0d",
+    "email": "kelvintorp13@coder.com",
+    "password": "hola1234",
+    "name": "Weldon",
+    "age": 18,
+    "role": 0,
+    "verified": false,
+    "verifiedCode": "szWLmjoXhm198c7d",
+    "updatedAt": "2024-04-10T10:11:07.684Z",
+    "createdAt": "2024-04-10T10:11:07.684Z"
+  },
+  {
+    "_id": "cecc40f9ac38ba731a31743c",
+    "email": "shawngleichner1@coder.com",
+    "password": "hola1234",
+    "name": "Antoinette",
+    "age": 18,
+    "role": 0,
+    "verified": false,
+    "verifiedCode": "1zeELEPdy72+yIwa",
+    "updatedAt": "2024-04-10T10:11:35.515Z",
+    "createdAt": "2024-04-10T10:11:35.515Z"
+  },
+  {
+    "_id": "fc12bcac91bb209a8660db53",
+    "email": "jordibaumbach1@coder.com",
+    "password": "hola1234",
+    "name": "Mya",
+    "age": 18,
+    "role": 0,
+    "verified": false,
+    "verifiedCode": "lm4i/8VGfKCdpj0m",
+    "updatedAt": "2024-04-10T10:15:14.651Z",
+    "createdAt": "2024-04-10T10:15:14.651Z"
+  },
+  {
+    "_id": "cfa6c7c8957a29862fabdfa7",
+    "email": "mariamills2d@coder.com",
+    "password": "hola1234",
+    "name": "Wilson",
+    "age": 18,
+    "role": 0,
+    "verified": false,
+    "verifiedCode": "UB7xEQ3lU9M+ViF6",
+    "updatedAt": "2024-04-10T10:16:05.853Z",
+    "createdAt": "2024-04-10T10:16:05.853Z"
+  },
+  {
+    "_id": "2917b520e89c9cb27af40830",
+    "email": "dawnvon1c@coder.com",
+    "password": "hola1234",
+    "name": "Elian",
+    "age": 18,
+    "role": 0,
+    "verified": false,
+    "verifiedCode": "I1bOrKlUwmHE4v2r",
+    "updatedAt": "2024-04-10T10:26:07.103Z",
+    "createdAt": "2024-04-10T10:26:07.103Z"
+  },
+  {
+    "_id": "ca495d5646f21f852c89b76d",
+    "email": "herminiacronin12@coder.com",
+    "password": "hola1234",
+    "name": "Aimee",
+    "age": 18,
+    "role": 0,
+    "verified": false,
+    "verifiedCode": "sB9U13cYnuBxe2dK",
+    "updatedAt": "2024-04-10T10:26:27.154Z",
+    "createdAt": "2024-04-10T10:26:27.154Z"
+  },
+  {
+    "_id": "e140673b41abfe2cd985ad32",
+    "email": "kasandramarquardt3c@coder.com",
+    "password": "hola1234",
+    "name": "Ona",
+    "age": 18,
+    "role": 0,
+    "verified": false,
+    "verifiedCode": "sGleQfDmCx/CdAZf",
+    "updatedAt": "2024-04-10T10:27:19.860Z",
+    "createdAt": "2024-04-10T10:27:19.860Z"
+  },
+  {
+    "_id": "94f845e42a63ee80d63e5fc9",
+    "email": "estefaniagraham1@coder.com",
+    "password": "hola1234",
+    "name": "Sammie",
+    "age": 18,
+    "role": 0,
+    "verified": false,
+    "verifiedCode": "XamcX+Yhqz9SrXGZ",
+    "updatedAt": "2024-04-10T10:28:27.003Z",
+    "createdAt": "2024-04-10T10:28:27.003Z"
+  },
+  {
+    "_id": "8e7fbfac1fd1a46ac1b16229",
+    "email": "pierrerunolfsson15@coder.com",
+    "password": "hola1234",
+    "name": "Antwan",
+    "age": 18,
+    "role": 0,
+    "verified": false,
+    "verifiedCode": "tyfcKSYvs8kz5nw/",
+    "updatedAt": "2024-04-10T10:28:32.989Z",
+    "createdAt": "2024-04-10T10:28:32.989Z"
+  },
+  {
+    "_id": "28e651b5c95e3b3a30fbf61a",
+    "email": "arnulfodoyle22@coder.com",
+    "password": "hola1234",
+    "name": "Josh",
+    "age": 18,
+    "role": 0,
+    "verified": false,
+    "verifiedCode": "1toCbk01KSHTwiXc",
+    "updatedAt": "2024-04-10T10:28:47.892Z",
+    "createdAt": "2024-04-10T10:28:47.892Z"
   }
 ]

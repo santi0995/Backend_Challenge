@@ -6,9 +6,9 @@ import sessionsRouter from "./sessions.view.js";
 
 class ViewsRouter extends CustomRouter {
   init() {
-    this.use("/products", productsRouter);
-    this.use("/orders", ordersRouter);
-    this.use("/sessions", sessionsRouter);
+    this.router.use("/products", productsRouter);
+    this.router.use("/orders", ordersRouter);
+    this.router.use("/sessions", sessionsRouter);
     this.read("/", ["PUBLIC"], async (req, res, next) => {
       try {
         const options = {
