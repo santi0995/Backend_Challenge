@@ -1,11 +1,11 @@
-import winstonUtils from "../utils/winston.utils.js";
+import logger from "../utils/logger/index.js";
 
 export default (error, req, res, next) => {
   if(!error.statusCode || error.statusCode === 500){
     error.statusCode = 500
-    winstonUtils.ERROR(error.message)
+    logger.ERROR(error.message)
   } else {
-    winstonUtils.WARN(error.message);
+    logger.WARN(error.message);
   }
     return res.json({
       statusCode: error.statusCode || 500,

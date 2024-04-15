@@ -1,9 +1,9 @@
 import CustomRouter from "../CustomRouter.js";
 import { Router } from "express";
+import logger from "../../utils/logger/index.js";
 import orders from "../../data/mongo/orders.mongo.js"
 import passCallBack from "../../middlewares/passCallBack.mid.js";
 import users from "../../data/mongo/users.mongo.js"
-import winstonUtils from "../../utils/winston.utils.js";
 
 class OrdersRouter extends CustomRouter{
   init(){
@@ -20,7 +20,7 @@ class OrdersRouter extends CustomRouter{
           user_id: user._id,
         };
         const all = await orders.read({ filter, options });
-        winstonUtils.INFO(JSON.stringify(all.docs[0].event_id));
+        logger.INFO(JSON.stringify(all.docs[0].event_id));
         return res.render("orders", { title: "MY CART", orders: all.docs });
       } catch (error) {
         return res.render("orders", {

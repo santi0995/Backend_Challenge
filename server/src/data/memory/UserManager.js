@@ -1,3 +1,5 @@
+import CustomError from "../../utils/errors/CustomError.js";
+import errors from "../../utils/errors/errors.js";
 import winstonUtils from "../../utils/winston.utils.js";
 
 class UserManager {
@@ -17,7 +19,7 @@ class UserManager {
       UserManager.#users.push({id,...data});
       return user;
     } else {
-      throw new Error("Datos faltantes");
+      CustomError.new(errors.missingData)
     }
   }
 
@@ -28,7 +30,7 @@ class UserManager {
   readOne(id) {
     const idExist = UserManager.#users.find((user) => user.id == Number(id));
     if (!idExist) {
-      throw new Error("No existe el id");
+      CustomError.new(errors.notFound)
     } else {
       return idExist;
     }

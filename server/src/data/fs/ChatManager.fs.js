@@ -1,3 +1,5 @@
+import CustomError from "../../utils/errors/CustomError.js";
+import errors from "../../utils/errors/errors.js";
 import fs from "fs";
 const ruta = "./src/data/fs/files/Chatfs.json";
 const config = "utf-8";
@@ -30,7 +32,7 @@ class ChatManagerFs {
       const contenidoparseado = JSON.parse(contenidoLeido);
       const ultimosDiez = contenidoparseado.slice(-10);
       if (contenidoparseado.length === 0) {
-        throw new Error("not found!");
+        CustomError.new(errors.notFound)
       } 
       return ultimosDiez;
     } catch (error) {

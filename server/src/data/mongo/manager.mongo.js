@@ -1,7 +1,7 @@
 import CustomError from "../../utils/errors/CustomError.js";
 import { Types } from "mongoose";
 import errors from "../../utils/errors/errors.js";
-import winstonUtils from "../../utils/logger/winston.utils.js";
+import logger from "../../utils/logger/index.js";
 
 class MongoManager {
   constructor(model) {
@@ -98,7 +98,7 @@ class MongoManager {
   async stats(filter) {
     try {
       let stats = await this.find(filter).explain("executionsStats");
-      winstonUtils.INFO(JSON.stringify(stats));
+      logger.INFO(JSON.stringify(stats));
       stats = {
         quantity: stats.executionStats.nReturned,
         time: stats.executionStats.executionTimeMills,

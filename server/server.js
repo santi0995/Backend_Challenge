@@ -8,17 +8,17 @@ import { engine } from "express-handlebars";
 import env from "./src/utils/env.utils.js";
 import errorHandler from "./src/middlewares/errorHandler.mid.js";
 import express from "express";
+import logger from "./src/utils/logger/index.js";
 import morgan from "morgan";
 import pathHandler from "./src/middlewares/pathhandler.mid.js";
 import router from "./src/routers/index.router.js";
 import socketUtils from "./src/utils/socket.utils.js";
 import winston from "./src/middlewares/winston.mid.js";
-import winstonUtils from "./src/utils/winston.utils.js";
 
 const server = express();
 const PORT = env.PORT || 8080;
 const cbReady = () => {
-  winstonUtils.INFO("server ready on port " + PORT);
+  logger.INFO("server ready on port " + PORT);
 };
 
 const httpServer = createServer(server);

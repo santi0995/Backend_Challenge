@@ -1,7 +1,8 @@
-import crypto from "crypto";
+import CustomError from "../../utils/errors/CustomError.js";
+import errors from "../../utils/errors/errors.js";
 import fs from "fs";
+import logger from "../../utils/logger/index.js";
 import user from "./UserManager.fs.js"
-import winstonUtils from "../../utils/logger/winston.utils.js";
 const ruta = "./src/data/fs/files/Ordersfs.json"
 const config = "utf-8";
 
@@ -17,7 +18,7 @@ class OrdersManager {
       const orders = JSON.parse(existingData);
 
       if (user.id !== uid) {
-        return error("There is no coincidence with any user")
+        CustomError.new(errors.notFound)
       }
 
       orders.push(data);
@@ -36,7 +37,7 @@ class OrdersManager {
       const contenidoLeido = fs.readFileSync(ruta, config);
       const contenidoparseado = JSON.parse(contenidoLeido);
       if (contenidoparseado.length === 0) {
-        throw new Error("not found!");
+        CustomError.new(errors.notFound)
       }
       return contenidoparseado;
     } catch (error) {
@@ -50,7 +51,7 @@ class OrdersManager {
       const contenidoparseado = JSON.parse(contenidoLeido);
       const idExist = contenidoparseado.find((order) => order.id === id);
       if (!idExist) {
-        throw new Error("not found!");
+        CustomError.new(errors.notFound)
       } else {
         return idExist;
       }
@@ -70,7 +71,7 @@ class OrdersManager {
         contenidoparseado = contenidoparseado.filter((each) => each.id !== id);
         const jsonData = JSON.stringify(contenidoparseado, null, 2);
         await fs.promises.writeFile(ruta, jsonData);
-        winstonUtils.INFO("deleted: " + JSON.stringify(id));
+        logger.INFO("deleted: " + JSON.stringify(id));
         return id;
       }
     } catch (error) {
@@ -103,11 +104,11 @@ class OrdersManager {
         orders.push(one);
         const jsonData = JSON.stringify(orders, null, 2);
         fs.writeFileSync(ruta, jsonData);
-        winstonUtils.INFO(JSON.stringify(one));
+        logger.INFO(JSON.stringify(one));
         return one;
       } 
     } catch (error) {
-      winstonUtils.WARN(error.message);
+      logger.WARN(error.message);
       return error.message;
     }
   }

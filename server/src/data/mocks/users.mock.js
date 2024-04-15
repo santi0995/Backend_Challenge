@@ -1,9 +1,9 @@
 import createOrder from "./orders.mock.js";
 import { faker } from "@faker-js/faker";
+import logger from "../../utils/logger/index.js";
 import { productsMock } from "./products.mock.js";
 import repository from "../../repositories/users.rep.js";
 import repositoryP from "../../repositories/products.rep.js";
-import winstonUtils from "../../utils/winston.utils.js";
 
 function usersMock() {
   return {
@@ -26,10 +26,10 @@ async function createUser() {
       await createOrder(user._id, product._id);
     }
   } catch (error) {
-    winstonUtils.WARN(error.message);
+    logger.WARN(error.message);
   }
 }
 for(let i=1; i<=1; i++){
 createUser();
 }
-winstonUtils.INFO("Data Mocked");
+logger.INFO("Data Mocked");

@@ -1,4 +1,6 @@
-import winstonUtils from "../../utils/winston.utils.js";
+import CustomError from "../../utils/errors/CustomError.js";
+import errors from "../../utils/errors/errors.js";
+import logger from "../../utils/logger/index.js";
 
 class OrderManager {
   static #orders = [];
@@ -19,7 +21,7 @@ class OrderManager {
       OrderManager.#orders.push({ id, ...data });
       return order;
     } else {
-      throw new Error("Datos faltantes");
+      CustomError.new(errors.missingData)
     }
   }
 
@@ -37,7 +39,7 @@ class OrderManager {
         (order) => order.id == Number(id)
       );
       if (!idExist) {
-        throw new Error("No existe el id");
+        CustomError.new(errors.notFound)
       } else {
         return idExist;
       }
@@ -51,10 +53,10 @@ class OrderManager {
       if (!one) {
         throw new Error("There isn't any order with id=" + id);
       } else {
-        POrderManager.#orders = OrderManager.#orders.filter(
+        OrderManager.#orders = OrderManager.#orders.filter(
           (each) => each.id !== id
         );
-        winstonUtils.INFO("deleted: " + JSON.stringify(id));
+        logger.INFO("deleted: " + JSON.stringify(id));
         return OrderManager.#orders
       }
     } catch (error) {
@@ -76,7 +78,7 @@ class OrderManager {
         return one;
       }
     } catch (error) {
-      winstonUtils.WARN(error.message);
+      logger.WARN(error.message);
       return error.message;
     }
   }

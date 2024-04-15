@@ -1,7 +1,7 @@
 import CustomError from "../../utils/errors/CustomError.js";
 import errors from "../../utils/errors/errors.js";
 import fs from "fs";
-import winstonUtils from "../../utils/logger/winston.utils.js";
+import logger from "../../utils/logger/index.js";
 const ruta = "./src/data/fs/files/Productfs.json";
 const config = "utf-8";
 
@@ -63,7 +63,7 @@ class ProductManagerFs {
         contenidoparseado = contenidoparseado.filter((each) => each._id !== id);
         const jsonData = JSON.stringify(contenidoparseado, null, 2);
         await fs.promises.writeFile(ruta, jsonData);
-        winstonUtils.INFO("deleted: " + JSON.stringify(id));
+        logger.INFO("deleted: " + JSON.stringify(id));
         return one;
       }
     } catch (error) {
