@@ -1,5 +1,6 @@
+import CustomError from "../../utils/errors/CustomError.js";
+import errors from "../../utils/errors/errors.js";
 import fs from "fs";
-import notFoundOne from "../../utils/notFoundOne.utils.js";
 
 class CommentsManager {
   init() {
@@ -36,9 +37,7 @@ class CommentsManager {
     //y la paginacion/orden
     try {
       if (this.comments.length === 0) {
-        const error = new Error("NOT FOUND!");
-        error.statusCode = 404;
-        throw error;
+        CustomError.new(errors.notFound)
       } else {
         return this.comments;
       }
@@ -50,9 +49,7 @@ class CommentsManager {
     try {
       const one = this.comments.find((each) => each._id === id);
       if (!one) {
-        const error = new Error("NOT FOUND!");
-        error.statusCode = 404;
-        throw error;
+        CustomError.new(errors.notFound)
       } else {
         return one;
       }
@@ -63,7 +60,7 @@ class CommentsManager {
   async update(eid, data) {
     try {
       const one = this.readOne(eid);
-      notFoundOne(one)
+      CustomError.new(errors.notFound)
       for (let each in data) {
         one[each] = data[each]
       }
@@ -77,7 +74,7 @@ class CommentsManager {
   async destroy(id) {
     try {
       const one = this.readOne(id);
-      notFoundOne(one)
+      CustomError.new(errors.notFound)
       this.comments = this.comments.filter((each) => each._id !== id);
       const jsonData = JSON.stringify(this.comments, null, 2);
       await fs.promises.writeFile(this.path, jsonData);

@@ -1,4 +1,6 @@
+import CustomError from "./errors/CustomError.js";
 import env from "./env.utils.js";
+import errors from "./errors/errors.js";
 import jwt from "jsonwebtoken";
 
 function createToken(data) {
@@ -16,9 +18,7 @@ function verifyToken(token) {
     //qué pasa si no verifica
     return data;
   }
-  const error = new Error("bad auth token");
-  error.statusCode = 401;
-  throw error;
+  CustomError.new(errors.token)
 }
 
 export { createToken, verifyToken };

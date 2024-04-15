@@ -8,12 +8,15 @@
     "start": "nodemon ./server.js",
     "dev": "nodemon ./server.js --env dev",
     "test": "nodemon ./server.js --env test",
-    "mocks": "node ./src/data/mocks/users.mock.js %% exit"
+    "mocks": "node ./src/data/mocks/users.mock.js %% exit",
+    "performance": "artillery run ./test/flow/flow.yaml --output ./test/flow/flow.json",
+    "report": "artillery report ./test/flow/flow.json"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "artillery-plugin-metrics-by-endpoint": "^1.3.0",
     "commander": "^12.0.0",
     "connect-mongo": "^5.1.0",
     "cookie-parser": "^1.4.6",
@@ -34,7 +37,8 @@
     "passport-google-oauth2": "^0.2.0",
     "passport-jwt": "^4.0.1",
     "session-file-store": "^1.5.0",
-    "socket.io": "^4.7.4"
+    "socket.io": "^4.7.4",
+    "winston": "^3.13.0"
   },
   "repository": {
     "type": "git",

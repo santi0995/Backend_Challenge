@@ -1,24 +1,25 @@
 import argsUtil from "../utils/args.utils.js"
 import dbConnection from "../utils/db.js";
+import winstonUtils from "../utils/logger/winston.utils.js";
 
 const environment = argsUtil.env
 let dao = {};
 
 switch (environment) {
   case "test":
-    console.log("MEMORY CONNECTED");
+    winstonUtils.INFO("MEMORY CONNECTED");
     const { default: productsMemory } = await import("./memory/ProductManager.js")
     dao = { products: productsMemory }
     break;
   case "dev":
     // dbConnection()
-    //   .then(() => console.log("MONGO CONNECTED DEV"))
+    //   .then(() => winstonUtils.INFO("MONGO CONNECTED DEV"))
     // const { default: productsMongoDev } = await import("./mongo/products.mongo.js")
     // const { default: usersMongoDev } = await import("./mongo/users.mongo.js")
     // const { default: ordersMongoDev } = await import("./mongo/orders.mongo.js")
     // const { default: commentsMongoDev } = await import("./mongo/comments.mongo.js")
     // dao = { products: productsMongoDev, users: usersMongoDev, orders: ordersMongoDev, comments: commentsMongoDev }
-    console.log("FS CONNECTED");
+    winstonUtils.INFO("FS CONNECTED");
     const { default: productsFs } = await import("./fs/ProductManager.fs.js")
     const { default: usersFs } = await import("./fs/UserManager.fs.js")
     const { default: ordersFs } = await import("./fs/OrdersManager.fs.js")
@@ -27,7 +28,7 @@ switch (environment) {
     break;
   case "prod":
     dbConnection()
-      .then(() => console.log("MONGO CONNECTED"))
+      .then(() => winstonUtils.INFO("MONGO CONNECTED"))
     const { default: productsMongo } = await import("./mongo/products.mongo.js")
     const { default: usersMongo } = await import("./mongo/users.mongo.js")
     const { default: ordersMongo } = await import("./mongo/orders.mongo.js")

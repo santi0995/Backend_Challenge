@@ -1,4 +1,5 @@
-import notFoundOne from "../../utils/notFoundOne.utils.js";
+import CustomError from "../../utils/errors/CustomError.js";
+import errors from "../../utils/errors/errors.js";
 
 class ProductManager {
   static #products = [];
@@ -19,7 +20,7 @@ class ProductManager {
       ProductManager.#products.push({ id, ...data });
       return product;
     } else {
-      throw new Error("Datos faltantes");
+      CustomError.new(errors.auth)
     }
   }
 
@@ -27,9 +28,7 @@ class ProductManager {
     //agregar filtros y demas 
     try {
       if(ProductManager.#products.length === 0){
-        const error = new Error("Not found")
-        error.statusCode = 404;
-        throw error
+        CustomError.new(errors.notFound)
        } else {
          return ProductManager.#products;
        }
@@ -44,7 +43,7 @@ class ProductManager {
         (prod) => prod.id == Number(id)
       );
       if (!idExist) {
-        throw new Error("No existe el id");
+        CustomError.new(errors.notFound)
       } else {
         return idExist;
       }
@@ -55,7 +54,7 @@ class ProductManager {
   destroy(id) {
     try {
       const one = this.readOne(id)
-      notFoundOne(one)
+      CustomError.new(errors.notFound)
       ProductManager.#products = ProductManager.#products.filter((each) = each.id !== id);
       return one
     } catch (error) {
@@ -65,7 +64,7 @@ class ProductManager {
   update (uid, data) {
     try {
       const one = this.readOne(uid);
-      notFoundOne(one)
+      CustomError.new(errors.notFound)
       for (let each in data) {
        one[each] = data[each]
       }

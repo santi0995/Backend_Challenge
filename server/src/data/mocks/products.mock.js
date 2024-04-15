@@ -1,5 +1,6 @@
 import { faker } from "@faker-js/faker";
 import repository from "../../repositories/products.rep.js"
+import winstonUtils from "../../utils/winston.utils.js";
 
 export function productsMock() {
     return {
@@ -12,5 +13,6 @@ export function productsMock() {
 
 export default async function createProduct() {
     await repository.create(productsMock())
-    // console.log("Product created!");
+    // winstonUtils.INFO("Product created!");
 }
+

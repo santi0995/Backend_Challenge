@@ -1,6 +1,7 @@
 import CustomError from "../../utils/errors/CustomError.js";
 import { Types } from "mongoose";
 import errors from "../../utils/errors/errors.js";
+import winstonUtils from "../../utils/logger/winston.utils.js";
 
 class MongoManager {
   constructor(model) {
@@ -18,11 +19,9 @@ class MongoManager {
     try {
       options = { ...options, lean: true };
       const all = await this.model.paginate(filter, options);
-      if (all.totalDocs === 0) {
-        CustomError.new(errors.notFound)
-      }
       return all;
     } catch (error) {
+      CustomError.new(errors.notFound)
       throw error;
     }
   }
@@ -62,7 +61,7 @@ class MongoManager {
   async readByEmail(email) {
     try {
       const one = await this.model.findOne({ email });
-      // notFoundOne(one);
+      CustomError.new(errors.notFound)
       return one;
     } catch (error) {
       throw error;
@@ -71,9 +70,9 @@ class MongoManager {
   async readOne(id) {
     try {
       const one = await this.model.findById(id).lean();
-      CustomError.new(errors.notFound)
       return one;
     } catch (error) {
+      CustomError.new(errors.notFound)
       throw error;
     }
   }
@@ -81,25 +80,25 @@ class MongoManager {
     try {
       const opt = { new: true };
       const one = await this.model.findByIdAndUpdate(id, data, opt);
-      CustomError.new(errors.notFound);
       return one;
     } catch (error) {
+      CustomError.new(errors.notFound);
       throw error;
     }
   }
   async destroy(id) {
     try {
       const one = await this.model.findByIdAndDelete(id);
-      CustomError.new(errors.notFound);
       return one;
     } catch (error) {
+      CustomError.new(errors.notFound);
       throw error;
     }
   }
   async stats(filter) {
     try {
       let stats = await this.find(filter).explain("executionsStats");
-      console.log(stats);
+      winstonUtils.INFO(JSON.stringify(stats));
       stats = {
         quantity: stats.executionStats.nReturned,
         time: stats.executionStats.executionTimeMills,

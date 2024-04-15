@@ -1,3 +1,5 @@
+import CustomError from "../utils/errors/CustomError.js";
+import errors from "../utils/errors/errors.js";
 import service from "../services/users.service.js";
 
 class UsersController {
@@ -32,6 +34,9 @@ class UsersController {
         options.sort.price = -1;
       }
       const all = await this.service.read({ filter, options });
+      if (all.totalDocs === 0) {
+        CustomError.new(errors.notFound)
+      }
       return res.success200(all);
     } catch (error) {
       return next(error);
@@ -41,7 +46,10 @@ class UsersController {
     try {
       const { uid } = req.params;
       const one = await this.service.readOne(uid);
-      return res.success200(one);
+      if (one) {
+        return res.success200(one);
+      }
+      CustomError.new(errors.notFound)
     } catch (error) {
       return next(error);
     }
@@ -50,9 +58,10 @@ class UsersController {
     try {
       const { email } = req.params;
       const one = await this.service.readByEmail(email);
-      if (typeof one !== "string") {
+      if (one) {
         return res.success200(one);
       }
+      CustomError.new(errors.notFound)
     } catch (error) {
       return next(error);
     }
@@ -61,7 +70,10 @@ class UsersController {
     try {
       const { uid } = req.params;
       const response = await this.service.update(uid, data);
-      return res.success200(response);
+      if (response) {
+        return res.success200(response);
+      }
+      CustomError.new(errors.notFound)
     } catch (error) {
       return next(error);
     }
@@ -70,7 +82,10 @@ class UsersController {
     try {
       const { uid } = req.params;
       const response = await this.service.destroy(uid);
-      return res.success200(response);
+      if (response) {
+        return res.success200(response);
+      }
+      CustomError.new(errors.notFound)
     } catch (error) {
       return next(error);
     }

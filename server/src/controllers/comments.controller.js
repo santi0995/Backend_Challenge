@@ -1,3 +1,5 @@
+import CustomError from "../utils/errors/CustomError.js";
+import errors from "../utils/errors/errors.js";
 import service from "../services/comments.service.js";
 
 class CommentsController {
@@ -20,7 +22,10 @@ class CommentsController {
       const filter = {};
       const options = {};
       const all = await this.service.read({ filter, options });
-      return res.success200(all);
+      if (all.docs.lenght > 0) {
+        return res.success200(all);
+      }
+      CustomError.new(errors.notFound)
     } catch (error) {
       return next(error);
     }
@@ -29,7 +34,10 @@ class CommentsController {
     try {
       const { cid } = req.params;
       const one = await this.service.readOne(cid);
-      return res.success200(one);
+      if (one) {
+        return res.success200(one);
+      }
+      CustomError.new(errors.notFound)
     } catch (error) {
       return next(error);
     }
@@ -39,7 +47,10 @@ class CommentsController {
       const { cid } = req.params;
       const data = req.body;
       const one = await this.service.update(cid, data);
-      return res.success200(one);
+      if (one) {
+        return res.success200(one);
+      }
+      CustomError.new(errors.notFound)
     } catch (error) {
       return next(error);
     }
@@ -48,7 +59,10 @@ class CommentsController {
     try {
       const { cid } = req.params;
       const one = await this.service.destroy(cid);
-      return res.success200(one);
+      if (one) {
+        return res.success200(one);
+      }
+      CustomError.new(errors.notFound)
     } catch (error) {
       return next(error);
     }

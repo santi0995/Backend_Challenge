@@ -1,6 +1,7 @@
 import crypto from "crypto";
 import fs from "fs";
 import user from "./UserManager.fs.js"
+import winstonUtils from "../../utils/logger/winston.utils.js";
 const ruta = "./src/data/fs/files/Ordersfs.json"
 const config = "utf-8";
 
@@ -69,7 +70,7 @@ class OrdersManager {
         contenidoparseado = contenidoparseado.filter((each) => each.id !== id);
         const jsonData = JSON.stringify(contenidoparseado, null, 2);
         await fs.promises.writeFile(ruta, jsonData);
-        console.log("deleted: " + id);
+        winstonUtils.INFO("deleted: " + JSON.stringify(id));
         return id;
       }
     } catch (error) {
@@ -102,11 +103,11 @@ class OrdersManager {
         orders.push(one);
         const jsonData = JSON.stringify(orders, null, 2);
         fs.writeFileSync(ruta, jsonData);
-        console.log(one);
+        winstonUtils.INFO(JSON.stringify(one));
         return one;
       } 
     } catch (error) {
-      console.log(error.message);
+      winstonUtils.WARN(error.message);
       return error.message;
     }
   }

@@ -1,5 +1,6 @@
 import { faker } from "@faker-js/faker";
 import repository from "../../repositories/orders.rep.js";
+import winstonUtils from "../../utils/winston.utils.js";
 
 function ordersMock(user_id, product_id) {
   return {
@@ -14,8 +15,8 @@ export default async function createOrder(user_id, product_id) {
   try {
     const data = ordersMock(user_id, product_id)
     await repository.create(data)
-    // console.log("Order created!");
+    // winstonUtils.INFO("Order created!");
   } catch (error) {
-    console.log(error);
+    winstonUtils.WARN(error.message);
   }
 }

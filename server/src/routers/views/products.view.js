@@ -1,5 +1,4 @@
 import CustomRouter from "../CustomRouter.js";
-import isAdmin from "../../middlewares/isAdmin.mid.js";
 import passCallBack from "../../middlewares/passCallBack.mid.js";
 import products from "../../data/mongo/products.mongo.js";
 
@@ -9,7 +8,7 @@ class ProductsRouter extends CustomRouter {
       "/real",
        ["ADMIN"],
       // passCallBack("jwt"),
-      // isAdmin,
+
        (req, res, next) => {
         try {
           return res.render("real", { title: "REAL" });
@@ -23,7 +22,7 @@ class ProductsRouter extends CustomRouter {
       "/form",
       ["ADMIN", "PREM"],
       passCallBack("jwt"),
-      isAdmin,
+
       async (req, res, next) => {
         try {
           return res.render("form");
@@ -33,7 +32,7 @@ class ProductsRouter extends CustomRouter {
       }
     );
 
-    this.read("/:pid", passCallBack("jwt"), isAdmin, async (req, res, next) => {
+    this.read("/:pid", passCallBack("jwt"), async (req, res, next) => {
       try {
         const { pid } = req.params;
         const one = await products.readOne(pid);

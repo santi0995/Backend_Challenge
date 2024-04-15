@@ -3,6 +3,7 @@ import { Router } from "express";
 import orders from "../../data/mongo/orders.mongo.js"
 import passCallBack from "../../middlewares/passCallBack.mid.js";
 import users from "../../data/mongo/users.mongo.js"
+import winstonUtils from "../../utils/winston.utils.js";
 
 class OrdersRouter extends CustomRouter{
   init(){
@@ -19,7 +20,7 @@ class OrdersRouter extends CustomRouter{
           user_id: user._id,
         };
         const all = await orders.read({ filter, options });
-        console.log(all.docs[0].event_id);
+        winstonUtils.INFO(JSON.stringify(all.docs[0].event_id));
         return res.render("orders", { title: "MY CART", orders: all.docs });
       } catch (error) {
         return res.render("orders", {

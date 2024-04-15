@@ -1,3 +1,4 @@
+import winstonUtils from "../../utils/winston.utils.js";
 
 class UserManager {
   static #users = [];
@@ -39,7 +40,7 @@ class UserManager {
         throw new Error("There isn't any user with id=" + id);
       } else{
         UserManager.#users = UserManager.#users.filter((each) => each.id !==id)
-        console.log("deleted: " + id);
+        winstonUtils.INFO("deleted: " + JSON.stringify(id));
         return UserManager.#users
       }
     } catch (error) {
@@ -61,7 +62,7 @@ class UserManager {
         return one;
       }
     } catch (error) {
-      console.log(error.message);
+      winstonUtils.WARN(error.message);
       return error.message;
     }
   }
@@ -83,7 +84,6 @@ user.create({
 
 
 user.updateUser("panchi", "png", "panchi2@hotmail.com", "1")
-console.log(user.read());
 
 
 

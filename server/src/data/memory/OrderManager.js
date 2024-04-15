@@ -1,3 +1,5 @@
+import winstonUtils from "../../utils/winston.utils.js";
+
 class OrderManager {
   static #orders = [];
   constructor() {}
@@ -52,7 +54,7 @@ class OrderManager {
         POrderManager.#orders = OrderManager.#orders.filter(
           (each) => each.id !== id
         );
-        console.log("deleted: " + id);
+        winstonUtils.INFO("deleted: " + JSON.stringify(id));
         return OrderManager.#orders
       }
     } catch (error) {
@@ -74,7 +76,7 @@ class OrderManager {
         return one;
       }
     } catch (error) {
-      console.log(error.message);
+      winstonUtils.WARN(error.message);
       return error.message;
     }
   }

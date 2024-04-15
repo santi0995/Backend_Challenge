@@ -1,3 +1,5 @@
+import CustomError from "../utils/errors/CustomError.js";
+import errors from "../utils/errors/errors.js";
 import service from "../services/users.service.js";
 
 class SessionsController {
@@ -46,7 +48,7 @@ class SessionsController {
   me = async (req, res, next) => {
     try {
       if (!req.user) {
-        throw new Error('User is not authenticated');
+        CustomError.new(errors.auth)
       }
       const user = {
         email: req.user.email,
@@ -81,7 +83,7 @@ class SessionsController {
         await service.update(user._id, { verified: true });
         return res.success200("Verified user!");
       } else {
-        return res.error400("Invalid verified Token");
+        CustomError.new(errors.token)
       }
     } catch (error) {
       return next(error);

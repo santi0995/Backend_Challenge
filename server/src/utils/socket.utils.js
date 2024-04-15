@@ -2,10 +2,11 @@ import chat from "../data/fs/ChatManager.fs.js";
 import product from "../data/fs/ProductManager.fs.js";
 import propsProductsUtils from "./propsProducts.utils.js";
 import { socketServer } from "../../server.js";
+import winstonUtils from "./winston.utils.js";
 
 // const messages = [];
 export default (socket) => {
-  console.log("connected id:" + socket.id);
+  winstonUtils.INFO("connected id:" + JSON.stringify(socket.id));
   socket.on("user", () => {
     socket.emit("all", chat.read());
   });
@@ -16,17 +17,17 @@ export default (socket) => {
       await product.create(data);
       socketServer.emit("products", product.read());
     } catch (error) {
-      console.log(error);
+      winstonUtils.WARN(error.message);
     }
   });
-// socket.emit("all", messages);
+  // socket.emit("all", messages);
   socket.on("new chat", async (data) => {
     try {
       await chat.create(data);
       // messages.push(data);
       socketServer.emit("all", chat.read());
     } catch (error) {
-      console.log(error);
+      winstonUtils.WARN(error.message);
     }
   });
 
@@ -35,7 +36,8 @@ export default (socket) => {
   //     await user.create(data);
   //     socket.emit("new sucess", "well done!")
   //   } catch (error) {
-  //       console.log(error);
+  //             winstonUtils.WARN(error.message);
+
   //   }
   // });
 };

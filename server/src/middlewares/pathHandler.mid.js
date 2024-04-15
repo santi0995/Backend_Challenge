@@ -1,5 +1,7 @@
+import winstonUtils from "../utils/winston.utils.js";
+
 export default (req, res, next) => {
-    console.error(`${req.method} ${req.url} not found endpoint`);
+    winstonUtils.WARN(`${req.method} ${req.url} not found endpoint`);
     return res.json({
       statusCode: 404,
       url: `${req.method} ${req.url}`,

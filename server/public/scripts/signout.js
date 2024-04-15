@@ -1,3 +1,4 @@
+
 fetch("/api/sessions/", { method: "POST" })
   .then((res) => res.json())
   .then((res) => {
@@ -13,14 +14,13 @@ fetch("/api/sessions/", { method: "POST" })
           };
           let response = await fetch("/api/sessions/signout", opts);
           response = await response.json();
-          console.log(response);
           if (response.statusCode === 200) {
             alert(response.response);
             localStorage.removeItem("token");
             location.replace("/");
           }
         } catch (error) {
-          console.log(error);
+          alert(error)
         }
       });
     } else {

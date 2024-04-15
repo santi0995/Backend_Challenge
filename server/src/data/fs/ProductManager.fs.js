@@ -1,5 +1,7 @@
+import CustomError from "../../utils/errors/CustomError.js";
+import errors from "../../utils/errors/errors.js";
 import fs from "fs";
-import notFoundOne from "../../utils/notFoundOne.utils.js";
+import winstonUtils from "../../utils/logger/winston.utils.js";
 const ruta = "./src/data/fs/files/Productfs.json";
 const config = "utf-8";
 
@@ -27,9 +29,7 @@ class ProductManagerFs {
       const contenidoLeido = fs.readFileSync(ruta, config);
       const contenidoparseado = JSON.parse(contenidoLeido);
       if (contenidoparseado.length === 0) {
-        const error = new Error("There aren't any document");
-        error.statusCode = 404;
-        throw error;
+        CustomError.new(errors.notFound);
       }
       return contenidoparseado;
     } catch (error) {
@@ -43,7 +43,7 @@ class ProductManagerFs {
       const contenidoparseado = JSON.parse(contenidoLeido);
       const idExist = contenidoparseado.find((prod) => prod._id === id);
       if (!idExist) {
-        throw new Error("not found!");
+        CustomError.new(errors.notFound);
       } else {
         return idExist;
       }
@@ -58,12 +58,12 @@ class ProductManagerFs {
       let contenidoparseado = JSON.parse(contenidoLeido);
       let one = contenidoparseado.find((each) => each.id === id);
       if (!one) {
-        throw new Error("There isn't any product with id: " + id);
+        CustomError.new(errors.notFound);
       } else {
         contenidoparseado = contenidoparseado.filter((each) => each._id !== id);
         const jsonData = JSON.stringify(contenidoparseado, null, 2);
         await fs.promises.writeFile(ruta, jsonData);
-        console.log("deleted: " + id);
+        winstonUtils.INFO("deleted: " + JSON.stringify(id));
         return one;
       }
     } catch (error) {
@@ -79,24 +79,23 @@ class ProductManagerFs {
     }
   }
 
-  async update( pid, data ) {
+  async update(pid, data) {
     const existingData = await fs.promises.readFile(ruta, "utf-8");
     const products = JSON.parse(existingData);
 
     try {
       const one = this.readOne(pid);
-      notFoundOne(one)
-      
-      for(let each in data){
-        one[each] = data[each]
+      CustomError.new(errors.notFound);
+
+      for (let each in data) {
+        one[each] = data[each];
       }
-        const jsonData = JSON.stringify(products, null, 2);
-        fs.writeFileSync(ruta, jsonData);
-        console.log(one);
-        return one;
-      
+      const jsonData = JSON.stringify(products, null, 2);
+      fs.writeFileSync(ruta, jsonData);
+      winstonUtils.INFO(JSON.stringify(one));
+      return one;
     } catch (error) {
-      console.log(error.message);
+      winstonUtils.WARN(error.message);
       return error.message;
     }
   }

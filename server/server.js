@@ -12,11 +12,13 @@ import morgan from "morgan";
 import pathHandler from "./src/middlewares/pathhandler.mid.js";
 import router from "./src/routers/index.router.js";
 import socketUtils from "./src/utils/socket.utils.js";
+import winston from "./src/middlewares/winston.mid.js";
+import winstonUtils from "./src/utils/winston.utils.js";
 
 const server = express();
 const PORT = env.PORT || 8080;
 const cbReady = () => {
-  console.log("server ready on port " + PORT);
+  winstonUtils.INFO("server ready on port " + PORT);
 };
 
 const httpServer = createServer(server);
@@ -80,6 +82,7 @@ server.use(
 // }))
 
 server.use(morgan("dev"));
+server.use(winston)
 server.use("/", router);
 server.use(errorHandler);
 server.use(pathHandler);

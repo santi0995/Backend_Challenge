@@ -1,3 +1,5 @@
+import CustomError from "../utils/errors/CustomError.js";
+import errors from "../utils/errors/errors.js";
 import service from "../services/products.service.js"
 
 class ProductsController {
@@ -32,6 +34,9 @@ class ProductsController {
         options.sort.price = -1;
       }
       const all = await this.service.read({ filter, options });
+      if (all.totalDocs === 0) {
+        CustomError.new(errors.notFound)
+      }
       return res.success200(all);
     } catch (error) {
       return next(error);
@@ -41,7 +46,10 @@ class ProductsController {
     try {
       const { pid } = req.params;
       const one = await this.service.readOne(pid);
-      return res.success200(one);
+      if (one) {
+        return res.success200(one);
+      }
+      CustomError.new(errors.notFound)
     } catch (error) {
       return next(error);
     }
@@ -51,7 +59,10 @@ class ProductsController {
       const { pid } = req.params;
       const data = req.body;
       const response = await this.service.update(pid, data);
-      return res.success200(response);
+      if (response) {
+        return res.success200(response);
+      }
+      CustomError.new(errors.notFound)
     } catch (error) {
       return next(error);
     }
@@ -60,7 +71,10 @@ class ProductsController {
     try {
       const { pid } = req.params;
       const response = await this.service.destroy(pid);
-      return res.success200(response);
+      if (response) {
+        return res.success200(response);
+      }
+      CustomError.new(errors.notFound)
     } catch (error) {
       return next(error);
     }

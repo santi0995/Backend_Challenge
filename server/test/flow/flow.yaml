@@ -1,0 +1,33 @@
+config:
+  pluggins:
+    metrics-by-endpoint: {}
+  target: http://localhost:8080/api
+  phases:
+    - duration: 10
+      arrivalRate: 50
+scenarios:
+  - name: login, create, read, destroy & signout
+    flow:
+      - log: login
+      - post:
+          url: /auth/login
+          json: 
+            email: santiserrato0910@gmail.com
+            password: hola1234
+      - log: create
+      - post:
+          url: /comments
+          json:
+            text: comentario de prueba
+          capture:
+            - json: "$.response._id"
+              as: "cid"
+      - log: read
+      - get:
+          url: /comments/{{cid}}
+      - log: destroy
+      - delete: 
+          url: /comments/{{cid}}
+      - log: signout
+      - post:
+          url: /auth/signout
