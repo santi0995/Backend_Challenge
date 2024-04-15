@@ -92,10 +92,10 @@ class ProductManagerFs {
       }
       const jsonData = JSON.stringify(products, null, 2);
       fs.writeFileSync(ruta, jsonData);
-      winstonUtils.INFO(JSON.stringify(one));
+      logger.INFO(JSON.stringify(one));
       return one;
     } catch (error) {
-      winstonUtils.WARN(error.message);
+      logger.WARN(error.message);
       return error.message;
     }
   }
