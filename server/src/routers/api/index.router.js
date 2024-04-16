@@ -1,5 +1,6 @@
 import CustomRouter from "../CustomRouter.js";
 import commentsRouter from "./comments.router.api.js";
+import loggerRouter from "./logger.router.js";
 import ordersRouter from "./order.router.js";
 // import { fork } from "child_process";
 import productsRouter from "./products.router.js";
@@ -13,6 +14,7 @@ class ApiRouter extends CustomRouter {
     this.use("/orders",  ordersRouter);
     this.use("/sessions", sessionsRouter);
     this.use("/comments", commentsRouter);
+    this.use("/loggers", loggerRouter)
     // this.read("/sum", ["PUBLIC"], (req, res, next) => {
     //   try {
     //     const child = fork("./src/utils/sum.utils.js");

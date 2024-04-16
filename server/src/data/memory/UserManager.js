@@ -1,6 +1,6 @@
 import CustomError from "../../utils/errors/CustomError.js";
 import errors from "../../utils/errors/errors.js";
-import winstonUtils from "../../utils/winston.utils.js";
+import logger from "../../utils/logger/index.js";
 
 class UserManager {
   static #users = [];
@@ -42,7 +42,7 @@ class UserManager {
         throw new Error("There isn't any user with id=" + id);
       } else{
         UserManager.#users = UserManager.#users.filter((each) => each.id !==id)
-        winstonUtils.INFO("deleted: " + JSON.stringify(id));
+        logger.INFO("deleted: " + JSON.stringify(id));
         return UserManager.#users
       }
     } catch (error) {
@@ -64,7 +64,7 @@ class UserManager {
         return one;
       }
     } catch (error) {
-      winstonUtils.WARN(error.message);
+      logger.WARN(error.message);
       return error.message;
     }
   }

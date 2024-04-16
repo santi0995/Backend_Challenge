@@ -47,3 +47,11 @@
 [33mWARN[39m: Invalid credentials
 [33mWARN[39m: Invalid credentials
 [33mWARN[39m: Not Found
+[33mWARN[39m: Invalid credentials
+[33mWARN[39m: GET /api/logger not found endpoint
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[33mWARN[39m: Mensaje de prueba (warn)
+[31mERROR[39m: Mensaje de prueba (error)
+[33mWARN[39m: Mensaje de prueba (warn)
+[31mERROR[39m: Mensaje de prueba (error)
+[33mWARN[39m: Invalid credentials
