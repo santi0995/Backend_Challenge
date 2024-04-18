@@ -1,18 +1,32 @@
-<h1>HOLA</h1>
+<h1>Lista de productos</h1>
 <main class="flex-grow-1 m-auto w-100 d-flex flex-column">
 <link rel="stylesheet" href="/products.css">
 <div id="productos" class="container d-flex flex-wrap justify-content-evenly">
 {{#each products}}
-
+<link rel="stylesheet" href="products.css">
 <div class="card" style="width: 15rem;">
-  <img src={{product.photo}} class="card-img-top" alt="...">
-    <h5 class="card-title">{{product.title}}</h5>
+  <img src="{{this.photo}}" class="card-img-top" alt="...">
+    <h5 class="card-title">{{this.title}}</h5>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">{{product.price}}</li>
-    <li class="list-group-item">{{product.stock}} </li>
+    <li class="list-group-item">{{this.price}}</li>
+    <li class="list-group-item">{{this.stock}} </li>
   </ul>
 </div>
 {{/each}}
+  </section>
+  <span class="w-100 d-flex justify-content-center">
+    {{#if prev}}
+      <a
+        class="btn btn-danger fs-5 m-4 mt-0"
+        href="/?title={{filter}}&page={{prev}}"
+      >PREV</a>
+    {{/if}}
+    {{#if next}}
+      <a
+        class="btn btn-danger fs-5 m-4 mt-0"
+        href="/?title={{filter}}&page={{next}}"
+      >NEXT</a>
+    {{/if}}
 </div>
 </main>
 <script src="/scripts/real.js"></script>

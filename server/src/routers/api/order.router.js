@@ -14,7 +14,7 @@ class OrdersRouter extends CustomRouter {
   init() {
     this.create("/", ["USER", "PREM"], propsOrders, create);
 
-    this.read("/", ["USER", "PREM", "ADMIN"], read);
+    this.read("/", ["PUBLIC"], read);
 
     this.read("/:oid", ["ADMIN", "PREM"], readOne);
 

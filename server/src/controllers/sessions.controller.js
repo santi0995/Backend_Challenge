@@ -48,7 +48,7 @@ class SessionsController {
   me = async (req, res, next) => {
     try {
       if (!req.user) {
-        CustomError.new(errors.auth)
+        CustomError.new(errors.auth);
       }
       const user = {
         email: req.user.email,
@@ -77,6 +77,7 @@ class SessionsController {
 
   verifyAccount = async (req, res, next) => {
     try {
+      // const { verifiedCode } = req.query
       const { email, verifiedCode } = req.body;
       const user = await service.readByEmail(email);
       if (user.verifiedCode === verifiedCode) {

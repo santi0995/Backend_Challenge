@@ -16,6 +16,13 @@ class SessionsRouter extends CustomRouter {
         return next(error);
       }
     });
+    this.read("/verify",["PUBLIC"], async (req, res, next) => {
+      try {
+        return res.render("verify");
+      } catch (error) {
+        return next(error);
+      }
+    });
   }
 }
 

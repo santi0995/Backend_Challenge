@@ -33,10 +33,11 @@ class OrdersController {
         options.sort.title = "desc";
       }
       const all = await this.service.read({ filter, options });
-      if (all.docs.lenght > 0) {
-        return res.success200(all);
+      console.log(all);
+      if (all.totalDocs === 0) {
+        CustomError.new(errors.notFound)
       }
-      CustomError.new(errors.notFound)
+      return res.success200(all);
     } catch (error) {
       return next(error);
     }

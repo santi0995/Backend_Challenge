@@ -55,3 +55,135 @@
 [33mWARN[39m: Mensaje de prueba (warn)
 [31mERROR[39m: Mensaje de prueba (error)
 [33mWARN[39m: Invalid credentials
+[33mWARN[39m: Invalid credentials
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: POST /sessions/login not found endpoint
+[33mWARN[39m: Not Found
+[33mWARN[39m: Invalid credentials
+[33mWARN[39m: Not Found
+[33mWARN[39m: Invalid credentials
+[33mWARN[39m: Not Found
+[33mWARN[39m: Invalid credentials
+[33mWARN[39m: Not Found
+[33mWARN[39m: Invalid credentials
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: User already exists
+[33mWARN[39m: User already exists
+[33mWARN[39m: User already exists
+[33mWARN[39m: GET /api/sessions/verify not found endpoint
+[33mWARN[39m: GET /api/sessions/verify not found endpoint
+[31mERROR[39m: Cannot read properties of null (reading 'verifiedCode')
+[33mWARN[39m: POST /api/sessions/verify/ not found endpoint
+[33mWARN[39m: User already exists
+[33mWARN[39m: GET /api/sessions/verify not found endpoint
+[33mWARN[39m: Invalid verified token!
+[31mERROR[39m: user is not defined
+[31mERROR[39m: email is not defined
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[31mERROR[39m: codigo is not defined
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: GET /api/sessions/verify not found endpoint
+[33mWARN[39m: GET /api/sessions/verify not found endpoint
+[33mWARN[39m: GET /api not found endpoint
+[33mWARN[39m: GET /api/sessions/verify not found endpoint
+[33mWARN[39m: GET /api/sessions/verify not found endpoint
+[33mWARN[39m: GET /api/sessions not found endpoint
+[33mWARN[39m: GET /api/sessions/verify not found endpoint
+[33mWARN[39m: GET /api/sessions/verify not found endpoint
+[33mWARN[39m: GET /api/sessions/verifyView not found endpoint
+[33mWARN[39m: GET /api/sessions/verifyView not found endpoint
+[33mWARN[39m: GET /api/sessions/verifyView not found endpoint
+[33mWARN[39m: GET /api/sessions/verifyView not found endpoint
+[33mWARN[39m: GET /api/sessions/verifyView not found endpoint
+[33mWARN[39m: GET /api/sessions/verifyView not found endpoint
+[33mWARN[39m: GET /api/sessions/verifyView not found endpoint
+[33mWARN[39m: GET /api/sessions/verify not found endpoint
+[33mWARN[39m: GET /scripts/verfiedCode.js not found endpoint
+[33mWARN[39m: GET /scripts/verfiedCode.js not found endpoint
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: POST /sessions/verify not found endpoint
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[31mERROR[39m: Cannot destructure property 'email' of 'req.data' as it is undefined.
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: POST /api/sessions/verify not found endpoint
+[31mERROR[39m: Cannot destructure property 'email' of 'req.user' as it is undefined.
+[33mWARN[39m: GET /api/sessions/verify?code=GiAdLknGGlQYpVdF not found endpoint
+[33mWARN[39m: GET /apple-touch-icon-precomposed.png not found endpoint
+[33mWARN[39m: GET /apple-touch-icon.png not found endpoint
+[33mWARN[39m: GET /api/sessions/verify?code=GiAdLknGGlQYpVdF not found endpoint
+[33mWARN[39m: GET /api/sessions/verify?code=GiAdLknGGlQYpVdF not found endpoint
+[33mWARN[39m: GET /api/sessions/verify?code=GiAdLknGGlQYpVdF not found endpoint
+[33mWARN[39m: GET /api/sessions/verify?code=Kr/kFk7odX4geBlO not found endpoint
+[33mWARN[39m: GET /api/sessions/verify?code=T1LsWzsComeJkh37 not found endpoint
+[31mERROR[39m: Cannot read properties of null (reading 'verifiedCode')
+[33mWARN[39m: GET /api/sessions/verify?code=5VApZZZq1rjDWLSC not found endpoint
+[33mWARN[39m: GET /api/sessions/verify?verifiedCode=sD6LH4croF9O1tYx not found endpoint
+[33mWARN[39m: GET /api/sessions/verify?verifiedCode=fdX0IeLO6sladgFk not found endpoint
+[33mWARN[39m: GET /api/sessions/verify?verifiedCode=fdX0IeLO6sladgFk not found endpoint
+[33mWARN[39m: Invalid credentials
+[33mWARN[39m: Invalid credentials
+[33mWARN[39m: Invalid credentials
+[31mERROR[39m: Cannot read properties of null (reading 'verifiedCode')
+[31mERROR[39m: Cannot read properties of null (reading 'verifiedCode')
+[31mERROR[39m: Cannot read properties of null (reading 'verifiedCode')
+[33mWARN[39m: Invalid verified token!
+[33mWARN[39m: Invalid verified token!
+[31mERROR[39m: Failed to lookup view "orders" in views directory "/Users/santiagoserratogomez/Documents/Proyectos/Backend_Challenge/server/src/views"
+[33mWARN[39m: Not Found
+[33mWARN[39m: GET /products not found endpoint
+[33mWARN[39m: Forbidden
+[33mWARN[39m: Forbidden
+[31mERROR[39m: filter is not defined
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[33mWARN[39m: GET /orders/cart not found endpoint
+[33mWARN[39m: Forbidden
+[33mWARN[39m: Invalid credentials
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[31mERROR[39m: Cannot read properties of undefined (reading '_id')
+[31mERROR[39m: Cannot read properties of undefined (reading '_id')
+[31mERROR[39m: Cannot read properties of undefined (reading '_id')
+[31mERROR[39m: Cannot read properties of undefined (reading '_id')

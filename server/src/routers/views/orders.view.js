@@ -20,11 +20,12 @@ class OrdersRouter extends CustomRouter{
           user_id: user._id,
         };
         const all = await orders.read({ filter, options });
-        logger.INFO(JSON.stringify(all.docs[0].event_id));
-        return res.render("orders", { title: "MY CART", orders: all.docs });
+        console.log(all);
+        logger.INFO(JSON.stringify(all.docs[0].product_id));
+        return res.render("cart", { title: "Mi carrito", orders: all.docs });
       } catch (error) {
-        return res.render("orders", {
-          title: "MY CART",
+        return res.render("cart", {
+          title: "Mi carrito",
           message: "NO ORDERS YET!",
         });
       }

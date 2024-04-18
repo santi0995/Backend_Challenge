@@ -10,7 +10,6 @@ import {
 } from "../../controllers/sessions.controller.js";
 
 import CustomRouter from "../CustomRouter.js";
-import has8char from "../../middlewares/has8char.mid.js";
 import passCallBackMid from "../../middlewares/passCallBack.mid.js";
 import passport from "../../middlewares/passport.mid.js";
 
@@ -20,7 +19,6 @@ class SessionsRouter extends CustomRouter {
       "/register",
       ["PUBLIC"],
       passCallBackMid("register"),
-      has8char,
       register
     );
 
@@ -54,12 +52,12 @@ class SessionsRouter extends CustomRouter {
       github
     );
 
-    this.create("/", ["USER", "ADMIN", "PREM"], passCallBackMid("jwt"),me);
+    this.create("/", ["PUBLIC"], passCallBackMid("jwt"),me);
 
     this.create("/signout", ["USER", "ADMIN", "PREM"], signout);
 
     this.read("/badauth", ["PUBLIC"], badauth);
-    this.create("/verify", ["PUBLIC"], verifyAccount)
+    this.create("/verify", ["PUBLIC"], verifyAccount);
   }
 }
 
