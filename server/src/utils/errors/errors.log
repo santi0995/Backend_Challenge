@@ -187,3 +187,846 @@
 [31mERROR[39m: Cannot read properties of undefined (reading '_id')
 [31mERROR[39m: Cannot read properties of undefined (reading '_id')
 [31mERROR[39m: Cannot read properties of undefined (reading '_id')
+[31mERROR[39m: Cannot read properties of undefined (reading '_id')
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[31mERROR[39m: Cannot read properties of undefined (reading '_id')
+[31mERROR[39m: Cannot read properties of undefined (reading '_id')
+[33mWARN[39m: Server selection timed out after 30000 ms
+[33mWARN[39m: Server selection timed out after 30000 ms
+[33mWARN[39m: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+[33mWARN[39m: Forbidden
+[33mWARN[39m: GET /favicon.ico not found endpoint
+[33mWARN[39m: GET /apple-touch-icon-precomposed.png not found endpoint
+[33mWARN[39m: GET /apple-touch-icon.png not found endpoint
+[31mERROR[39m: Cannot read properties of undefined (reading '_id')
+[31mERROR[39m: Cannot read properties of undefined (reading '_id')
+[31mERROR[39m: Cannot read properties of undefined (reading '_id')
+[33mWARN[39m: Forbidden
+[33mWARN[39m: Forbidden
+[33mWARN[39m: Forbidden
+[33mWARN[39m: Forbidden
+[33mWARN[39m: Forbidden
+[33mWARN[39m: Forbidden
+[33mWARN[39m: Forbidden
+[33mWARN[39m: Forbidden
+[33mWARN[39m: Forbidden
+[33mWARN[39m: Forbidden
+[33mWARN[39m: Forbidden
+[33mWARN[39m: Forbidden
+[33mWARN[39m: Forbidden
+[33mWARN[39m: Forbidden
+[33mWARN[39m: Forbidden
+[33mWARN[39m: user_id is not defined
+[33mWARN[39m: user_id is not defined
+[33mWARN[39m: user_id is not defined
+[33mWARN[39m: user_id is not defined
+[33mWARN[39m: user_id is not defined
+[33mWARN[39m: comments validation failed: product_id: Path `product_id` is required.
+[33mWARN[39m: comments validation failed: product_id: Path `product_id` is required.
+[33mWARN[39m: comments validation failed: product_id: Path `product_id` is required.
+[33mWARN[39m: comments validation failed: product_id: Path `product_id` is required.
+[33mWARN[39m: GET /api?timeout=32s not found endpoint
+[33mWARN[39m: GET /apis?timeout=32s not found endpoint
+[33mWARN[39m: GET /real not found endpoint
+[33mWARN[39m: GET /real not found endpoint
+[33mWARN[39m: GET /real not found endpoint
+[33mWARN[39m: Invalid credentials
+[33mWARN[39m: Invalid credentials
+[33mWARN[39m: Forbidden
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[33mWARN[39m: Forbidden
+[33mWARN[39m: Forbidden
+[33mWARN[39m: Forbidden
+[33mWARN[39m: GET /users not found endpoint
+[33mWARN[39m: GET /users not found endpoint
+[33mWARN[39m: GET /users not found endpoint
+[33mWARN[39m: GET /users not found endpoint
+[33mWARN[39m: GET /users not found endpoint
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[33mWARN[39m: Invalid credentials
+[33mWARN[39m: Invalid credentials
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[33mWARN[39m: GET /users not found endpoint
+[33mWARN[39m: Forbidden
+[33mWARN[39m: GET /sessions not found endpoint
+[33mWARN[39m: GET /products not found endpoint
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[33mWARN[39m: GET /products/ not found endpoint
+[33mWARN[39m: GET /products/ not found endpoint
+[33mWARN[39m: GET /products/ not found endpoint
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: products validation failed: owner_id: Path `owner_id` is required.
+[31mERROR[39m: products validation failed: owner_id: Path `owner_id` is required.
+[31mERROR[39m: products validation failed: owner_id: Path `owner_id` is required.
+[31mERROR[39m: products validation failed: owner_id: Path `owner_id` is required.
+[31mERROR[39m: products validation failed: owner_id: Path `owner_id` is required.
+[33mWARN[39m: GET /api/sessions not found endpoint
+[31mERROR[39m: products validation failed: owner_id: Path `owner_id` is required.
+[33mWARN[39m: GET /api/sessions not found endpoint
+[31mERROR[39m: products validation failed: owner_id: Path `owner_id` is required.
+[33mWARN[39m: GET /api/sessions/me not found endpoint
+[31mERROR[39m: products validation failed: owner_id: Path `owner_id` is required.
+[33mWARN[39m: GET /api/sessions/ not found endpoint
+[31mERROR[39m: products validation failed: owner_id: Path `owner_id` is required.
+[33mWARN[39m: GET /api/sessions/ not found endpoint
+[31mERROR[39m: products validation failed: owner_id: Path `owner_id` is required.
+[33mWARN[39m: querySrv ETIMEOUT _mongodb._tcp.mydatabasesanti.v8wgcoy.mongodb.net
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[31mERROR[39m: products validation failed: owner_id: Path `owner_id` is required.
+[33mWARN[39m: POST /products/ap%C3%AC/sessions/ not found endpoint
+[31mERROR[39m: products validation failed: owner_id: Path `owner_id` is required.
+[33mWARN[39m: POST /products/api/sessions/ not found endpoint
+[31mERROR[39m: products validation failed: owner_id: Path `owner_id` is required.
+[31mERROR[39m: products validation failed: owner_id: Path `owner_id` is required.
+[31mERROR[39m: products validation failed: owner_id: Path `owner_id` is required.
+[33mWARN[39m: Not Found
+[31mERROR[39m: products validation failed: owner_id: Path `owner_id` is required.
+[31mERROR[39m: products validation failed: owner_id: Path `owner_id` is required.
+[31mERROR[39m: products validation failed: owner_id: Path `owner_id` is required.
+[31mERROR[39m: products validation failed: owner_id: Path `owner_id` is required.
+[31mERROR[39m: products validation failed: owner_id: Path `owner_id` is required.
+[31mERROR[39m: products validation failed: owner_id: Path `owner_id` is required.
+[31mERROR[39m: products validation failed: owner_id: Path `owner_id` is required.
+[33mWARN[39m: Invalid credentials
+[33mWARN[39m: Invalid credentials
+[33mWARN[39m: Invalid credentials
+[31mERROR[39m: products validation failed: owner_id: Path `owner_id` is required.
+[33mWARN[39m: Invalid credentials
+[31mERROR[39m: products validation failed: owner_id: Path `owner_id` is required.
+[31mERROR[39m: products validation failed: owner_id: Path `owner_id` is required.
+[33mWARN[39m: GET /api/sessions not found endpoint
+[31mERROR[39m: products validation failed: owner_id: Path `owner_id` is required.
+[33mWARN[39m: Invalid credentials
+[31mERROR[39m: req is not defined
+[31mERROR[39m: products validation failed: owner_id: Path `owner_id` is required.
+[33mWARN[39m: Forbidden
+[31mERROR[39m: all.filter is not a function
+[31mERROR[39m: req.user._id.toSring is not a function
+[31mERROR[39m: req.user._id.toSring is not a function
+[31mERROR[39m: _id.toSring is not a function
+[31mERROR[39m: _id.toSring is not a function
+[31mERROR[39m: Cannot access 'products' before initialization
+[31mERROR[39m: Cannot read properties of undefined (reading 'toString')
+[31mERROR[39m: Cannot read properties of undefined (reading 'toString')
+[31mERROR[39m: ObjectId is not defined
+[31mERROR[39m: ObjectId is not defined
+[31mERROR[39m: Cannot read properties of undefined (reading 'equals')
+[31mERROR[39m: Cannot read properties of undefined (reading 'equals')
+[33mWARN[39m: GET /favicon.ico not found endpoint
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: Cannot read properties of undefined (reading 'email')
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: Parse error on line 31:
+...l.js"></script> --}}
+-----------------------^
+Expecting 'OPEN_INVERSE_CHAIN', 'INVERSE', 'OPEN_ENDBLOCK', got 'EOF'
+[31mERROR[39m: Parse error on line 31:
+...l.js"></script> --}}
+-----------------------^
+Expecting 'OPEN_INVERSE_CHAIN', 'INVERSE', 'OPEN_ENDBLOCK', got 'EOF'
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[33mWARN[39m: Invalid credentials
+[33mWARN[39m: Invalid credentials
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: POST /userProducts not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: POST /products not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: POST /products/ not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: POST /api/userProducts not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: POST /api/userProducts not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: POST /api/products/userProducts not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[31mERROR[39m: all is not defined
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[31mERROR[39m: user is not defined
+[31mERROR[39m: filter is not defined
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[31mERROR[39m: ç is not defined
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: Server selection timed out after 30000 ms
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[31mERROR[39m: email is not defined
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: POST /userProducts/sendEmail not found endpoint
+[33mWARN[39m: POST /userProducts/sendEmail not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: POST /userProducts/ not found endpoint
+[33mWARN[39m: POST /userProducts/ not found endpoint
+[33mWARN[39m: POST /userProducts/ not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: POST /api/products/userProducts/ not found endpoint
+[33mWARN[39m: POST /api/products/userProducts/ not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: POST /api/products/userProducts not found endpoint
+[33mWARN[39m: POST /api/products/userProducts not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: POST /api/products/userProducts/ not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: POST /api/products/userProducts/ not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: POST /api/products/userProducts/ not found endpoint
+[33mWARN[39m: POST /api/products/userProducts/ not found endpoint
+[33mWARN[39m: POST /api/products/userProducts/ not found endpoint
+[33mWARN[39m: POST /api/products/userProducts/ not found endpoint
+[33mWARN[39m: POST /api/products/userProducts/ not found endpoint
+[33mWARN[39m: Forbidden
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[31mERROR[39m: Cannot read properties of null (reading '_id')
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /assets/23.jpg not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /assets/23.jpg not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[31mERROR[39m: arrayOfPolicies.includes is not a function
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: POST /userProducts not found endpoint
+[33mWARN[39m: POST /userProducts not found endpoint
+[33mWARN[39m: POST /userProducts not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: POST /userProducts not found endpoint
+[33mWARN[39m: POST /userProducts not found endpoint
+[33mWARN[39m: GET /producs/userproducts not found endpoint
+[33mWARN[39m: GET /producs/userProducts not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: POST /userProducts not found endpoint
+[33mWARN[39m: POST /userProducts not found endpoint
+[33mWARN[39m: POST /userProducts not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: POST /userProducts not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: POST /userProducts not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: POST /userProducts not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: POST /userProducts not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: POST /userProducts not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: POST /products/userProducts not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: POST /products/userProducts/ not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /sessions/url not found endpoint
+[33mWARN[39m: GET /assets/23.jpg not found endpoint
+[33mWARN[39m: GET /assets/23.jpg not found endpoint
+[33mWARN[39m: GET /assets/23.jpg not found endpoint
+[33mWARN[39m: GET /assets/23.jpg not found endpoint
+[33mWARN[39m: GET /assets/23.jpg not found endpoint
+[33mWARN[39m: GET /assets/23.jpg not found endpoint

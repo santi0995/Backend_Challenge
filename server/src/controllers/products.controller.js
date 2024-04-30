@@ -1,15 +1,18 @@
 import CustomError from "../utils/errors/CustomError.js";
 import errors from "../utils/errors/errors.js";
+import products from "../data/mongo/products.mongo.js";
 import service from "../services/products.service.js"
+import users from "../data/mongo/users.mongo.js";
 
 class ProductsController {
   constructor() {
     this.service = service;
   }
   create = async (req, res, next) => {
+    const { _id } = req.user
     try {
       const data = req.body;
-      const response = await this.service.create(data);
+      const response = await this.service.create(data, _id);
       return res.success201(response);
     } catch (error) {
       return next(error);
@@ -42,7 +45,30 @@ class ProductsController {
       return next(error);
     }
   };
-  readOne = async (req, res, next) => {
+
+  readMine = async (req, res, next) => {
+    try {
+      const options = {
+        limit: req.query.limit || 20,
+        page: req.query.page || 1,
+        sort: { title: 1 },
+        lean: true,
+      };
+      if (req.query.sort === "desc") {
+        options.sort.title = "desc";
+      }
+      const userEmail = req.body.userEmail;
+      const user = await users.readByEmail(userEmail);
+      const filter = {
+        owner_id: user._id,
+      };
+      const all = await products.read({ filter, options });
+      return res.success200(all)
+    } catch (error) {
+      return next(error);
+    }
+  }
+   readOne = async (req, res, next) => {
     try {
       const { pid } = req.params;
       const one = await this.service.readOne(pid);
@@ -85,6 +111,6 @@ class ProductsController {
 
 export default ProductsController;
 const controller = new ProductsController();
-const { create, read, readOne, update, destroy} = controller
+const { create, read, readMine, readOne, update, destroy} = controller
 
-export { create, read, readOne, update, destroy };
+export { create, read, readMine, readOne, update, destroy };

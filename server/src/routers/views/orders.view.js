@@ -1,5 +1,4 @@
 import CustomRouter from "../CustomRouter.js";
-import { Router } from "express";
 import logger from "../../utils/logger/index.js";
 import orders from "../../data/mongo/orders.mongo.js"
 import passCallBack from "../../middlewares/passCallBack.mid.js";
@@ -20,8 +19,6 @@ class OrdersRouter extends CustomRouter{
           user_id: user._id,
         };
         const all = await orders.read({ filter, options });
-        console.log(all);
-        logger.INFO(JSON.stringify(all.docs[0].product_id));
         return res.render("cart", { title: "Mi carrito", orders: all.docs });
       } catch (error) {
         return res.render("cart", {

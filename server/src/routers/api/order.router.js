@@ -14,14 +14,14 @@ class OrdersRouter extends CustomRouter {
   init() {
     this.create("/", ["USER", "PREM"], propsOrders, create);
 
-    this.read("/", ["PUBLIC"], read);
+    this.read("/", ["USER", "PREM"], read);
 
-    this.read("/:oid", ["ADMIN", "PREM"], readOne);
+    this.read("/:oid", ["USER", "PREM"], readOne);
 
-    this.read("/total/:oid", ["ADMIN", "PREM"], readOneTotalId);
-    this.update("/:oid", ["ADMIN", "PREM"], update);
+    this.read("/total/:oid", ["USER", "PREM"], readOneTotalId);
+    this.update("/:oid", ["USER", "PREM"], update);
 
-    this.destroy("/:oid", ["ADMIN", "PREM"], destroy);
+    this.destroy("/:oid", ["USER", "PREM"], destroy);
   }
 }
 const ordersRouter = new OrdersRouter();

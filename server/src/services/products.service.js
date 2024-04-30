@@ -5,9 +5,9 @@ class ProductsService {
   constructor() {
     this.repository = repository;
   }
-  create = async (data) => {
-    data = new ProductDTO(data);
-    const response = await this.repository.create(data);
+  create = async (data, _id) => {
+    data = new ProductDTO(data, _id);
+    const response = await this.repository.create(data, _id);
     return response;
   };
 

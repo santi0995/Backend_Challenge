@@ -6,9 +6,9 @@ import sessionsRouter from "./sessions.view.js";
 
 class ViewsRouter extends CustomRouter {
   init() {
-    this.router.use("/products", productsRouter);
-    this.router.use("/orders", ordersRouter);
-    this.router.use("/sessions", sessionsRouter);
+    this.use("/products", productsRouter);
+    this.use("/orders", ordersRouter);
+    this.use("/sessions", sessionsRouter);
     this.read("/", ["PUBLIC"], async (req, res, next) => {
       try {
         const options = {
@@ -26,10 +26,10 @@ class ViewsRouter extends CustomRouter {
         }
         const all = await products.read({ filter, options });
         return res.render("index", {
+          title: "Home",
           products: all.docs,
           next: all.nextPage,
           prev: all.prevPage,
-          title: "INDEX",
           filter: req.query.title,
         });
       } catch (error) {

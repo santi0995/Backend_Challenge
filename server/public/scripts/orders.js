@@ -11,7 +11,7 @@ selectors.forEach((each) =>
       let response = await fetch(url, opts);
       response = await response.json();
       if(response.statusCode===200) {
-        alert(response.message);
+        alert("Producto eliminado correctamente");
         location.reload()
       }
     } catch (error) {

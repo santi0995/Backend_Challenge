@@ -1,3 +1,4 @@
+import createComment from "./comments.mock.js";
 import createOrder from "./orders.mock.js";
 import { faker } from "@faker-js/faker";
 import logger from "../../utils/logger/index.js";
@@ -23,7 +24,10 @@ async function createUser() {
     const user = await repository.create(data);
     const product = await repositoryP.create(productData);
     for(let i = 1; i<=1; i++){
-      await createOrder(user._id, product._id);
+      await createOrder(user._id, product._id) 
+    }
+    for(let i = 1; i<=10; i++){
+      await createComment(user._id, product._id)
     }
   } catch (error) {
     logger.WARN(error.message);

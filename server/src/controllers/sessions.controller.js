@@ -53,6 +53,7 @@ class SessionsController {
       const user = {
         email: req.user.email,
         role: req.user.role,
+        _id: req.user._id,
         photo: req.user.photo,
       };
       return res.success200(user);

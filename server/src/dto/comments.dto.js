@@ -6,7 +6,7 @@ class CommentDTO {
     argsUtil.env !== "prod" &&
       (this._id = crypto.randomBytes(12).toString("hex"));
     this.text = data.text;
-    this.event_id = data.event_id;
+    this.product_id = data.product_id;
     this.user_id = data.user_id;
     argsUtil.env !== "prod" && (this.updatedAt = new Date());
     argsUtil.env !== "prod" && (this.createdAt = new Date());

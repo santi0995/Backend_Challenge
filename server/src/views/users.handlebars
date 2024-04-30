@@ -1,16 +1,21 @@
-<h1>Lista de productos</h1>
+<h1>Usuarios registrados</h1>
 <main class="flex-grow-1 m-auto w-100 d-flex flex-column">
 <link rel="stylesheet" href="/products.css">
 <div id="productos" class="container d-flex flex-wrap justify-content-evenly">
-{{#each products}}
+{{#each users}}
+
+<div id="productsContainer"></div>
+
+<a class="cardButton" type="button" data-email="{{this.email}}">
 <div class="card" style="width: 15rem;">
   <img src="{{this.photo}}" class="card-img-top" alt="...">
-    <h5 class="card-title">{{this.title}}</h5>
+    <h5 class="card-title">{{this.name}}</h5>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">{{this.price}}</li>
-    <li class="list-group-item">{{this.stock}} </li>
+    <li class="list-group-item">{{this.lastName}}</li>
+    <li id="userEmail" class="list-group-item">{{this.email}} </li>
   </ul>
 </div>
+</a>
 {{/each}}
   </section>
   <span class="w-100 d-flex justify-content-center">
@@ -28,4 +33,4 @@
     {{/if}}
 </div>
 </main>
-{{!-- <script src="/scripts/real.js"></script> --}}
+<script src="/scripts/adminProducts.js"></script>

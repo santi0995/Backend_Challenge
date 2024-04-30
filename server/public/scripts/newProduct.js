@@ -8,7 +8,7 @@ selector.addEventListener("click", async () => {
     };
     document.querySelector("#photo").value &&
       (data.photo = document.querySelector("#photo").value);
-    
+
     const opts = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -16,9 +16,12 @@ selector.addEventListener("click", async () => {
     };
     let response = await fetch("/api/products", opts);
     response = await response.json();
-    response.statusCode === 201
-      ? alert("Product created!")
-      : alert("ERROR: "+response.message);
+    if (response.statusCode === 201) {
+      alert("Product created!")
+      location.replace("/products/userProducts");
+    } else {
+      alert("ERROR: " + response.message);
+    }
   } catch (error) {
     alert(error.message);
   }

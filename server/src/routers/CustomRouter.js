@@ -42,6 +42,7 @@ export default class CustomRouter {
     return next();
   };
   policies = (arrayOfPolicies) => async (req, res, next) => {
+    console.log("arrayOfPolicies:", arrayOfPolicies);
     try {
       if (arrayOfPolicies.includes("PUBLIC")) return next();
       let token = req.cookies["token"];

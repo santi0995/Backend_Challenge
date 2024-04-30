@@ -26,16 +26,15 @@ class OrdersController {
         lean: true,
       };
       const filter = {};
-      if (req.user._id) {
-        filter.user_id = req.user._id;
+      if (req.user_id) {
+        filter.user_id = req.user_id;
       }
       if (req.query.sort === "desc") {
-        options.sort.title = "desc";
+        options.sort.title = -1;
       }
       const all = await this.service.read({ filter, options });
-      console.log(all);
       if (all.totalDocs === 0) {
-        CustomError.new(errors.notFound)
+        CustomError.new(errors.notFound);
       }
       return res.success200(all);
     } catch (error) {
@@ -49,7 +48,7 @@ class OrdersController {
       if (one) {
         return res.success200(one);
       }
-      CustomError.new(errors.notFound)
+      CustomError.new(errors.notFound);
     } catch (error) {
       return next(error);
     }
@@ -61,7 +60,7 @@ class OrdersController {
       if (report) {
         return res.success200(report);
       }
-      CustomError.new(errors.notFound)
+      CustomError.new(errors.notFound);
     } catch (error) {
       return next(error);
     }
@@ -75,7 +74,7 @@ class OrdersController {
       if (response) {
         return res.success200(response);
       }
-      CustomError.new(errors.notFound)
+      CustomError.new(errors.notFound);
     } catch (error) {
       return next(error);
     }
@@ -88,7 +87,7 @@ class OrdersController {
       if (response) {
         return res.success200(response);
       }
-      CustomError.new(errors.notFound)
+      CustomError.new(errors.notFound);
     } catch (error) {
       return next(error);
     }

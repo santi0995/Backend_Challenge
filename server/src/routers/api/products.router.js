@@ -2,6 +2,7 @@ import {
   create,
   destroy,
   read,
+  readMine,
   readOne,
   update,
 } from "../../controllers/products.controller.js";
@@ -18,8 +19,9 @@ class ProductsRouter extends CustomRouter {
       propsProducts,
       create
     );
-    this.read("/", ["PUBLIC"], read);
-    this.read("/:pid", ["PUBLIC"], readOne);
+    this.read("/", ["USER", "PREM", "ADMIN"], read);
+    this.create("/userProducts", ["USER", "PREM", "ADMIN"], readMine);
+    this.read("/:pid", ["USER", "PREM", "ADMIN"], readOne);
     this.update(
       "/:pid",
       ["ADMIN", "PREM"],
