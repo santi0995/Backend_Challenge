@@ -18,7 +18,7 @@ selector.addEventListener("click", async () => {
     response = await response.json();
     if (response.statusCode === 201) {
       alert("Product created!")
-      location.replace("/products/userProducts");
+      location.replace("/products/mine");
     } else {
       alert("ERROR: " + response.message);
     }

@@ -31,7 +31,7 @@ class ProductsRouter extends CustomRouter {
         return next(error);
       }
     });
-    this.read("/", ["PREM", "USER", "ADMIN"], async (req, res, next) => {
+    this.read("/mine", ["PREM"], async (req, res, next) => {
       try {
         const options = {
           limit: req.query.limit || 8,
@@ -42,35 +42,42 @@ class ProductsRouter extends CustomRouter {
         if (req.query.sort === "desc") {
           options.sort.title = "desc";
         }
+
         const user = await users.readByEmail(req.user.email);
         const filter = {
           owner_id: user._id,
         };
         const all = await products.read({ filter, options });
+
         return res.render("userProducts", {
           title: "Tus productos",
           products: all.docs,
           next: all.nextPage,
           prev: all.prevPage,
-          filter: req.query.title,
         });
       } catch (error) {
-        return next(error);
+        return res.render("userProducts", {
+          title: "Tus productos",
+          message: "Aun no has creado ningun producto",
+        });
       }
     });
 
-    this.read("/userProducts", ["ADMIN", "PUBLIC", "USER"], async (req, res, next) => {
-      try {
-        const product = req.body;
-        console.log(product);
-        return res.render("userAdminProducts", {
-          title: "Productos",
-          product: product
-        });
-      } catch (error) {
-        return next(error);
+    this.read(
+      "/userProducts",
+      ["ADMIN", "PUBLIC", "USER"],
+      async (req, res, next) => {
+        try {
+          const product = req.body;
+          return res.render("userAdminProducts", {
+            title: "Productos",
+            product: product,
+          });
+        } catch (error) {
+          return next(error);
+        }
       }
-    });
+    );
 
     this.read("/form", ["ADMIN", "PREM"], async (req, res, next) => {
       try {

@@ -68,6 +68,7 @@ class ProductsController {
       return next(error);
     }
   }
+
    readOne = async (req, res, next) => {
     try {
       const { pid } = req.params;
