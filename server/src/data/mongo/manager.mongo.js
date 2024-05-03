@@ -21,7 +21,7 @@ class MongoManager {
       const all = await this.model.paginate(filter, options);
       return all;
     } catch (error) {
-      CustomError.new(errors.notFound)
+      CustomError.new(errors.notFound);
       throw error;
     }
   }
@@ -49,7 +49,15 @@ class MongoManager {
         },
         { $set: { subTotal: { $multiply: ["$price", "$quantity"] } } },
         { $group: { _id: "$user_id", total: { $sum: "$subTotal" } } },
-        { $project: { _id: 0, user_id: "$_id", total: "$total", date: new Date(), currency: "€"}},
+        {
+          $project: {
+            _id: 0,
+            user_id: "$_id",
+            total: "$total",
+            date: new Date(),
+            currency: "€",
+          },
+        },
         // { $merge: { into: "bills"}}
       ]);
       return report;
@@ -63,7 +71,7 @@ class MongoManager {
       const one = await this.model.findOne({ email });
       return one;
     } catch (error) {
-      CustomError.new(errors.notFound)
+      CustomError.new(errors.notFound);
       throw error;
     }
   }
@@ -72,7 +80,7 @@ class MongoManager {
       const one = await this.model.findById(id).lean();
       return one;
     } catch (error) {
-      CustomError.new(errors.notFound)
+      CustomError.new(errors.notFound);
       throw error;
     }
   }
@@ -109,6 +117,5 @@ class MongoManager {
     }
   }
 }
-
 
 export default MongoManager;

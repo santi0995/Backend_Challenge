@@ -20,8 +20,9 @@ class ProductsRouter extends CustomRouter {
         if (req.query.sort === "desc") {
           options.sort.title = "desc";
         }
-        const all = await products.read({ filter, options });
+        const all = await products.read({});
         return res.render("real", {
+          title: "Tienda",
           products: all.docs,
           next: all.nextPage,
           prev: all.prevPage,
@@ -31,57 +32,11 @@ class ProductsRouter extends CustomRouter {
         return next(error);
       }
     });
-    this.read("/mine", ["PREM"], async (req, res, next) => {
-      try {
-        const options = {
-          limit: req.query.limit || 8,
-          page: req.query.page || 1,
-          sort: { title: 1 },
-          lean: true,
-        };
-        if (req.query.sort === "desc") {
-          options.sort.title = "desc";
-        }
-
-        const user = await users.readByEmail(req.user.email);
-        const filter = {
-          owner_id: user._id,
-        };
-        const all = await products.read({ filter, options });
-
-        return res.render("userProducts", {
-          title: "Tus productos",
-          products: all.docs,
-          next: all.nextPage,
-          prev: all.prevPage,
-        });
-      } catch (error) {
-        return res.render("userProducts", {
-          title: "Tus productos",
-          message: "Aun no has creado ningun producto",
-        });
-      }
-    });
-
-    this.read(
-      "/userProducts",
-      ["ADMIN", "PUBLIC", "USER"],
-      async (req, res, next) => {
-        try {
-          const product = req.body;
-          return res.render("userAdminProducts", {
-            title: "Productos",
-            product: product,
-          });
-        } catch (error) {
-          return next(error);
-        }
-      }
-    );
-
     this.read("/form", ["ADMIN", "PREM"], async (req, res, next) => {
       try {
-        return res.render("form");
+        return res.render("form", {
+          title: "Nuevo producto",
+        });
       } catch (error) {
         return next(error);
       }
