@@ -1,3 +1,5 @@
+import { serve, setup } from "swagger-ui-express";
+
 import { Server } from "socket.io";
 import __dirname from "./utils.js";
 import cluster from "cluster";
@@ -12,9 +14,11 @@ import errorHandler from "./src/middlewares/errorHandler.mid.js";
 import express from "express";
 import logger from "./src/utils/logger/index.js";
 import morgan from "morgan";
+import options from "./src/utils/swagger.js";
 import pathHandler from "./src/middlewares/pathHandler.mid.js";
 import router from "./src/routers/index.router.js";
 import socketUtils from "./src/utils/socket.utils.js";
+import swaggerJSDoc from "swagger-jsdoc";
 import winston from "./src/middlewares/winston.mid.js";
 
 const server = express();
@@ -23,6 +27,9 @@ const cbReady = () => {
   logger.INFO("server ready on port " + PORT);
 };
 server.listen(PORT, cbReady);
+
+const specs = swaggerJSDoc(options)
+server.use("/api/docs", serve, setup(specs))
 
 const httpServer = createServer(server);
 const socketServer = new Server(httpServer);

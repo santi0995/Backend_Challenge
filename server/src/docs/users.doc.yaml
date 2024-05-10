@@ -1,0 +1,64 @@
+components:
+  schemas:
+    Register:
+      type: object
+      properties:
+        email: 
+          type: string
+          description: User email
+        name: 
+          type: string
+          description: User name
+        last name:
+          type: string
+          description: user last name
+        password:
+          type: string
+          description: password to log the user
+        age:
+          type: number
+          description: users age
+        photo:
+          type: string
+          description: user photo to identify
+      example:
+        email: santiserrato0910@gmail.com
+        name: santiago
+        last name: serrato 
+        password: hola1234
+        age: 28
+        photo: url
+  responses:
+    res201:
+      type: object
+      properties: 
+        statusCode:
+          type: number
+          description: Succesfull code
+        response:
+          type: string
+          description: sucessfull message
+      example:  
+        statusCode: 201
+        response: registered
+paths:
+  /api/sessions/register:
+    post:
+      sumary: To register a user
+      tags: 
+        - Sessions
+      requestBody:
+        required: true
+        description: data of the user
+        content:
+          application/json:
+            schema:  
+              $ref: '#/components/schemas/Register'
+      responses:
+        '201':
+          description: Sucess
+          content:
+            application/json:
+              schema:
+                $ref: '#components/responses/res201'
+          

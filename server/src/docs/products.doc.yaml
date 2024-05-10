@@ -1,0 +1,102 @@
+components:
+  schemas:
+    Products:
+      type: object
+      properties:
+        owner_id:
+          type: objectId
+          description: user identification
+        title:
+          type: string
+          description: name of the product
+        photo:
+          type: string
+          description: path of the photo
+        price:
+          type: number
+          description: price of the product
+        stock:
+          type: number
+          description: stock of the product
+      example:
+        owner_id: 6604283f21cbb8725df48f34
+        title: Suero crayon
+        photo: https://loremflickr.com/640/480?lock=6883932704342016
+        price: 12€
+        stock: 4
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: token
+  responses:
+    res201:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Successfull Code
+        response:
+          type: object
+          properties:
+            owner_id: 
+              type: objectId
+              description: user identification
+            title:
+              type: string
+              description: name of the product
+            photo:
+              type: string
+              description: path of the photo
+            price:
+              type: number
+              description: price of the product
+            stock:
+              type: number
+              description: stock of the product
+            _id:
+              type: objectId
+              description: product identification
+            createdAt:
+              type: string
+              description: date of the creation of the product
+            updatedAt: 
+              type: string
+              description: date of the update of the product
+            __v:
+              type: number
+              description: version        
+      example:
+        statusCode: 201
+        payload:
+          owner_id: 65de19a74893f81ffe934a6f
+          title: cara
+          photo: /assets/23.jpg
+          price: 9
+          stock: 49
+          _id: 663e5f4f3b377aa3d6ed10d5
+          createdAt: 2024-05-10T17:54:23.605Z
+          updatedAt: 2024-05-10T17:54:23.605Z
+          __v: 0
+paths:
+  /api/products:
+    post:
+      summary: To create a product
+      tags:
+        - Products
+      security:
+        - cookieAuth: []
+      requestBody:
+        required: true
+        description: data of the product
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Products'
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#components/responses/res201'
