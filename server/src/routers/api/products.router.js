@@ -8,7 +8,6 @@ import {
 } from "../../controllers/products.controller.js";
 
 import CustomRouter from "../CustomRouter.js";
-import isStockOkMid from "../../middlewares/isStockOk.mid.js";
 import propsProducts from "../../middlewares/propsProducts.mid.js";
 
 class ProductsRouter extends CustomRouter {
@@ -25,7 +24,6 @@ class ProductsRouter extends CustomRouter {
     this.update(
       "/:pid",
       ["ADMIN", "PREM"],
-      isStockOkMid,
       propsProducts,
       update
     );

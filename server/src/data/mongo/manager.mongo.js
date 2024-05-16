@@ -12,6 +12,7 @@ class MongoManager {
       const one = await this.model.create(data);
       return one;
     } catch (error) {
+      CustomError.new(errors.missingData);
       throw error;
     }
   }

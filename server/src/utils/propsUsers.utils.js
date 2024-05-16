@@ -4,7 +4,7 @@ import errors from "./errors/errors.js";
 function propsUsersUtils(data) {
   const { name, photo, email} = data;
   if (!name || !photo || !email) {
- CustomError.new(errors.auth)
+ CustomError.new(errors.missingData)
   }
 }
 

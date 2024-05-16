@@ -87,3 +87,4 @@ class ViewsRouter extends CustomRouter {
 
 const viewsRouter = new ViewsRouter();
 export default viewsRouter.getRouter();
+

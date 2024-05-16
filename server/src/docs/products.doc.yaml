@@ -67,7 +67,7 @@ components:
               type: number
               description: version        
       example:
-        statusCode: 201
+        statusCode: 200
         payload:
           owner_id: 65de19a74893f81ffe934a6f
           title: cara
@@ -78,6 +78,127 @@ components:
           createdAt: 2024-05-10T17:54:23.605Z
           updatedAt: 2024-05-10T17:54:23.605Z
           __v: 0
+    res200a:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Successfull Code
+        response:
+          type: object
+          properties:
+            owner_id: 
+              type: objectId
+              description: user identification
+            title:
+              type: string
+              description: name of the product
+            photo:
+              type: string
+              description: path of the photo
+            price:
+              type: number
+              description: price of the product
+            stock:
+              type: number
+              description: stock of the product
+            _id:
+              type: objectId
+              description: product identification
+            createdAt:
+              type: string
+              description: date of the creation of the product
+            updatedAt: 
+              type: string
+              description: date of the update of the product
+            __v:
+              type: number
+              description: version        
+      example:
+        statusCode: 200
+        payload:
+          owner_id: 65de19a74893f81ffe934a6f
+          title: cara
+          photo: /assets/23.jpg
+          price: 9
+          stock: 49
+          _id: 663e5f4f3b377aa3d6ed10d5
+          createdAt: 2024-05-10T17:54:23.605Z
+          updatedAt: 2024-05-10T17:54:23.605Z
+          __v: 0
+    res200b:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Successfull Code
+        response:
+          type: object
+          properties:
+            docs:
+              type: object
+              description: Array of all the products from the database 
+      example:
+        statusCode: 200
+        payload:
+          docs: 
+            owner_id: 65de19a74893f81ffe934a6f
+            title: cara
+            photo: /assets/23.jpg
+            price: 9
+            stock: 49
+            _id: 663e5f4f3b377aa3d6ed10d5
+            createdAt: 2024-05-10T17:54:23.605Z
+            updatedAt: 2024-05-10T17:54:23.605Z
+            __v: 0
+    res404:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Failure
+        url:
+          type: string
+          description: method and url path
+        message:
+          type: string
+          description: Content of the error
+      example:
+        statusCode: 404
+        url: DELETE /api/products/660aae27a52f22d646893149
+        message: Not found
+    res401:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Failure
+        url:
+          type: string
+          description: method and url path
+        message:
+          type: string
+          description: Content of the error
+      example:
+        statusCode: 401
+        url: PUT /api/products/660aae27a52f22d646893149
+        message: Invalid credentials
+    res400:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Failure
+        url:
+          type: string
+          description: method and url path
+        message:
+          type: string
+          description: Content of the error
+      example:
+        statusCode: 401
+        url: PUT /api/products/660aae27a52f22d646893149
+        message: All params required
 paths:
   /api/products:
     post:
@@ -100,3 +221,126 @@ paths:
             application/json:
               schema:
                 $ref: '#components/responses/res201'
+        '401':
+          description: Failure
+          content: 
+            application/json:
+              schema:
+                $ref: '#components/responses/res401'
+        '400':
+          description: Failure
+          content: 
+            application/json:
+              schema:
+                $ref: '#components/responses/res400'
+    get:
+      summary: Get all products from the database
+      tags:
+        - Products
+      security:
+        - cookieAuth:
+      responses:
+        '200':
+          description: Success
+          content: 
+            application/json:
+              schema:
+                $ref: '#components/responses/res200b'
+  /api/products/{pid}:
+    get:
+      summary: Get one product from the database
+      tags:
+        - Products
+      security:
+        - cookieAuth: []
+      parameters:
+        - name: pid
+          in: path
+          required: true
+          description: Id to identify the product to search
+          schema: 
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#components/responses/res200a'
+        '401':
+          description: Failure
+          content: 
+            application/json:
+              schema:
+                $ref: '#components/responses/res401'
+    put: 
+      summary: Update a product
+      tags:
+        - Products
+      security:
+        - cookieAuth: []
+      parameters:
+        - name: pid
+          in: path
+          required: true
+          description: Id to identify the product to update
+          schema: 
+            type: string
+      requestBody:
+        required: true
+        description: data to update
+        content: 
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Products'
+      responses:
+        '200':
+          description: Success
+          content: 
+            application/json:
+              schema:
+                $ref: '#components/responses/res200b'
+        '401':
+          description: Failure
+          content: 
+            application/json:
+              schema:
+                $ref: '#components/responses/res401'
+        '400':
+          description: Failure
+          content: 
+            application/json:
+              schema:
+                $ref: '#components/responses/res400'
+    delete:
+      summary: Delete a product
+      tags: 
+        - Products
+      security:
+        - cookieAuth: []
+      parameters:
+        - name: pid
+          in: path
+          required: true
+          description: Id to identify the product to delete
+          schema: 
+            type: string
+      responses:
+        '200':
+          description: Success
+          content: 
+            application/json:
+              schema:
+                $ref: '#components/responses/res200b'
+        '404':
+          description: Failure
+          content: 
+            application/json:
+              schema:
+                $ref: '#components/responses/res404'
+        '401':
+          description: Failure
+          content: 
+            application/json:
+              schema:
+                $ref: '#components/responses/res401'

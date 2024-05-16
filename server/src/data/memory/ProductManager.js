@@ -20,7 +20,7 @@ class ProductManager {
       ProductManager.#products.push({ id, ...data });
       return product;
     } else {
-      CustomError.new(errors.auth)
+      CustomError.new(errors.missingData)
     }
   }
 

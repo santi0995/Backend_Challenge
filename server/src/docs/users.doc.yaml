@@ -44,7 +44,7 @@ components:
 paths:
   /api/sessions/register:
     post:
-      sumary: To register a user
+      summary: To register a user
       tags: 
         - Sessions
       requestBody:

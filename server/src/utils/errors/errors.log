@@ -1797,3 +1797,34 @@ Expecting 'OPEN_INVERSE_CHAIN', 'INVERSE', 'OPEN_ENDBLOCK', got 'EOF'
 [33mWARN[39m: GET /api?timeout=32s not found endpoint
 [33mWARN[39m: GET /apis?timeout=32s not found endpoint
 [33mWARN[39m: User already exists
+[33mWARN[39m: GET /apple-touch-icon-precomposed.png not found endpoint
+[33mWARN[39m: GET /apple-touch-icon.png not found endpoint
+[33mWARN[39m: Not Found
+[33mWARN[39m: Invalid credentials
+[33mWARN[39m: Invalid credentials
+[33mWARN[39m: Invalid credentials
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: Not Found
+[33mWARN[39m: Invalid credentials
+[33mWARN[39m: Invalid credentials
+[33mWARN[39m: Invalid credentials
+[33mWARN[39m: Invalid credentials
+[33mWARN[39m: Invalid credentials
+[33mWARN[39m: All params required
