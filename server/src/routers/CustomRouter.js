@@ -4,6 +4,7 @@ import dao from "../data/index.factory.js";
 import env from "../utils/env.utils.js";
 import errors from "../utils/errors/errors.js";
 import jwt from "jsonwebtoken";
+import logger from "../utils/logger/index.js";
 const { users } = dao;
 
 export default class CustomRouter {
@@ -42,7 +43,7 @@ export default class CustomRouter {
     return next();
   };
   policies = (arrayOfPolicies) => async (req, res, next) => {
-    console.log("arrayOfPolicies:", arrayOfPolicies);
+    logger.INFO("arrayOfPolicies:", arrayOfPolicies);
     try {
       if (arrayOfPolicies.includes("PUBLIC")) return next();
       let token = req.cookies["token"];
